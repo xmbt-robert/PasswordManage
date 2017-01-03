@@ -1,0 +1,119 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no" />
+<meta http-equiv="Pragma" content="no-cache"> 
+<meta http-equiv="Pragma" content="-1"> 
+<link href="../css/common.css" type="text/css" rel="stylesheet">
+<script src="../js/jquery.min_1.7.2.js"></script>
+<script src="../js/main.js"></script>
+<link type="text/css" rel="stylesheet" href="../css/fonts/font-awesome.css">
+<link type="text/css" rel="stylesheet" href="../css/fonts/fontface.css" />
+<title>自助密码服务平台-验证码查询</title>
+</head>
+
+<body>
+<div class="main">
+    <div class="top">
+        <div class="top_cont">
+            <div class="top_right">
+                <a href="#" class="exit"><img src="../images/exit.png" />退出</a>
+                <div class="user_photo"><img src="../images/photo.png" /></div>
+                <div class="user_name">Jane Li / 李靖</div>
+                <div class="user_mens">应用系统部</div>
+            </div>
+            <div class="top_left">
+                <img src="../images/index_logo.png" class="index_logo" />
+                <div class="top_menu">
+                    <a href="manage_codesearch.html"><img src="../images/icon_menu01.png" />验证码查询</a>
+                    <a href="manage_usersearch.html"><img src="../images/icon_menu02.png" />用户查询</a>
+                    <a href="manage_systemset.html"><img src="../images/icon_menu03.png" />系统设置</a>
+                    <a href="#" class="hover"><img src="../images/icon_menu04hover.png" />报表审计统计</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content_manage">
+            <!--search result-->
+            <div style="margin-top:30px">
+                <table class="result_table" id="result_table">
+                    <thead>
+                        <tr>
+                            <th colspan="4"><span class="icon_span"><i class="icon-list"></i></span>报表审计统计</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>模块</th>
+                            <th>操作人</th>
+                            <th>操作时间</th>
+                            <th>操作状态</th>
+                        </tr>
+                        <tr>
+                            <td>001</td>
+                            <td>li.li</td>
+                            <td>2017-01-15</td>
+                            <td>正常</td>
+                        </tr>
+                        <tr>
+                            <td>001</td>
+                            <td>li.li</td>
+                            <td>2017-01-15</td>
+                            <td>过期</td>
+                        </tr>
+                        <tr>
+                            <td>001</td>
+                            <td>li.li</td>
+                            <td>2017-01-15</td>
+                            <td>过期</td>
+                        </tr>
+                        <tr>
+                            <td>001</td>
+                            <td>li.li</td>
+                            <td>2017-01-15</td>
+                            <td>过期</td>
+                        </tr>
+                        <tr>
+                            <td>001</td>
+                            <td>li.li</td>
+                            <td>2017-01-15</td>
+                            <td>过期</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                共3页 28 条数据
+                                <div class="page_num">                                   
+                                    <ul class="pagination" style="text-align:center" >
+                                        <li class="first"><a href="#" class="disable">&laquo;</a></li>
+                                        <li class="previous"><a href="#" class="disable">&lsaquo;</a></li>
+                                        <li><a href="#" class="current">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li class="next"><a href="#">&rsaquo;</a></li>
+                                        <li class="last"><a href="#">&raquo;</a></li>
+                                    </ul>
+                                    <span class="page_to">跳转到：<input type="text" class="jump_to" /><input type="button" class="go" value="GO" /></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!--search result end-->
+        </div>
+    </div>
+    <div class="foot">版权所有  © 上海斐讯数据通信技术有限公司    2008-2013</div>
+</div>
+<!--弹出窗口 start-->
+<div class="window_bg"></div>
+<div class="window_cont" id="window_cont"></div>
+<!--弹出窗口 end-->
+</body>
+</html>

@@ -1,0 +1,141 @@
+$(function(){
+	var reg = /^[1-9]*[1-9][0-9]*$/;  //正整数
+	$(".cancel").click(function(){
+		$("input[type='text']").val("");   //清空所有type为text格式的文本框
+		$("#choose").children("option").removeAttr("selected");    //重置默认的下拉值
+		$("#choose").children("option").eq(0).attr("selected", "selected");
+		$("ul[class='select_option']").children("li").removeClass("hover");
+		$("ul[class='select_option']").children("li").eq(0).addClass("hover");
+		$("ul[class='select_option']").children("li").removeClass("selected");
+		$("ul[class='select_option']").children("li").eq(0).addClass("selected");
+		$("div[class='select_showbox']").html($("ul[class='select_option']").children("li").eq(0).html());
+		
+	});
+	$(".message_operate").click(function(){    //修改短信发送间隔时间
+		var time = $("#message_time").val();
+		//var reg = /^(0|[1-9]*)$/;
+			if(!reg.test(time) || time == null || time == ""){
+				layer.alert('请输入一个正整数！', 0, function () {
+					layer.closeAll();
+					$("#message_time").val("");
+					$("#message_time").focus();
+	            });
+				return;
+			}else{
+				messageTimeSet(this);
+			}
+			
+	});
+	function messageTimeSet(){
+		var time = $("#message_time").val();
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/messageTimeSet",
+			async: true,
+			data: "message_time=" + time,
+			success: function(data){
+				layer.alert('修改成功！', 9, function () {
+					layer.closeAll();
+					$("#message_time").val("");
+	            });
+			}
+		});
+	}
+	
+	$(".email_operate").click(function(){    //修改邮件发送间隔时间
+		var time = $("#email_time").val();
+		//var reg = /^(0|[1-9]*)$/;
+			if(!reg.test(time) || time == null || time == ""){
+				layer.alert('请输入一个正整数！', 0, function () {
+					layer.closeAll();
+					$("#email_time").val("");
+					$("#email_time").focus();
+	            });
+				return;
+			}else{
+				emailTimeSet(this);
+			}
+	});
+	function emailTimeSet(){
+		var time = $("#email_time").val();
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/emailTimeSet",
+			async: true,
+			data: "email_time=" + time,
+			success: function(data){
+				layer.alert('修改成功！', 9, function () {
+					layer.closeAll();
+					$("#email_time").val("");
+	            });
+			}
+		});
+	}
+	
+	
+	$(".audit_operate").click(function(){    //审计设置
+		var choose = $("#choose").val();
+		var failCount = $(".failCount").val();
+		var lockTime = $(".lockTime").val();
+		//var reg = /^([1-9]*)$/;
+		
+		if(choose == 0){
+			layer.alert('请选择某一条件进行设置！', 0, function () {
+				layer.closeAll();
+            });
+			return;
+		}else 
+			if(!reg.test(failCount) || failCount == null || failCount == ""){
+				layer.alert('发送次数必须为一个正整数！', 0, function () {
+					layer.closeAll();
+					$(".failCount").val("");
+					$(".failCount").focus();
+	            });
+				return;
+			}else 
+				if(!reg.test(lockTime) || lockTime == null || lockTime == ""){
+					layer.alert('锁定时间必须为一个正整数！', 0, function () {
+						layer.closeAll();
+						$(".lockTime").val("");
+						$(".lockTime").focus();
+		            });
+					return;
+			}
+			else {
+				auditSet(this);
+			}
+	});
+	function auditSet(){
+		var type = $("#choose").val();
+		var lockTime = $(".lockTime").val();
+		var failCount = $(".failCount").val();
+		var param = {choose:type,lockTime:lockTime,failCount:failCount};
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/auditSet",
+			async: true,
+			data: param,
+			success: function(param){
+				layer.alert('修改成功！', 9, function () {
+					layer.closeAll();
+					$("#choose").val(0);
+					$(".failCount").val("");
+					$(".lockTime").val("");
+	            });
+			}
+		});
+	}
+});
+
+function lockStatusFormatter(value, row, index){
+	if (value == 1){
+		return "锁定";
+	} else if (value == 0){
+		return "正常";
+	} else {
+		return ;
+	}
+}

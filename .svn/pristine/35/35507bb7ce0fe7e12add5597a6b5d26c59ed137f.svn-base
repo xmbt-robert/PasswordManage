@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../css/common.css" type="text/css" rel="stylesheet">
+<script src="../js/jquery.min_1.7.2.js"></script>
+<script src="../js/main.js"></script>
+<title>更改密码</title>
+</head>
+
+<body>
+<p class="window_title"><a class="close closedown" href="javascript:void(0)">×</a><img src="../images/window_icon03.png" />更改密码</p>
+<div class="window_main">
+    <label class="window_tip window_right">修改密码成功！新密码是：feixun*123</label>
+    <div class="main_cont" style="width:546px">
+      <div class="main_cont" style="float:left; width:272px;">
+        <p class="window_texttitle">域账号</p>
+        <p class="window_textcont"><input type="text" /></p>
+        <p class="window_texttitle">旧密码</p>
+        <p class="window_textcont"><input type="password" /></p>
+        <p class="window_texttitle">图片验证码</p>
+        <p class="window_textcont"><input type="text" style="width:145px" /><label class="code"><img src="../images/code.png" /></label></p>
+      </div>
+      <div class="main_cont" style="float:left; margin-left:20px">
+        <p class="window_texttitle">新密码</p>
+        <p class="window_textcont"><input type="password" /></p>
+        <p class="window_texttitle">确认密码</p>
+        <p class="window_textcont"><input type="password" /></p>
+      </div>
+    </div>  
+</div>
+<div class="window_foot"><input type="button" class="cancel closedown" value="取消" /><input type="button" class="operate" value="解锁" /></div>
+</body>
+</html>

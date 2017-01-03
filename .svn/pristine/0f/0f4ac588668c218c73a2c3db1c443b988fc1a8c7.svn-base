@@ -1,0 +1,165 @@
+//输入框页面的校验
+var digital = "512";  										// 用户正常账号代号
+$(function () {                          //判断用户账号是否正常
+    function modifyPass(objval) {
+        var value = $(objval).val();
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "/checkValue",
+            async: true,
+            data: "value=" + value,
+            success: function (data) {
+                var obj = data;
+                if (obj[0] != "" && obj[0] != null && obj[0] == digital) {  	//用户状态为标识为'512'的时候，即正常状态
+                    $('#oldPass').removeAttr('disabled');        				//状态为正常状态的时候，将旧密码变为可编辑状态
+                    $('#oldPass').focus();
+                    /*$('#oldPass').focus(function(){               //旧密码获取焦点时
+                     $("#message_error02").hide();             //屏蔽前后密码输入不一致的提示
+                     });*/
+                    $('#oldPass').blur(function () {              //判断输入的旧密码是否正确
+                        if ($('#oldPass').val() == "" || $('#oldPass').val() != obj[2]) {    //旧密码输入不正确
+                            $('#message_error01').show();         //显示密码错误的提示框
+                            //$('#oldPass').focus();
+                            return;
+                        }
+                        else {
+                            $('#message_error01').hide();
+                            $('#oldPass').attr('disabled', true);
+                            $('#picCode').attr('disabled', false);          //用户名和密码都正确的时候，将图片验证框打开
+                        }
+                    });
+                }
+                else {
+                    $('#oldPass').attr('disabled', true);  						//用户状态为非正常状态，将旧密码输入框屏蔽
+                    $("#message_error").show();                                      //显示状态错误的提示框
+                    $("#message_error02").hide();                                //屏蔽前后密码输入不一致的提示
+                }
+            }
+        });
+    };
+    $('.input_form').unbind().bind({
+        focus: function () {                            /*获取焦点*/
+            if (this.value == this.defaultValue) {
+                this.value = "";
+                $(this).attr("class", "puton");
+            }
+            else {
+                $("#message_error").hide();                  //隐藏提示框
+                $("#message_error01").hide();                //隐藏提示框
+                //$("#message_error02").hide();                //屏蔽前后密码输入不一致的提示
+                $('#oldPass').val('');    			        //获得焦点的时候，移除旧密码
+                $('#oldPass').attr('disabled', true);
+                return;
+            }
+        },
+        blur: function () {                            /*失去焦点*/
+            if (this.value == "") {
+                this.value = this.defaultValue;
+                $(this).attr("class", "default");
+                span.remove();
+                $('#oldPass').val('');
+                return;
+            }
+            else {
+                //$('#picCode').attr('disabled',false);   // 失去焦点且用户名为非锁定状态时，将验证码输入框变为可编辑状态
+            	modifyPass(this);
+            }
+            
+        }
+    });
+});
+
+$(function () {              //判断新密码和确认密码
+    $('#confirmPass').blur(function () {
+        if ($('#confirmPass').val() != $('#newPass').val()) {  //新密码和确认密码不一致时
+            $('#message_error01').hide();
+            $('#message_error02').show();              //给出前后密码不一致提示
+        }
+        //新密码与旧密码要不一致
+        else if($('#confirmPass').val() == $('#newPass').val() && $('#confirmPass').val()!=$('#oldPass').val()){
+        	$('#message_error02').hide();
+            $('.operate').attr('disabled', false);    //将解锁按钮变为可编辑
+        }
+        else if($('#confirmPass').val() == $('#newPass').val() && $('#confirmPass').val()==$('#oldPass').val()){
+        	$('#message_error01').hide();
+        	$('#message_error02').hide();
+        	$('#message_error03').show();
+        }
+       /* else {
+            $('#message_error02').hide();
+            $('.operate').attr('disabled', false);    //将解锁按钮变为可编辑
+        }*/
+    });
+    $('#newPass').blur(function () {
+        if ($('#confirmPass').val() != $('#newPass').val()) {  //新密码和确认密码不一致时
+            $('#message_error01').hide();
+            $('#message_error02').show();              //给出前后密码不一致提示
+        }
+        //新密码与旧密码要不一致
+        else if($('#confirmPass').val() == $('#newPass').val() && $('#confirmPass').val()!=$('#oldPass').val()){
+        	$('#message_error02').hide();
+            $('.operate').attr('disabled', false);    //将解锁按钮变为可编辑
+        }
+        else if($('#confirmPass').val() == $('#newPass').val() && $('#confirmPass').val()==$('#oldPass').val()){
+        	$('#message_error01').hide();
+        	$('#message_error02').hide();
+        	$('#message_error03').show();
+        }
+       /* else {
+            $('#message_error02').hide();
+            $('.operate').attr('disabled', false);    //将解锁按钮变为可编辑
+        }*/
+    });
+    
+    $('#confirmPass').focus(function () {
+    	$('#message_error01').hide();
+    	$('#message_error02').hide();
+        $("#message_error03").hide();
+    });
+    $('#newPass').focus(function () {
+    	$('#message_error01').hide();
+    	$('#message_error02').hide();
+        $("#message_error03").hide();
+    });
+});
+
+$(function () {                //点击修改密码
+    function modifyPass() {
+        var name = $("#name").val();
+        var oldPass = $("#oldPass").val();
+        var newPass = $("#newPass").val();
+        var param = {name: name, oldPass: oldPass, newPass: newPass};
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "/modifyPass",
+            async: true,
+            data: param,
+            //data: "name="+ name+"&oldPass="+oldPass+"&newPass="+newPass,
+            success: function (data) {
+                if (data) {
+                	layer.alert('密码修改成功！', 9, function () {
+                        layer.closeAll();
+                        $(".window_bg,.window_cont").hide();
+                    });
+                }
+                else {
+                	layer.alert('密码修改失败！', 8, function () {
+                        layer.closeAll();
+                        $(".window_bg,.window_cont").hide();
+                    });
+                }
+            }
+        });
+    }
+
+    $('.operate').focus(function () {
+        modifyPass();
+        $('.operate').attr('disabled', true);
+    });
+});
+
+
+
+

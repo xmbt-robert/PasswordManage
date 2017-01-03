@@ -1,0 +1,4 @@
+jdbcUrl = jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+user = root
+password =root
+devMode = true

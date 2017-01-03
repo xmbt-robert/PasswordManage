@@ -1,0 +1,662 @@
+package com.fx.passform.common;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
+
+import com.fx.passform.PassFormServer;
+import com.fx.passform.intercept.AuthInterceptor;
+import com.fx.passform.model.AdminControl;
+import com.fx.passform.model.AuditLockTime;
+import com.fx.passform.model.AuditSendTime;
+import com.fx.passform.model.Config;
+import com.fx.passform.model.LockStatus;
+import com.fx.passform.model.OptLog;
+import com.fx.passform.model.Sms;
+import com.fx.passform.model.loginValidate;
+import com.fx.passform.plugin.MailInfo;
+import com.fx.passform.plugin.SMSInfo;
+import com.fx.passform.util.MailKit;
+import com.fx.passform.util.SMSKit;
+import com.fx.passform.util.SendUtil;
+import com.fx.passform.util.StringUtil;
+import com.jfinal.aop.Before;
+import com.jfinal.aop.ClearInterceptor;
+import com.jfinal.core.Controller;
+import com.jfinal.kit.JsonKit;
+import com.jfinal.plugin.activerecord.Page;
+
+/**
+ * CommonController
+ *
+ * @param <HttpRequest>
+ */
+@Before(AuthInterceptor.class) //设置一个对所有action 的访问拦截
+public class CommonController extends Controller {
+
+    public static final String SUCCESS = "success";
+
+    public static final String ERROR = "error";
+    
+    public static final String VALIDATE = "validate";
+
+    private static Logger logger = Logger.getLogger(CommonController.class);
+    
+    
+    public void renderSUCCESS() {
+        renderJson(JsonKit.toJson(SUCCESS));
+    }
+
+    //验证通过
+    public void renderERROR() {
+        renderJson(JsonKit.toJson(ERROR));
+    }
+    
+    public void renderVALIDATE(){
+    	renderJson(JsonKit.toJson(VALIDATE));
+    }
+    
+   /**
+     * 管理员登陆首页
+     */
+    @ClearInterceptor
+    public void login() {
+        render("/common/login.jsp");
+    }
+    
+    /**
+     * 退出
+     */
+    @ClearInterceptor
+    public void logout() {
+    	getSession().removeAttribute("name");
+    	getSession().removeAttribute("department");
+    	login();
+    }
+    
+    /**
+     * 前台首页
+     */
+    @ClearInterceptor
+    public void passwordService() {
+    	index();
+    }
+    
+    
+    
+    /**
+     * 后台管理页面
+     */
+    public void manage() {
+        render("/common/manage.jsp");
+    }
+    
+    /**
+     * 首页
+     */
+    @ClearInterceptor
+    public void index() {
+        render("/common/index.jsp");
+    }
+
+    /**
+     * 解锁账号
+     */
+    @ClearInterceptor
+    public void page01() {
+        render("/common/page01.jsp");
+    }
+
+    /**
+     * 重置密码
+     */
+    @ClearInterceptor
+    public void page02() {
+        render("/common/page02.jsp");
+    }
+
+    /**
+     * 更改密码
+     */
+    @ClearInterceptor
+    public void page03() {
+        render("/common/page03.jsp");
+    }
+
+    /**
+     * 更新信息
+     */
+    @ClearInterceptor
+    public void page04() {
+        render("/common/page04.jsp");
+    }
+
+    /**
+     * 验证码查询
+     */
+  
+  /*  @Before(CacheInterceptor.class)   //信息进行缓存
+    @CacheName("cacheCheck")*/
+    public void codeSearch() {
+         render("/common/manage_codesearch.jsp");
+    }
+    public void codeSearchData() {
+    	Integer pageNumber = getParaToInt("page",1);
+    	Integer pageSize = getParaToInt("rows",1);
+    	
+    	String user = getPara("userName");
+    	String startDate = "";
+    	String endDate = "";
+    	if(StringUtil.isValid(getPara("startDate"))){
+    		startDate = getPara("startDate")+" 00:00:00";
+    	}
+    	if(StringUtil.isValid(getPara("endDate"))){
+    		endDate = getPara("endDate")+" 23:59:59";
+    	}
+    	Integer status = getParaToInt("expiresStatus",0);
+    	
+    	Page<Sms> page = Sms.dao.findSms(pageNumber,pageSize, user ,startDate,endDate, status,null);
+    	
+	    Map<String, Object> jsonMap = new HashMap<String, Object>();//定义map  
+	       jsonMap.put("total", page.getTotalRow());//total键 存放总记录数，必须的  
+	       jsonMap.put("rows", page.getList());//rows键 存放每页记录 list  
+    	renderJson(JsonKit.toJson(jsonMap));
+    }
+    
+    /**
+     * 用户查询
+     */
+    public void userSearch() {
+        render("/common/manage_usersearch.jsp");
+    }
+    //根据用户名,姓名   进行条件查询
+	public void userSearchData() {
+    	String userName = getPara("userName");
+    	String realName = getPara("realName");
+	    	List<Map<String,String>> list = SendUtil.getUserInfo(realName,userName);
+		    Map<String, Object> jsonMap = new HashMap<String, Object>();//定义map  
+		       jsonMap.put("total", list.size());//total键 存放总记录数，必须的  
+		       jsonMap.put("rows", list);//rows键 存放每页记录 list  
+	    	renderJson(JsonKit.toJson(jsonMap));
+    }
+	
+	 /**
+     * 用户查询-编辑用户
+     */
+    public void editUser() {
+    	String username = getPara("username");
+    	String mobile = getPara("mobile");
+    	boolean isOk = SendUtil.modifyUserMobile(username, mobile);
+    	if(isOk){
+    		renderSUCCESS();
+    	}
+    	else{
+    		renderERROR();
+    	}
+    }
+    
+
+    /**
+     * 系统设置-验证码异常报表
+     */
+    public void systemSet() {
+        render("/common/manage_systemset.jsp");
+    }
+    
+    /**
+     * 系统设置-AD服务设置
+     */
+    public void adServiceSet() {
+    	String ip = getPara("ip");
+    	int port = getParaToInt("port");
+    	String user = getPara("user");
+    	String pass = getPara("pass");
+    	Config.dao.updCfg(1,ip,port,user,pass);
+    	renderJson(JsonKit.toJson(SUCCESS));
+    	
+    }
+   
+    /**
+     * 系统设置-短信网关设置
+     */
+    public void smsGatewaySet() {
+    	String ip = getPara("ip");
+    	int port = getParaToInt("port");
+    	String user = getPara("user");
+    	String pass = getPara("pass");
+    	Config.dao.updCfg(2,ip,port,user,pass);
+    	SMSKit.getInfo().setIp(ip);
+    	SMSKit.getInfo().setPort(String.valueOf(port));
+    	SMSKit.getInfo().setUser(user);
+    	SMSKit.getInfo().setPass(pass);
+    	renderJson(JsonKit.toJson(SUCCESS));
+    }
+
+    /**
+     * 系统设置-邮箱设置
+     */
+    public void emailSystemSet() {
+    	String ip = getPara("ip");
+    	int port = getParaToInt("port");
+    	String user = getPara("user");
+    	String pass = getPara("pass");
+    	Config.dao.updCfg(3,ip,port,user,pass);
+    	MailKit.getInfo().setMailServerHost(ip);
+    	MailKit.getInfo().setMailServerPort(String.valueOf(port));
+    	MailKit.getInfo().setUserName(user);
+    	MailKit.getInfo().setPassword(pass);
+    	renderJson(JsonKit.toJson(SUCCESS));
+    }
+    
+    /**
+     * 系统设置-修改短信发送间隔时间
+     */
+    public void messageTimeSet() {
+    	Integer time = getParaToInt("message_time");
+    	AuditSendTime.dao.updGapTime(2, time);
+    	renderJson(JsonKit.toJson(SUCCESS));
+    }
+    
+    /**
+     * 系统设置-修改邮件发送间隔时间
+     */
+    public void emailTimeSet() {
+    	Integer time = getParaToInt("email_time");
+    	AuditSendTime.dao.updGapTime(1, time);
+    	renderJson(JsonKit.toJson(SUCCESS));
+    }
+    
+    /**
+     * 系统设置-审计设置
+     */
+    public void auditSet() {
+    	Integer failCount = getParaToInt("failCount");
+    	Integer lockTime = getParaToInt("lockTime");
+    	Integer type = getParaToInt("choose");
+    	AuditLockTime.dao.updLockTime(type,lockTime, failCount);
+    	renderJson(JsonKit.toJson(SUCCESS));
+    }
+    
+    /**
+     * 系统设置-验证码异常报表
+     */
+    public void systemSetData() {
+    	Integer pageNumber = getParaToInt("page",1);
+    	Integer pageSize = getParaToInt("rows",1);
+    	Page<LockStatus> page = LockStatus.dao.findAll(pageNumber, pageSize);
+	    Map<String, Object> jsonMap = new HashMap<String, Object>();//定义map  
+	       jsonMap.put("total", page.getTotalRow());//total键 存放总记录数，必须的  
+	       jsonMap.put("rows", page.getList());//rows键 存放每页记录 list  
+    	renderJson(JsonKit.toJson(jsonMap));
+    }
+    
+    /**
+     * 系统设置-管理员设置列表
+     */
+    public void adminSetData() {
+    	Integer pageNumber = getParaToInt("page",1);
+    	Integer pageSize = getParaToInt("rows",1);
+    	Page<AdminControl> page = AdminControl.dao.findAll(pageNumber,pageSize);
+	    Map<String, Object> jsonMap = new HashMap<String, Object>();
+	       jsonMap.put("total", page.getTotalRow());//total键 存放总记录数，必须的  
+	       jsonMap.put("rows", page.getList());//rows键 存放每页记录 list  
+    	renderJson(JsonKit.toJson(jsonMap));
+    }
+    
+    /**
+     * 系统设置-管理员增加
+     */
+    public void adminAddData() {
+    	String staffId = getPara("staffId");
+    	String user = getPara("user");
+    	AdminControl.dao.addAdmin(staffId, user);
+    	renderSUCCESS();
+    }
+    
+    /**
+     * 系统设置-管理员删除
+     */
+    public void adminDeleteData() {
+    	String id = getPara("id");    	
+    	AdminControl.dao.delAdminById(id);
+    	renderSUCCESS();
+    }
+    
+    
+    /**
+     * 报表审计统计
+     */    
+    public void tabCount() {
+        render("/common/manage_tabcount.jsp");
+    }
+    public void tabCountData() {
+    	Integer pageNumber = getParaToInt("page",1);
+    	Integer pageSize = getParaToInt("rows",1);
+    	Page<OptLog> page = OptLog.dao.findAll(pageNumber,pageSize);
+	    Map<String, Object> jsonMap = new HashMap<String, Object>();//定义map  
+	       jsonMap.put("total", page.getTotalRow());//total键 存放总记录数，必须的  
+	       jsonMap.put("rows", page.getList());//rows键 存放每页记录 list  
+    	renderJson(JsonKit.toJson(jsonMap));
+    }
+    
+    /**
+     * '检查ldap账号是否正常
+     */
+    @ClearInterceptor
+    public void checkValue() {         //查找用户账号在ldap上的状态
+        String value = getPara("value");
+        String[] val = SendUtil.getUserStatus(value);
+        renderJson(JsonKit.toJson(val));
+        logger.info("用户状态：["+val[0]+"]");
+    }
+    
+    
+    /**
+     * 校验管理员登陆的用户名和密码是否正确
+     */
+    @ClearInterceptor
+    public void  loginCheck(){
+    	HttpSession session = getSession();     //获取登陆用户名用于存入session
+        String name = getPara("name");
+        String pass = getPara("password");
+        Long count = loginValidate.dao.login(name);  //判断用户是否存在于管理员列表中
+        if(count < 1 && name != ""){
+        	renderVALIDATE();
+        	return ;
+        } else {
+            boolean isOk=SendUtil.verifyPass(name,pass);
+            if(isOk && pass!=""){
+            	session.setAttribute("name", name);        //存登陸成功的用戶名到session
+            	String departName = SendUtil.getUserDepartNO(name); //存登陸成功的用戶的所屬部門信息到session
+            	session.setAttribute("departName", departName);
+            	/*int index = departName.lastIndexOf("-");
+            	if(index > -1){
+    	        	String userDepartName = departName.substring(index+1);
+    	        	session.setAttribute("departName", userDepartName);
+            	}*/
+            	
+            	 renderSUCCESS();
+            	 return ;
+            }else{
+                renderERROR();
+                return ;
+            } 	
+        }
+    }
+    
+
+    /**
+     * 校验用户名和密码
+     */
+    @ClearInterceptor
+    public void  vifPassWord(){
+        String name = getPara("name");
+        String pass = getPara("oldPass");
+        boolean isOk=SendUtil.verifyPass(name,pass);
+        if(isOk){
+            renderSUCCESS();
+        }else{
+            renderERROR();
+        }
+    }
+    /**
+     * 修改密码
+     */
+    @ClearInterceptor
+    public void modifyPass() {
+        String name = getPara("name");
+        String oldPass = getPara("oldPass");
+        String newPass = getPara("newPass");
+        boolean isOk = SendUtil.modifPassword(name, oldPass, newPass);
+        renderJson(JsonKit.toJson(isOk));
+        SendUtil.sendEmail(getEmalAdd(name), getTitle("修改密码", isOk), getContent(newPass, isOk));
+        if (isOk) {
+            logger.info("用户["+name+"]密码修改成功");
+        } else {
+            logger.info("用户["+name+"]密码修改失败");
+        }
+    }
+
+    /**
+     * 解锁用户账号
+     */
+    @ClearInterceptor
+    public void unLockUser() {
+        String username = getPara("name");
+        int status = getParaToInt("status");
+        boolean isOk;
+        if(status==(512+16)){
+            isOk = SendUtil.setUserStatus(username, "512");
+        }else{
+            isOk = SendUtil.setUserStatus(username, "66048");
+        }
+        //boolean isOk = SendUtil.setUserStatus(username, "512");
+        renderJson(JsonKit.toJson(isOk));
+        SendUtil.sendEmail(getEmalAdd(username), getTitle("解锁用户账号", isOk), getContentByUnlock(username, isOk));
+        if (isOk) {
+            logger.info("用户["+username+"]解锁成功");
+        } else {
+            logger.info("用户["+username+"]解锁失败");
+        }
+    }
+
+    /**
+     * 重置密码
+     */
+    @ClearInterceptor
+    public void resetPass() {
+        String username = getPara("name");
+        String newPass = StringUtil.genRandomNum(0);
+        boolean isOk = SendUtil.resetPass(username, newPass);
+        Map<String, Object> values = new HashMap<String, Object>();
+        values.put("isOk", isOk);
+        values.put("newPass", newPass);
+        renderJson(JsonKit.toJson(values));
+        SendUtil.sendEmail(getEmalAdd(username), getTitle("重置密码", isOk), getContent(newPass, isOk));
+        if (isOk) {
+            logger.info("用户["+username+"]重置密码成功");
+        } else {
+            logger.info("用户["+username+"]重置密码重置失败");
+        }
+    }
+
+    /**
+     * 发送验证码
+     */
+    @ClearInterceptor
+    public void sendPass() {
+        String mobile = getPara("mobile");
+        String username = getPara("name");
+        if (!isAudit(getTrueIp(), username)) {
+            renderERROR();
+            logger.info("用户["+username+"]  手机["+mobile+"]验证码发送超过规定次数");
+            return;
+        }
+        String valCode = SendUtil.genSMS();
+        //boolean isOk = true;
+        boolean isOk = SendUtil.sendSMS(valCode, mobile);      //打开将通过短信网关发送正式短信
+        renderJson(JsonKit.toJson(isOk));
+        if (isOk) {
+            logger.info("用户["+username+"]  手机["+mobile+"]短信发送成功！");
+            //如果找到之前有正常状态的SMS，更新为过期状态
+            Sms.dao.updateSms(username, 1, 2);
+            //重新生成一条
+            Sms.dao.addSms(username, valCode, 1, mobile, username + "@feixun.com.cn");
+            //renderSUCCESS();
+
+        } else {
+            logger.info("用户["+username+"]  手机["+mobile+"]短信发送失败！");
+            //renderERROR();  //提示短信发送错误
+        }
+    }
+
+    /**
+     * 验证sms短信验证码是否正确
+     */
+    @ClearInterceptor
+    public void checkSms() {
+        String code = getPara("code");
+        String username = getPara("name");
+        boolean isok = Sms.dao.findSms(username, code);
+        renderJson(JsonKit.toJson(isok));
+        if (isok) {
+            logger.info("用户["+username+"]验证码匹配成功");
+        } else {
+            logger.info("用户["+username+"]验证码匹配失败");
+        }
+    }
+
+
+    /**
+     * 统一认证审计
+     *
+     * @param ip   ip地址
+     * @param user 用户名
+     * @return
+     */
+    @ClearInterceptor
+    public boolean isAudit(String ip, String user) {
+        List<LockStatus> locks = LockStatus.dao.findLockReco(ip, user);
+        if (locks == null || locks.size() == 0) {
+            LockStatus.dao.addLockStatus(ip, user);
+        } else {
+            LockStatus lockStatus = locks.get(0);
+            int status = lockStatus.getInt("lockStatus");
+            //状态==1表示锁定
+            if (status == 1) {
+                return false;
+            }
+            int sendCount = lockStatus.getInt("sendCount");
+            List<AuditLockTime> lockTimes = AuditLockTime.dao.findAll();
+            if (lockTimes.size() > 0) {
+                AuditLockTime auditLockTime = lockTimes.get(0);
+                int sendCountCfg = auditLockTime.getInt("sendCount");
+                //如果发送次数超过规定次数，更新审计表，返回审计失败
+                LockStatus.dao.updLockStatus(ip, user);
+                if (sendCount + 1 >= sendCountCfg) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 校验验证码是否正确
+     */
+    @ClearInterceptor
+    public void checkCode() {    //图片验证码获取
+        String captchaCode = getPara("inputCode");
+        Object objMd5RandomCode = this.getSessionAttr(CaptchaRender.DEFAULT_CAPTCHA_MD5_CODE_KEY);
+        String md5RandomCode = null;
+        if (objMd5RandomCode != null) {
+            md5RandomCode = objMd5RandomCode.toString();
+            //removeSessionAttr(CaptchaRender.DEFAULT_CAPTCHA_MD5_CODE_KEY);
+        }
+        if (CaptchaRender.validate(md5RandomCode, captchaCode)) {
+            renderSUCCESS();
+        } else {
+            renderERROR();
+        }
+    }
+
+    /**
+     * 生成验证码
+     */
+    @ClearInterceptor
+    public void rendCode() {
+        CaptchaRender img = new CaptchaRender(4);
+        setSessionAttr(CaptchaRender.DEFAULT_CAPTCHA_MD5_CODE_KEY, img.getMd5RandonCode());
+        render(img);
+    }
+
+    /**
+     * java实现穿透代理获取客户端真实ip
+     *
+     * @return 真实的IP地址
+     */
+    @ClearInterceptor
+    private String getTrueIp() {
+        HttpServletRequest request = getRequest();
+        String strClientIp = request.getHeader("x-forwarded-for");
+        if (strClientIp == null || strClientIp.length() == 0 || "unknown".equalsIgnoreCase(strClientIp)) {
+            strClientIp = request.getRemoteAddr();
+        } else {
+            String[] ipList = strClientIp.split("[,]");
+            String strIp;
+            for (int index = 0; index < ipList.length; index++) {
+                strIp = ipList[0];
+                if (!("unknown".equalsIgnoreCase(strIp))) {
+                    strClientIp = strIp;
+                    break;
+                }
+            }
+        }
+        return strClientIp;
+    }
+
+
+    /**
+     * 得到用户email地址
+     *
+     * @param username
+     * @return
+     */
+    @ClearInterceptor
+    private String getEmalAdd(String username) {
+        return username + "@feixun.com.cn";
+    }
+
+    /**
+     * 得到邮件title
+     *
+     * @param title
+     * @param isOk
+     * @return
+     */
+    @ClearInterceptor
+    private String getTitle(String title, boolean isOk) {
+        if (isOk) {
+            return title + "操作成功!";
+        } else {
+            return title + "操作失败!";
+        }
+    }
+
+    /**
+     * 得到邮件内容
+     *
+     * @param pass
+     * @return
+     */
+    @ClearInterceptor
+    private String getContent(String pass, boolean isOk) {
+        if (isOk) {
+            return "请妥善保管好您的密码[" + pass + "],请勿泄露！---信息平台";
+        } else {
+            return "您的密码修改失败，请联系信息平台-ITS部门寻求支持！";
+        }
+    }
+
+    /**
+     * 得到邮件内容
+     *
+     * @param pass
+     * @return
+     */
+    @ClearInterceptor
+    private String getContentByUnlock(String pass, boolean isOk) {
+        if (isOk) {
+            return "已经成功解锁账号[" + pass + "],请勿泄露密码！---信息平台";
+        } else {
+            return "您的账号解锁失败，请联系信息平台-ITS部门寻求支持！";
+        }
+    }
+}

@@ -1,0 +1,239 @@
+$(function() {
+	var txt = document.getElementById("name"), name_tx = document
+			.getElementById("name_tx");
+	var pwd = document.getElementById("password"), pwd_tx = document
+			.getElementById("password_tx");
+	pwd_tx.onfocus = function() {
+		if (this.value != "请输入密码")
+			return;
+		this.style.display = "none";
+		pwd.style.display = "";
+		pwd.value = "";
+		pwd.focus();
+	};
+	pwd.onblur = function() {
+		if (this.value != "")
+			return;
+		this.style.display = "none";
+		pwd_tx.style.display = "";
+		pwd_tx.value = "请输入密码";
+	};
+
+	name_tx.onfocus = function() {
+		if (this.value != "请输入用户名")
+			return;
+		this.style.display = "none";
+		txt.style.display = "";
+		txt.value = "";
+		txt.focus();
+	};
+	txt.onblur = function() {
+		if (this.value != "")
+			return;
+		this.style.display = "none";
+		name_tx.style.display = "";
+		name_tx.value = "请输入用户名";
+	};
+	
+	$(".login_input").keyup(function(){  //回车登陆事件
+		if(event.keyCode == 13 && $("#password").val() == ""){
+			$("#password").focus();
+		}else if(event.keyCode == 13 && $("#password").val() != ""){
+			$(".login_button").click();
+			event.returnValue = false;
+		}
+	});
+	
+	
+    //对输入的用户名，密码进行校验
+	function loginCheck() {
+		var name = $("#name").val();
+		var password = $("#password").val();
+		var param = {
+			name : name,
+			password : password,
+		};	
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : "/loginCheck",
+			async : true,
+			data : param,
+			success : function(data) {
+				    if (data == "success") { //用户登录成功
+				    	checkCookie(name, password);
+				    	window.location.href = "/manage";
+						return;
+				    }else { //登录失败
+					 if(name == "" && password == ""){
+						 $('.message').html("请先输入用户名或密码！").show();
+						 $("#name_tx").hide();
+						 $("#name").show();
+						 $("#name").focus();
+						 return;
+					 }else 
+						 if(name == ""){
+							$('.message').html("用户名不可为空！").show();
+							$("#name_tx").hide();
+							 $("#name").show();
+							 $("#name").focus();
+							return;
+					 }else 
+						if(password == ""){
+							$('.message').html("密码不可为空！").show();
+							$("#password_tx").hide();
+							$("#password").show();
+							$("#password").focus();
+							return;
+					 }else
+						if (data == "validate"){ //无权登录
+							$('.message').html("对不起，您不是管理员，无权访问！").show();
+							$("#name").focus();
+							return;
+						}else{
+							$('.message').html("登入账号或密码错误，请重新输入").show();
+							$("#password").val("");
+							$("#password").focus();
+							return;
+					 }
+					
+				}
+			}
+		});
+	}
+
+	$('.login_button').click(function() {
+		loginCheck();
+	});
+	
+	//hours为空字符串时,cookie的生存期至浏览器会话结束。
+	//hours为数字0时,建立的是一个失效的cookie,这个cookie会覆盖已经建立过的同名、同path的cookie（如果这个cookie存在）。   
+	var time = 0; 
+	var username = getCookieValue("cookUser");
+	var password = getCookieValue("cookPass");
+	$("#name_tx").hide();
+	$("#name").show();
+	$("#name").focus();
+	$("#password_tx").hide();
+	$("#password").show();
+	
+	if(username != null && username != "" && password != null && password != ""){
+		$("#name").val(username);
+		$("#password").val(password);
+	}
+	
+	function checkCookie(username, password){
+		setCookie('cookUser', username, time, '/');//set 获取用户名和密码 传给cookie 
+		setCookie('cookPass', password, time, '/'); 
+	}
+	
+	function setCookie(name,value,hours,path){   
+	    var expires = new Date();   
+	   // var _expires = "";
+	    expires.setTime(expires.getTime() + hours*24*3600*1000*1);   //cookie 1天后失效 24*3600*1000*1
+	    path = path == "" ? "" : ";path=" + path;   
+	    _expires = (typeof hours) == "string" ? "" : ";expires=" + expires.toUTCString();   
+	    document.cookie = name + "=" + value + _expires + path;   
+	}
+	
+	//获取cookie值    方法 
+	function getCookieValue(name){   
+	    var name = escape(name);   
+	    //读cookie属性，这将返回文档的所有cookie   
+	    var allcookies = document.cookie;          
+	    //查找名为name的cookie的开始位置   
+	    name += "=";   
+	    var pos = allcookies.indexOf(name);       
+	    //如果找到了具有该名字的cookie，那么提取并使用它的值   
+	    if (pos != -1){                                             //如果pos值为-1则说明搜索"version="失败   
+	        var start = pos + name.length;                  //cookie值开始的位置   
+	        var end = allcookies.indexOf(";",start);        //从cookie值开始的位置起搜索第一个";"的位置,即cookie值结尾的位置   
+	        if (end == -1) end = allcookies.length;        //如果end值为-1说明cookie列表里只有一个cookie   
+	        var value = allcookies.substring(start,end);  //提取cookie的值   
+	        return unescape(value);                           //对它解码         
+	        }      
+	    else return "";                                             //搜索失败，返回空字符串   
+	}
+	
+	
+	
+	//输入用户名 促发事件 
+	$("#name").blur(function(){
+		var userNow = $(this).val();
+			if(userNow == username){       //判断现在输入的用户名  和 当时保存在cookie的用户名是否一致 
+				$("#password").val(password);   //如果一致，则把 第一次 保存在cookie的密码 自动填入 
+				$("#password_tx").hide();
+				$("#password").show();
+				$("#password").focus();
+			}
+			else{
+				$("#password").val('');
+				$("#password").focus();
+			}
+			return;
+		
+	});
+	
+	$("#rememberLoginInfo").click(function(){
+		if($(this).attr("checked") == "checked"){
+			time = 60 * 60 * 24 * 1;     //设置Cookie保存时间 ,这里设置为保存1天
+			$(".login_button").focus();
+		}
+	});
+	
+	
+	//超链接到密码自助服务页面
+	$(".ForgotPass").click(function() {
+		window.location.href = "/passwordService";
+	});
+});
+
+
+
+/*	//设置Cookie保存时间 
+var time = 0; 
+var username = getCookieValue("username");
+var password = getCookieValue("password");
+$("#name_tx").hide();
+$("#name").show();
+$("#name").focus();
+$("#password_tx").hide();
+$("#password").show();
+if(username != null && username != "" && password != null && password != ""){
+	$("#name").val(username);
+	$("#password").val(password);
+}
+
+//获取cookie值    根据分隔符  分隔每个变量的值
+function getCookieValue(name){   
+      if(document.cookie.length > 0){
+    	  start = document.cookie.indexOf(name + "=");
+    	  if(start != -1){
+    		  start = start + name.length + 1;
+    		  end = document.cookie.indexOf("^", start);
+    		  if(end == -1)
+    			  end = document.cookie.length;
+    		  return unescape(document.cookie.substring(start, end));
+    	  }
+      } 
+      return "";
+}
+
+//设置cookie
+function setCookie(name,value,p_name,p_value,expiredays){ 
+	var exdate = new Date();
+	exdate.setDate(exdate.getDate() + expiredays);
+	document.cookie = name + "=" + escape(value) + "^" + p_name + "=" +
+	escape(p_value) + ((expiredays ==null) ? "" : "^;expires=" + exdate.toUTCString());
+}
+
+function checkCookie(){
+	alert(document.cookie);
+		if(username != null && username != "" && password != null && password != ""){
+			setCookie('username', username, 'password', password, time);
+		}
+}*/
+
+		
+
+

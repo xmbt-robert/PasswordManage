@@ -1,0 +1,231 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"/>
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Pragma" content="-1">
+    <link href="../css/common.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery.min_1.7.2.js"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+    <link type="text/css" rel="stylesheet" href="../css/fonts/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="../css/fonts/fontface.css"/>
+    <title>自助密码服务平台-验证码查询</title>
+    <script type="text/javascript">
+        function setTab(name, cursel, n) {
+            for (i = 1; i <= n; i++) {
+                var menu = document.getElementById(name + i);
+                var con = document.getElementById("con_" + name + "_" + i);
+                menu.className = i == cursel ? "hover" : "";
+                con.style.display = i == cursel ? "block" : "none";
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div class="main">
+    <div class="top">
+        <div class="top_cont">
+            <div class="top_right">
+                <a href="#" class="exit"><img src="../images/exit.png"/>退出</a>
+
+                <div class="user_photo"><img src="../images/photo.png"/></div>
+                <div class="user_name">Jane Li / 李靖</div>
+                <div class="user_mens">应用系统部</div>
+            </div>
+            <div class="top_left">
+                <img src="../images/index_logo.png" class="index_logo"/>
+
+                <div class="top_menu">
+                    <a href="manage_codesearch.html"><img src="../images/icon_menu01.png"/>验证码查询</a>
+                    <a href="manage_usersearch.html"><img src="../images/icon_menu02.png"/>用户查询</a>
+                    <a href="#" class="hover"><img src="../images/icon_menu03hover.png"/>系统设置</a>
+                    <a href="manage_tabcount.html"><img src="../images/icon_menu04.png"/>报表审计统计</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content_manage">
+            <div class="sys_set">
+                <div class="menubox">
+                    <ul>
+                        <li id="listone1" onclick="setTab('listone',1,6)" class="hover">AD服务</li>
+                        <li id="listone2" onclick="setTab('listone',2,6)">短信网关</li>
+                        <li id="listone3" onclick="setTab('listone',3,6)">邮箱设置</li>
+                        <li id="listone4" onclick="setTab('listone',4,6)">发送时间设置</li>
+                        <li id="listone5" onclick="setTab('listone',5,6)">审计设置</li>
+                        <li id="listone6" onclick="setTab('listone',6,6)">验证码异常报表</li>
+                    </ul>
+                </div>
+                <div class="contentbox">
+                    <div id="con_listone_1" class="hover">
+                        <ul class="tab_cont">
+                            <li class="tab_txt">IP<br/><input type="text"/></li>
+                            <li class="tab_txt">Port<br/><input type="text"/></li>
+                            <li class="tab_txt">用户名<br/><input type="text"/></li>
+                            <li class="tab_txt">密码<br/><input type="text"/></li>
+                        </ul>
+                        <div class="oper_but" style="text-align:center; margin:30px 0"><input type="button"
+                                                                                              class="operate"
+                                                                                              value="修改"/><input
+                                type="button" class="cancel" value="重置"/></div>
+                    </div>
+                    <div id="con_listone_2" style="display:none">
+                        <ul class="tab_cont">
+                            <li class="tab_txt">IP<br/><input type="text"/></li>
+                            <li class="tab_txt">Port<br/><input type="text"/></li>
+                            <li class="tab_txt">用户名<br/><input type="text"/></li>
+                            <li class="tab_txt">密码<br/><input type="text"/></li>
+                        </ul>
+                        <div class="oper_but" style="text-align:center; margin:30px 0"><input type="button"
+                                                                                              class="operate"
+                                                                                              value="修改"/><input
+                                type="button" class="cancel" value="重置"/></div>
+                    </div>
+                    <div id="con_listone_3" style="display:none">
+                        <ul class="tab_cont">
+                            <li class="tab_txt">IP<br/><input type="text"/></li>
+                            <li class="tab_txt">Port<br/><input type="text"/></li>
+                            <li class="tab_txt">用户名<br/><input type="text"/></li>
+                            <li class="tab_txt">密码<br/><input type="text"/></li>
+                        </ul>
+                        <div class="oper_but" style="text-align:center; margin:30px 0"><input type="button"
+                                                                                              class="operate"
+                                                                                              value="修改"/><input
+                                type="button" class="cancel" value="重置"/></div>
+                    </div>
+                    <div id="con_listone_4" style="display:none">
+                        <table class="set_table">
+                            <tr>
+                                <td width="50%" style="border-right:1px solid #dcdcdc">
+                                    <div class="set_cont">
+                                        <span class="set_txt"><img
+                                                src="../images/icon_phone.png"/><label>短信发送间隔时间<br/><input type="text"/>&nbsp;&nbsp;分<label></span>
+
+                                        <div class="oper_but" style="text-align:center; margin:30px 0"><input
+                                                type="button" class="operate" value="修改"/><input type="button"
+                                                                                                 class="cancel"
+                                                                                                 value="重置"/></div>
+                                    </div>
+                                </td>
+                                <td width="50%">
+                                    <div class="set_cont">
+                                        <span class="set_txt"><img
+                                                src="../images/icon_email.png"/><label>邮件发送间隔时间<br/><input type="text"/>&nbsp;&nbsp;分<label></span>
+
+                                        <div class="oper_but" style="text-align:center; margin:30px 0"><input
+                                                type="button" class="operate" value="修改"/><input type="button"
+                                                                                                 class="cancel"
+                                                                                                 value="重置"/></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="con_listone_5" style="display:none">
+                        <ul class="tab_cont">
+                            <li class="tab_txt">条件设置<br/>
+                                <select name="choose" id="choose">
+                                    <option value="请选择" selected="selected">请选择</option>
+                                    <option value="请选择1">请选择1</option>
+                                    <option value="请选择2">请选择2</option>
+                                    <option value="请选择3">请选择3</option>
+                                </select>
+                            </li>
+                            <li class="tab_txt">失败次数<br/>
+
+                                <div class="select_box"><input type="text"/></div>
+                            </li>
+                            <li class="tab_txt">锁定时间<br/><input type="text"/></li>
+                        </ul>
+                        <div class="oper_but" style="text-align:center; margin:30px 0"><input type="button"
+                                                                                              class="operate"
+                                                                                              value="修改"/><input
+                                type="button" class="cancel" value="重置"/></div>
+                    </div>
+                    <div id="con_listone_6" style="display:none">
+                        <table class="result_table" id="result_table">
+                            <tbody>
+                            <tr>
+                                <th>IP</th>
+                                <th>用户名</th>
+                                <th>失败次数</th>
+                                <th>操作时间</th>
+                                <th>状态</th>
+                            </tr>
+                            <tr>
+                                <td>127.0.0.1</td>
+                                <td>feixun</td>
+                                <td>5</td>
+                                <td>2014.09.29</td>
+                                <td>正常</td>
+                            </tr>
+                            <tr>
+                                <td>127.0.0.1</td>
+                                <td>feixun</td>
+                                <td>5</td>
+                                <td>2014.09.29</td>
+                                <td>锁定</td>
+                            </tr>
+                            <tr>
+                                <td>127.0.0.1</td>
+                                <td>feixun</td>
+                                <td>5</td>
+                                <td>2014.09.29</td>
+                                <td>锁定</td>
+                            </tr>
+                            <tr>
+                                <td>127.0.0.1</td>
+                                <td>feixun</td>
+                                <td>5</td>
+                                <td>2014.09.29</td>
+                                <td>锁定</td>
+                            </tr>
+                            <tr>
+                                <td>127.0.0.1</td>
+                                <td>feixun</td>
+                                <td>5</td>
+                                <td>2014.09.29</td>
+                                <td>锁定</td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="5">
+                                    <div class="page_num">
+                                        <ul class="pagination" style="text-align:center">
+                                            <li class="first"><a href="#" class="disable">&laquo;</a></li>
+                                            <li class="previous"><a href="#" class="disable">&lsaquo;</a></li>
+                                            <li><a href="#" class="current">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li class="next"><a href="#">&rsaquo;</a></li>
+                                            <li class="last"><a href="#">&raquo;</a></li>
+                                        </ul>
+                                        <span class="page_to">跳转到：<input type="text" class="jump_to"/><input
+                                                type="button" class="go" value="GO"/></span>
+                                    </div>
+                                    共3页 15 条数据
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="foot">版权所有 © 上海斐讯数据通信技术有限公司 2008-2013</div>
+</div>
+<!--弹出窗口 start-->
+<div class="window_bg"></div>
+<div class="window_cont" id="window_cont"></div>
+<!--弹出窗口 end-->
+<script type="text/javascript" src="../js/jquery.select.js"></script>
+</body>
+</html>

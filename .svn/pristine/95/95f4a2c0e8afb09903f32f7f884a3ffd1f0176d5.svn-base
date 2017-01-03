@@ -1,0 +1,43 @@
+package com.fx.passform.plugin;
+
+import com.cloopen.rest.sdk.CCPRestSmsSDK;
+
+import java.util.HashMap;
+import java.util.concurrent.Callable;
+
+/**
+ * 发送短信验证码
+ *
+ * Created by fan.xu on 2014/10/24.
+ */
+public class SMSSender implements Callable<HashMap<String, Object>> {
+
+    /**
+     * SMS配置信息
+     */
+    private SMSInfo info;
+
+    /**
+     * 手机号码
+     */
+    private String phone;
+
+    /**
+     * 验证码
+     */
+    private String valCode;
+
+    public SMSSender(SMSInfo info, String phone, String valCode) {
+        this.info = info;
+        this.phone = phone;
+        this.valCode = valCode;
+    }
+
+    @Override
+    public HashMap<String, Object> call() throws Exception {
+        String time = info.getValTime();
+        String id = info.getTmpId();
+        CCPRestSmsSDK api = info.getRestAPI();
+        return api.sendTemplateSMS(phone,id,new String[]{valCode,time} );
+    }
+}

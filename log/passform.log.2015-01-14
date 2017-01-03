@@ -1,0 +1,907 @@
+
+2015-01-14 09:54:24
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 09:54:24
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 09:54:25
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961ruw53e9wl0tj|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961ruw53e9wl0tj|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 10:18:05
+[INFO]-[Thread: qtp16032330-22]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 10:18:15
+[INFO]-[Thread: qtp16032330-25]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 13:10:29
+[INFO]-[Thread: qtp16032330-20]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 13:10:31
+[INFO]-[Thread: pool-11-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 13:10:31 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=032B2F9AF7C2B5A1B0FB9D3D8F7E7164
+
+2015-01-14 13:10:31
+[INFO]-[Thread: pool-11-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 13:10:31 CST 2015 sendTemplateSMS Request body =  {"appId":"8a48b55148fe486001491cd639d41444","to":"15618533436","templateId":"1","datas":["390509","30"]}
+
+2015-01-14 13:10:32
+[INFO]-[Thread: qtp16032330-26]-[com.fx.passform.common.CommonController.checkSms()]: 用户[bingyang.ma]验证码匹配失败
+
+2015-01-14 13:10:52
+[ERROR]-[Thread: pool-11-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-14 13:10:52
+[INFO]-[Thread: qtp16032330-23]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[390509] phone[15618533436] statusCode [172001]  error_message[网络错误]
+
+2015-01-14 13:10:52
+[INFO]-[Thread: qtp16032330-23]-[com.fx.passform.common.CommonController.sendPass()]: 用户[bingyang.ma]  手机[15618533436]短信发送失败！
+
+2015-01-14 13:37:42
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 13:37:42
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 13:37:42
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s2vaidvn3q7x|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s2vaidvn3q7x|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 13:37:53
+[INFO]-[Thread: qtp13288040-20]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 13:37:54
+[INFO]-[Thread: qtp13288040-19]-[com.fx.passform.common.CommonController.sendPass()]: 用户[bingyang.ma]  手机[15618533436]验证码发送超过规定次数
+
+2015-01-14 13:37:54
+[ERROR]-[Thread: qtp13288040-19]-[com.jfinal.core.ActionHandler.handle()]: /sendPass
+java.lang.NullPointerException
+	at com.fx.passform.intercept.OperationLogInterceptor.intercept(OperationLogInterceptor.java:33)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+
+2015-01-14 13:38:04
+[INFO]-[Thread: qtp13288040-22]-[com.fx.passform.common.CommonController.checkSms()]: 用户[bingyang.ma]验证码匹配失败
+
+2015-01-14 13:39:07
+[INFO]-[Thread: qtp13288040-24]-[com.fx.passform.common.CommonController.checkSms()]: 用户[bingyang.ma]验证码匹配失败
+
+2015-01-14 13:39:43
+[INFO]-[Thread: qtp13288040-20]-[com.fx.passform.common.CommonController.checkSms()]: 用户[bingyang.ma]验证码匹配失败
+
+2015-01-14 13:39:56
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 13:39:56
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 13:39:57
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s2y6gyh7cc8t|4e2f0a, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s2y6gyh7cc8t|4e2f0a, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 13:40:10
+[INFO]-[Thread: qtp22485234-26]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 13:40:12
+[INFO]-[Thread: qtp22485234-26]-[com.fx.passform.common.CommonController.checkSms()]: 用户[zhibing.xie]验证码匹配失败
+
+2015-01-14 13:40:20
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 13:40:20 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=EF7F3F250B0ABACF843438A05CA20FA1
+
+2015-01-14 13:40:20
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 13:40:20 CST 2015 sendTemplateSMS Request body =  {"appId":"8a48b55148fe486001491cd639d41444","to":"15618533436","templateId":"1","datas":["358779","30"]}
+
+2015-01-14 13:40:42
+[ERROR]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-14 13:40:42
+[INFO]-[Thread: qtp22485234-25]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[358779] phone[15618533436] statusCode [172001]  error_message[网络错误]
+
+2015-01-14 13:40:42
+[INFO]-[Thread: qtp22485234-25]-[com.fx.passform.common.CommonController.sendPass()]: 用户[zhibing.xie]  手机[15618533436]短信发送失败！
+
+2015-01-14 13:41:10
+[ERROR]-[Thread: qtp22485234-25]-[com.jfinal.core.ActionHandler.handle()]: /sendPass
+java.lang.NullPointerException
+	at com.fx.passform.intercept.OperationLogInterceptor.intercept(OperationLogInterceptor.java:33)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+
+2015-01-14 13:42:32
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 13:42:32
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 13:42:32
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s31i9c1r4iu9r|1702c48, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s31i9c1r4iu9r|1702c48, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 13:42:34
+[INFO]-[Thread: qtp21621663-25]-[com.fx.passform.common.CommonController.checkSms()]: 用户[zhibing.xie]验证码匹配失败
+
+2015-01-14 13:42:41
+[INFO]-[Thread: qtp21621663-24]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 13:42:42
+[INFO]-[Thread: qtp21621663-28]-[com.fx.passform.common.CommonController.checkSms()]: 用户[chen.wang]验证码匹配失败
+
+2015-01-14 13:43:28
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 13:43:28 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=104F8057C84589E983F868DFD77EB6BB
+
+2015-01-14 13:43:28
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 13:43:28 CST 2015 sendTemplateSMS Request body =  {"appId":"8a48b55148fe486001491cd639d41444","to":"13564600000","templateId":"1","datas":["591347","30"]}
+
+2015-01-14 13:43:49
+[ERROR]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-14 13:43:49
+[INFO]-[Thread: qtp21621663-25]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[591347] phone[13564600000] statusCode [172001]  error_message[网络错误]
+
+2015-01-14 13:43:49
+[INFO]-[Thread: qtp21621663-25]-[com.fx.passform.common.CommonController.sendPass()]: 用户[chen.wang]  手机[13564600000]短信发送失败！
+
+2015-01-14 13:46:52
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 13:46:52
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 13:46:52
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s372th15nqz6r|f268de, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s372th15nqz6r|f268de, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 13:47:01
+[INFO]-[Thread: qtp23984709-26]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 13:47:02
+[INFO]-[Thread: qtp23984709-23]-[com.fx.passform.common.CommonController.checkSms()]: 用户[chen.wang]验证码匹配失败
+
+2015-01-14 13:47:05
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 13:47:05 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=05C5D9768B057256F75CF27521AD3042
+
+2015-01-14 13:47:05
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 13:47:05 CST 2015 sendTemplateSMS Request body =  {"appId":"8a48b55148fe486001491cd639d41444","to":"13564600000","templateId":"1","datas":["513222","30"]}
+
+2015-01-14 13:47:26
+[ERROR]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-14 13:47:26
+[INFO]-[Thread: qtp23984709-28]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[513222] phone[13564600000] statusCode [172001]  error_message[网络错误]
+
+2015-01-14 13:47:26
+[INFO]-[Thread: qtp23984709-28]-[com.fx.passform.common.CommonController.sendPass()]: 用户[chen.wang]  手机[13564600000]短信发送失败！
+
+2015-01-14 13:54:57
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 13:54:57
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 13:54:57
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s3hh5v1e7fwh2|1c5af2e, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s3hh5v1e7fwh2|1c5af2e, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 13:55:11
+[INFO]-[Thread: qtp21621663-27]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[512]
+
+2015-01-14 13:55:16
+[INFO]-[Thread: qtp21621663-25]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[512]
+
+2015-01-14 13:55:26
+[INFO]-[Thread: qtp21621663-28]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 13:55:27
+[INFO]-[Thread: qtp21621663-27]-[com.fx.passform.common.CommonController.checkSms()]: 用户[wensheng.du]验证码匹配失败
+
+2015-01-14 13:55:30
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 13:55:29 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=11BFE84F4A6EF225328411EC28E9ECF6
+
+2015-01-14 13:55:30
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 13:55:30 CST 2015 sendTemplateSMS Request body =  {"appId":"8a48b55148fe486001491cd639d41444","to":"18916541070","templateId":"1","datas":["527267","30"]}
+
+2015-01-14 13:55:51
+[ERROR]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-14 13:55:51
+[INFO]-[Thread: qtp21621663-21]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[527267] phone[18916541070] statusCode [172001]  error_message[网络错误]
+
+2015-01-14 13:55:51
+[INFO]-[Thread: qtp21621663-21]-[com.fx.passform.common.CommonController.sendPass()]: 用户[wensheng.du]  手机[18916541070]短信发送失败！
+
+2015-01-14 14:07:03
+[INFO]-[Thread: qtp21621663-26]-[com.fx.passform.common.CommonController.checkSms()]: 用户[wensheng.du]验证码匹配失败
+
+2015-01-14 14:26:26
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 14:26:26
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 14:26:26
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s4lyz4182moea|c2cf83, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s4lyz4182moea|c2cf83, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 14:26:39
+[INFO]-[Thread: qtp21621663-28]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 14:26:40
+[INFO]-[Thread: qtp21621663-26]-[com.fx.passform.common.CommonController.checkSms()]: 用户[wensheng.du]验证码匹配失败
+
+2015-01-14 14:26:42
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 14:26:42 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=C3671E60F47CCBCE645C56420010D721
+
+2015-01-14 14:26:43
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 14:26:43 CST 2015 sendTemplateSMS Request body =  {"appId":"8a48b55148fe486001491cd639d41444","to":"18916541070","templateId":"1","datas":["852193","30"]}
+
+2015-01-14 14:27:04
+[ERROR]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-14 14:27:04
+[INFO]-[Thread: qtp21621663-23]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[852193] phone[18916541070] statusCode [172001]  error_message[网络错误]
+
+2015-01-14 14:27:04
+[INFO]-[Thread: qtp21621663-23]-[com.fx.passform.common.CommonController.sendPass()]: 用户[wensheng.du]  手机[18916541070]短信发送失败！
+
+2015-01-14 14:27:17
+[ERROR]-[Thread: qtp21621663-23]-[com.jfinal.core.ActionHandler.handle()]: /sendPass
+java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.String
+	at com.fx.passform.intercept.OperationLogInterceptor.intercept(OperationLogInterceptor.java:35)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+
+2015-01-14 14:28:52
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 14:28:52
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 14:28:52
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s4p3j31lldvxe|17748d3, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s4p3j31lldvxe|17748d3, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 14:29:12
+[INFO]-[Thread: qtp2221396-28]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 14:29:13
+[INFO]-[Thread: qtp2221396-25]-[com.fx.passform.common.CommonController.checkSms()]: 用户[wensheng.du]验证码匹配失败
+
+2015-01-14 14:29:15
+[INFO]-[Thread: qtp2221396-24]-[com.fx.passform.common.CommonController.sendPass()]: 用户[wensheng.du]  手机[18916541070]验证码发送超过规定次数
+
+2015-01-14 14:29:44
+[INFO]-[Thread: qtp2221396-24]-[com.fx.passform.common.CommonController.checkSms()]: 用户[wensheng.du]验证码匹配失败
+
+2015-01-14 14:29:56
+[INFO]-[Thread: qtp2221396-26]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 14:29:57
+[INFO]-[Thread: qtp2221396-23]-[com.fx.passform.common.CommonController.checkSms()]: 用户[yuelei.gao]验证码匹配失败
+
+2015-01-14 14:29:59
+[INFO]-[Thread: pool-3-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 14:29:59 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=CEF0D966794CBD35ED8A758FE1CE41D3
+
+2015-01-14 14:29:59
+[INFO]-[Thread: pool-3-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 14:29:59 CST 2015 sendTemplateSMS Request body =  {"appId":"8a48b55148fe486001491cd639d41444","to":"12345678912","templateId":"1","datas":["144829","30"]}
+
+2015-01-14 14:30:20
+[ERROR]-[Thread: pool-3-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-14 14:30:20
+[INFO]-[Thread: qtp2221396-27]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[144829] phone[12345678912] statusCode [172001]  error_message[网络错误]
+
+2015-01-14 14:30:20
+[INFO]-[Thread: qtp2221396-27]-[com.fx.passform.common.CommonController.sendPass()]: 用户[yuelei.gao]  手机[12345678912]短信发送失败！
+
+2015-01-14 14:30:52
+[ERROR]-[Thread: qtp2221396-27]-[com.jfinal.core.ActionHandler.handle()]: /sendPass
+java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.String
+	at com.fx.passform.intercept.OperationLogInterceptor.intercept(OperationLogInterceptor.java:35)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+
+2015-01-14 14:31:55
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 14:31:55
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 14:31:55
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s4t0rp1rpf4v1|c2cf83, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s4t0rp1rpf4v1|c2cf83, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 14:32:04
+[INFO]-[Thread: qtp23984709-24]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 14:32:05
+[INFO]-[Thread: qtp23984709-21]-[com.fx.passform.common.CommonController.checkSms()]: 用户[yuelei.gao]验证码匹配失败
+
+2015-01-14 14:32:07
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 14:32:07 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=DD88BE78D091A68DF8607BE4109B6C5E
+
+2015-01-14 14:32:07
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 14:32:07 CST 2015 sendTemplateSMS Request body =  {"appId":"8a48b55148fe486001491cd639d41444","to":"12345678912","templateId":"1","datas":["990218","30"]}
+
+2015-01-14 14:32:28
+[ERROR]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-14 14:32:28
+[INFO]-[Thread: qtp23984709-23]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[990218] phone[12345678912] statusCode [172001]  error_message[网络错误]
+
+2015-01-14 14:32:28
+[INFO]-[Thread: qtp23984709-23]-[com.fx.passform.common.CommonController.sendPass()]: 用户[yuelei.gao]  手机[12345678912]短信发送失败！
+
+2015-01-14 14:32:41
+[ERROR]-[Thread: qtp23984709-23]-[com.jfinal.core.ActionHandler.handle()]: /sendPass
+java.lang.ClassCastException: java.lang.Boolean cannot be cast to java.lang.String
+	at com.fx.passform.intercept.OperationLogInterceptor.intercept(OperationLogInterceptor.java:35)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+
+2015-01-14 14:33:46
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 14:33:46
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 14:33:46
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s4ve761l2u8ih|1c5af2e, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s4ve761l2u8ih|1c5af2e, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 14:33:59
+[INFO]-[Thread: qtp21621663-21]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 14:34:00
+[INFO]-[Thread: qtp21621663-27]-[com.fx.passform.common.CommonController.checkSms()]: 用户[yuelei.gao]验证码匹配失败
+
+2015-01-14 14:34:03
+[INFO]-[Thread: qtp21621663-28]-[com.fx.passform.common.CommonController.sendPass()]: 用户[yuelei.gao]  手机[12345678912]验证码发送超过规定次数
+
+2015-01-14 14:34:09
+[ERROR]-[Thread: qtp21621663-28]-[com.jfinal.core.ActionHandler.handle()]: /sendPass
+java.lang.NullPointerException
+	at com.fx.passform.intercept.OperationLogInterceptor.intercept(OperationLogInterceptor.java:35)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+
+2015-01-14 14:34:20
+[INFO]-[Thread: qtp21621663-27]-[com.fx.passform.common.CommonController.checkSms()]: 用户[yuelei.gao]验证码匹配失败
+
+2015-01-14 14:34:46
+[INFO]-[Thread: qtp21621663-25]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 14:34:47
+[INFO]-[Thread: qtp21621663-23]-[com.fx.passform.common.CommonController.checkSms()]: 用户[xu02.xu]验证码匹配失败
+
+2015-01-14 14:34:49
+[INFO]-[Thread: pool-3-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 14:34:49 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=7DE52FA2AC57B2C64943E622C7EBCAD0
+
+2015-01-14 14:34:49
+[INFO]-[Thread: pool-3-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 14:34:49 CST 2015 sendTemplateSMS Request body =  {"appId":"8a48b55148fe486001491cd639d41444","to":"15621323221","templateId":"1","datas":["277260","30"]}
+
+2015-01-14 14:35:10
+[ERROR]-[Thread: pool-3-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-14 14:35:10
+[INFO]-[Thread: qtp21621663-27]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[277260] phone[15621323221] statusCode [172001]  error_message[网络错误]
+
+2015-01-14 14:35:10
+[INFO]-[Thread: qtp21621663-27]-[com.fx.passform.common.CommonController.sendPass()]: 用户[xu02.xu]  手机[15621323221]短信发送失败！
+
+2015-01-14 14:41:29
+[INFO]-[Thread: qtp21621663-21]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 14:41:30
+[INFO]-[Thread: qtp21621663-25]-[com.fx.passform.common.CommonController.checkSms()]: 用户[xu02.xu]验证码匹配失败
+
+2015-01-14 14:41:40
+[INFO]-[Thread: qtp21621663-21]-[com.fx.passform.common.CommonController.checkSms()]: 用户[xu02.xu]验证码匹配失败
+
+2015-01-14 14:41:49
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 14:41:49
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 14:41:49
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s55r28laozn7|1702c48, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s55r28laozn7|1702c48, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 14:41:57
+[INFO]-[Thread: qtp798740-24]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 14:41:58
+[INFO]-[Thread: qtp798740-25]-[com.fx.passform.common.CommonController.checkSms()]: 用户[xu02.xu]验证码匹配失败
+
+2015-01-14 14:42:00
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 14:42:00 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=7271057817B586B7F19A494013931186
+
+2015-01-14 14:42:00
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 14:42:00 CST 2015 sendTemplateSMS Request body =  {"appId":"8a48b55148fe486001491cd639d41444","to":"15621323221","templateId":"1","datas":["628794","30"]}
+
+2015-01-14 14:42:21
+[ERROR]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-14 14:42:21
+[INFO]-[Thread: qtp798740-23]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[628794] phone[15621323221] statusCode [172001]  error_message[网络错误]
+
+2015-01-14 14:42:21
+[INFO]-[Thread: qtp798740-23]-[com.fx.passform.common.CommonController.sendPass()]: 用户[xu02.xu]  手机[15621323221]短信发送失败！
+
+2015-01-14 14:45:56
+[INFO]-[Thread: qtp798740-24]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[512]
+
+2015-01-14 14:45:57
+[INFO]-[Thread: qtp798740-26]-[com.fx.passform.common.CommonController.checkSms()]: 用户[pingsheng.sha]验证码匹配失败
+
+2015-01-14 14:45:59
+[INFO]-[Thread: pool-3-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 14:45:59 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=507393C40916CDA3A4DC171E23B26AF4
+
+2015-01-14 14:45:59
+[INFO]-[Thread: pool-3-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 14:45:59 CST 2015 sendTemplateSMS Request body =  {"appId":"8a48b55148fe486001491cd639d41444","to":"18521334569","templateId":"1","datas":["292333","30"]}
+
+2015-01-14 14:46:20
+[ERROR]-[Thread: pool-3-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-14 14:46:20
+[INFO]-[Thread: qtp798740-25]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[292333] phone[18521334569] statusCode [172001]  error_message[网络错误]
+
+2015-01-14 14:46:20
+[INFO]-[Thread: qtp798740-25]-[com.fx.passform.common.CommonController.sendPass()]: 用户[pingsheng.sha]  手机[18521334569]短信发送失败！
+
+2015-01-14 14:46:48
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 14:46:49
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 14:46:49
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s5c69a1tu125f|f268de, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s5c69a1tu125f|f268de, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 14:47:02
+[INFO]-[Thread: qtp2221396-23]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[512]
+
+2015-01-14 14:47:04
+[INFO]-[Thread: qtp2221396-26]-[com.fx.passform.common.CommonController.checkSms()]: 用户[pingsheng.sha]验证码匹配失败
+
+2015-01-14 14:47:07
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 14:47:07 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=137E70507689BABE68AF5FCF7AD35BF6
+
+2015-01-14 14:47:07
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Wed Jan 14 14:47:07 CST 2015 sendTemplateSMS Request body =  {"appId":"8a48b55148fe486001491cd639d41444","to":"18521334569","templateId":"1","datas":["659386","30"]}
+
+2015-01-14 14:47:28
+[ERROR]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-14 14:47:28
+[INFO]-[Thread: qtp2221396-24]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[659386] phone[18521334569] statusCode [172001]  error_message[网络错误]
+
+2015-01-14 14:47:28
+[INFO]-[Thread: qtp2221396-24]-[com.fx.passform.common.CommonController.sendPass()]: 用户[pingsheng.sha]  手机[18521334569]短信发送失败！
+
+2015-01-14 14:49:04
+[INFO]-[Thread: qtp2221396-23]-[com.fx.passform.common.CommonController.checkSms()]: 用户[pingsheng.sha]验证码匹配失败
+
+2015-01-14 15:03:47
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 15:03:47
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 15:03:48
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s5y0cftmrv0d|c2cf83, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s5y0cftmrv0d|c2cf83, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 15:03:55
+[INFO]-[Thread: qtp23984709-25]-[com.fx.passform.common.CommonController.checkSms()]: 用户[pingsheng.sha]验证码匹配失败
+
+2015-01-14 15:04:02
+[INFO]-[Thread: qtp23984709-25]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[null]
+
+2015-01-14 15:04:06
+[INFO]-[Thread: qtp23984709-25]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[null]
+
+2015-01-14 15:04:11
+[INFO]-[Thread: qtp23984709-27]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[512]
+
+2015-01-14 15:04:17
+[INFO]-[Thread: qtp23984709-21]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[512]
+
+2015-01-14 15:04:18
+[INFO]-[Thread: qtp23984709-28]-[com.fx.passform.common.CommonController.checkSms()]: 用户[chao.lu]验证码匹配失败
+
+2015-01-14 15:04:21
+[INFO]-[Thread: qtp23984709-27]-[com.fx.passform.common.CommonController.sendPass()]: 用户[chao.lu]  手机[]短信发送失败！
+
+2015-01-14 15:13:05
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 15:13:05
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 15:13:05
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s69yd57qplmp|1c5af2e, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s69yd57qplmp|1c5af2e, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 16:10:53
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 16:10:53
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 16:10:53
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s8caco31556p|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s8caco31556p|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 16:11:11
+[INFO]-[Thread: qtp16032330-24]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 16:11:28
+[INFO]-[Thread: qtp16032330-19]-[com.fx.passform.common.CommonController.modifyPass()]: 用户[wensheng.du]密码修改成功
+
+2015-01-14 16:11:28
+[ERROR]-[Thread: qtp16032330-19]-[com.jfinal.core.ActionHandler.handle()]: /modifyPass
+java.lang.ClassCastException: java.lang.Boolean cannot be cast to java.lang.Integer
+	at com.fx.passform.intercept.OperationLogInterceptor.intercept(OperationLogInterceptor.java:35)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+
+2015-01-14 16:12:49
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 16:12:49
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 16:12:50
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s8escko4ayrj|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s8escko4ayrj|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 16:13:03
+[INFO]-[Thread: qtp13288040-25]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-14 16:13:15
+[INFO]-[Thread: qtp13288040-23]-[com.fx.passform.common.CommonController.modifyPass()]: 用户[wensheng.du]密码修改成功
+
+2015-01-14 16:35:08
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 16:35:08
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 16:35:08
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s97hbauz49ov|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s97hbauz49ov|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 16:35:41
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 16:35:41
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 16:35:41
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s986rdn99crd|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s986rdn99crd|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 16:52:04
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 16:52:05
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 16:52:05
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s9t9lk1y3dztg|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s9t9lk1y3dztg|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 16:55:10
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 16:55:10
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 16:55:11
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961s9x92l1adbahi|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961s9x92l1adbahi|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 16:58:58
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 16:58:58
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 16:58:59
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961sa24znfx91jc|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961sa24znfx91jc|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 17:08:32
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 17:08:32
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 17:08:32
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961saefmn1epv6z8|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961saefmn1epv6z8|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 17:11:21
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 17:11:21
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 17:11:22
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961sai29y1kyvg4n|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961sai29y1kyvg4n|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 17:15:36
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 17:15:36
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 17:15:36
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961saninbktkd0a|f268de, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961saninbktkd0a|f268de, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 17:21:02
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 17:21:02
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 17:21:02
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961saui8m16ysgdu|5f8172, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961saui8m16ysgdu|5f8172, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 17:21:08
+[ERROR]-[Thread: qtp30269696-25]-[com.jfinal.core.ActionHandler.handle()]: /loginCheck
+java.lang.ClassCastException: java.lang.String cannot be cast to com.jfinal.plugin.activerecord.Model
+	at com.fx.passform.intercept.AdminLogInterceptor.intercept(AdminLogInterceptor.java:18)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+
+2015-01-14 17:21:39
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 17:21:39
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 17:21:39
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961savav9amx4iq|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961savav9amx4iq|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 17:21:46
+[ERROR]-[Thread: qtp13288040-23]-[com.jfinal.core.ActionHandler.handle()]: /loginCheck
+java.lang.ClassCastException: java.lang.String cannot be cast to com.jfinal.plugin.activerecord.Model
+	at com.fx.passform.intercept.AdminLogInterceptor.intercept(AdminLogInterceptor.java:19)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+
+2015-01-14 17:22:21
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-14 17:22:21
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-14 17:22:21
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961saw6zm1qzljwr|5f8172, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961saw6zm1qzljwr|5f8172, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-14 17:22:25
+[ERROR]-[Thread: qtp16032330-22]-[com.jfinal.core.ActionHandler.handle()]: /loginCheck
+java.lang.ClassCastException: java.lang.String cannot be cast to com.jfinal.plugin.activerecord.Model
+	at com.fx.passform.intercept.AdminLogInterceptor.intercept(AdminLogInterceptor.java:19)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)

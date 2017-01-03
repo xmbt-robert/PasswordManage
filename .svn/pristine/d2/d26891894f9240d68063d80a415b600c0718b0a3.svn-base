@@ -1,0 +1,44 @@
+package com.fx.passform.util;
+
+import java.util.Random;
+
+/**
+ * 发送邮件和短信的工具类
+ * <p/>
+ * Created by fan.xu on 2014/10/20.
+ */
+public class SendUtil {
+
+    /**
+     * 根据用户名，产生随机数据4位，用于SMS验证码。
+     *
+     *
+     * @param username 用户名
+     * @return 随机码
+     */
+    public static int sendSMS(String username) {
+        int rInt;
+        Random rand = new Random();
+        do {
+            rInt = rand.nextInt(10000);
+        } while (rInt < 1000);
+
+        //根据用户名查找
+
+        return rInt;
+    }
+
+    /**
+     *
+     *
+     * @param username
+     * @return
+     */
+    public static int sendEmail(String username) {
+        return 0;
+    }
+
+
+    public static void main(String[] args) {
+    }
+}

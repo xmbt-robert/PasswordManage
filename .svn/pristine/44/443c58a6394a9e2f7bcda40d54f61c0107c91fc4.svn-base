@@ -1,0 +1,38 @@
+package com.fx.passform.util;
+
+import com.fx.passform.plugin.MailInfo;
+
+import java.util.concurrent.ExecutorService;
+
+/**
+ * Created by fan.xu on 2014/10/24.
+ */
+public class MailKit {
+
+    /**
+     * 邮件信息
+     */
+    private static MailInfo info;
+    /**
+     * 连接池
+     */
+    private static ExecutorService pool;
+
+    /**
+     * 初始化
+     *
+     * @param pool
+     */
+    public static void init(ExecutorService pool, MailInfo info) {
+        MailKit.pool = pool;
+        MailKit.info=info;
+    }
+
+    public static ExecutorService getPool() {
+        return pool;
+    }
+
+    public static MailInfo getInfo() {
+        return info;
+    }
+}

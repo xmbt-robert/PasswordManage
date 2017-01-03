@@ -1,0 +1,730 @@
+
+2014-12-30 08:42:00
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2014-12-30 08:42:03
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2014-12-30 08:42:03
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc9616cp9efi7ya7g|110fe28, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc9616cp9efi7ya7g|110fe28, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.191.3:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2014-12-30 08:42:23
+[WARN]-[Thread: Timer-1]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@18c74 -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+
+2014-12-30 08:42:23
+[WARN]-[Thread: Timer-1]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@18c74 -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 3
+	Active Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6779e6 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@174219d (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@14ae2c1 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0)
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@16d2702
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@11c2b67
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@659db7
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1556d12
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@16be68f
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@edf389
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@fced4
+Pool thread stack traces:
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+
+
+2014-12-30 08:42:32
+[WARN]-[Thread: com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@174219d -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor4.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+2014-12-30 08:42:32
+[WARN]-[Thread: com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@14ae2c1 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor4.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+2014-12-30 08:42:32
+[WARN]-[Thread: com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6779e6 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor4.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+2014-12-30 08:42:32
+[ERROR]-[Thread: main]-[com.jfinal.core.Config.startPlugins()]: Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+com.jfinal.plugin.activerecord.ActiveRecordException: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:48)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:171)
+	at com.jfinal.core.Config.startPlugins(Config.java:85)
+	at com.jfinal.core.Config.configJFinal(Config.java:48)
+	at com.jfinal.core.JFinal.init(JFinal.java:67)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:120)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:64)
+	at com.jfinal.core.JFinal.start(JFinal.java:159)
+	at com.fx.passform.PassFormServer.main(PassFormServer.java:119)
+Caused by: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:106)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:529)
+	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:128)
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:36)
+	... 20 more
+Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
+	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1319)
+	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:557)
+	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:477)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:525)
+	... 22 more
+
+2014-12-30 08:43:04
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2014-12-30 08:43:05
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2014-12-30 08:43:05
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc9616cqmq51qgrtal|15ac3c9, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc9616cqmq51qgrtal|15ac3c9, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2014-12-30 09:11:58
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2014-12-30 09:11:58
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2014-12-30 09:11:58
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc9616drshkzi5eki|15ac3c9, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc9616drshkzi5eki|15ac3c9, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.191.3:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2014-12-30 09:12:18
+[WARN]-[Thread: Timer-1]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@1a897a9 -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+
+2014-12-30 09:12:18
+[WARN]-[Thread: Timer-1]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@1a897a9 -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 3
+	Active Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@90832e (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1947496 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1724a9d (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1)
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@80cac9
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@18166e5
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@8a548b
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1b4a74b
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@15356d5
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@69d02b
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@e1eea8
+Pool thread stack traces:
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+
+
+2014-12-30 09:12:28
+[WARN]-[Thread: com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1724a9d -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor5.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+2014-12-30 09:12:28
+[ERROR]-[Thread: main]-[com.jfinal.core.Config.startPlugins()]: Plugin start error: com.jfinal.plugin.activerecord.ActiveRecordPlugin. 
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+com.jfinal.plugin.activerecord.ActiveRecordException: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:48)
+	at com.jfinal.plugin.activerecord.ActiveRecordPlugin.start(ActiveRecordPlugin.java:171)
+	at com.jfinal.core.Config.startPlugins(Config.java:85)
+	at com.jfinal.core.Config.configJFinal(Config.java:48)
+	at com.jfinal.core.JFinal.init(JFinal.java:67)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:49)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:277)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:120)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:64)
+	at com.jfinal.core.JFinal.start(JFinal.java:159)
+	at com.fx.passform.PassFormServer.main(PassFormServer.java:119)
+Caused by: java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:106)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:529)
+	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:128)
+	at com.jfinal.plugin.activerecord.TableBuilder.build(TableBuilder.java:36)
+	... 20 more
+Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
+	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1319)
+	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:557)
+	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:477)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:525)
+	... 22 more
+
+2014-12-30 09:12:28
+[WARN]-[Thread: com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@90832e -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor5.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+2014-12-30 09:12:28
+[WARN]-[Thread: com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1947496 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor5.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+2014-12-30 09:12:48
+[WARN]-[Thread: Task-Thread-for-com.mchange.v2.async.ThreadPerTaskAsynchronousRunner@36527f]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@80cac9 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor5.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+
+2014-12-30 09:12:48
+[WARN]-[Thread: Task-Thread-for-com.mchange.v2.async.ThreadPerTaskAsynchronousRunner@36527f]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@18166e5 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor5.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+
+2014-12-30 09:12:48
+[WARN]-[Thread: Task-Thread-for-com.mchange.v2.async.ThreadPerTaskAsynchronousRunner@36527f]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@8a548b -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor5.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+
+2014-12-30 09:12:48
+[WARN]-[Thread: Task-Thread-for-com.mchange.v2.async.ThreadPerTaskAsynchronousRunner@36527f]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@69d02b -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor5.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+
+2014-12-30 09:12:48
+[WARN]-[Thread: Task-Thread-for-com.mchange.v2.async.ThreadPerTaskAsynchronousRunner@36527f]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@15356d5 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor5.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+
+2014-12-30 09:12:48
+[WARN]-[Thread: Task-Thread-for-com.mchange.v2.async.ThreadPerTaskAsynchronousRunner@36527f]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@e1eea8 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor5.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+
+2014-12-30 09:12:48
+[WARN]-[Thread: Task-Thread-for-com.mchange.v2.async.ThreadPerTaskAsynchronousRunner@36527f]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1b4a74b -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor5.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+
+2014-12-30 09:12:58
+[WARN]-[Thread: com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@e45b5e -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor5.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+2014-12-30 09:12:58
+[WARN]-[Thread: com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@28305d -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor5.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+2014-12-30 09:12:58
+[WARN]-[Thread: com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1]-[com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run()]: com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@acdd02 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+java.sql.SQLException: null,  message from server: "Host '172.17.168.156' is not allowed to connect to this MySQL server"
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1073)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:987)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:982)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1136)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.GeneratedConstructorAccessor5.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+2014-12-30 09:13:18
+[WARN]-[Thread: Timer-1]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@1a897a9 -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+
+2014-12-30 09:13:18
+[WARN]-[Thread: Timer-1]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@1a897a9 -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 3
+	Active Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6c1a82 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1408a92 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@4977e2 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1)
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@15db13f
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1fc1a6
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@e29820
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@718242
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1ec58a
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@3afb99
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@5c3987
+Pool thread stack traces:
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1,5,main]
+		java.lang.Thread.sleep(Native Method)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+
+
+2014-12-30 09:13:52
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2014-12-30 09:13:52
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2014-12-30 09:13:52
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc9616du7xp1jcv0w9|87c268, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc9616du7xp1jcv0w9|87c268, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2014-12-30 11:12:09
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2014-12-30 11:12:09
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2014-12-30 11:12:09
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc9616i2c3nr22zkh|1ebd75b, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc9616i2c3nr22zkh|1ebd75b, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2014-12-30 14:46:03
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2014-12-30 14:46:03
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2014-12-30 14:46:03
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc9616ppf0eiuuag|7f8062, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc9616ppf0eiuuag|7f8062, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2014-12-30 15:19:01
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2014-12-30 15:19:01
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2014-12-30 15:19:02
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc9616qvtoc13i39pk|15ac3c9, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc9616qvtoc13i39pk|15ac3c9, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2014-12-30 15:28:14
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2014-12-30 15:28:14
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2014-12-30 15:28:14
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc9616r7o081rhw9b6|7f8062, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc9616r7o081rhw9b6|7f8062, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2014-12-30 15:47:54
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2014-12-30 15:47:54
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2014-12-30 15:47:54
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc9616rwyl0p1oyn5|7f8062, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc9616rwyl0p1oyn5|7f8062, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2014-12-30 16:04:08
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2014-12-30 16:04:08
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2014-12-30 16:04:08
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc9616shtsdcdlo64|1adb7b8, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc9616shtsdcdlo64|1adb7b8, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2014-12-30 16:10:55
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2014-12-30 16:10:55
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2014-12-30 16:10:55
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc9616sqjwxb68unj|6127da, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc9616sqjwxb68unj|6127da, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2014-12-30 16:18:04
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2014-12-30 16:18:04
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2014-12-30 16:18:04
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc9616szrch1thpnld|80d1ff, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc9616szrch1thpnld|80d1ff, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2014-12-30 16:43:05
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2014-12-30 16:43:06
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2014-12-30 16:43:06
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc9616tvxq3utda2h|7f8062, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc9616tvxq3utda2h|7f8062, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]

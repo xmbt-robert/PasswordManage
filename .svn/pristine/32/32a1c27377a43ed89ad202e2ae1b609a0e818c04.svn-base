@@ -1,0 +1,24 @@
+package com.fx.passform.util;
+
+import java.util.Hashtable;
+
+/**
+ * Created by fan.xu on 2014/10/23.
+ */
+public class LdapKit {
+
+    private static Hashtable env;
+
+    /**
+     * 初始化
+     *
+     * @param env
+     */
+    public static void init(Hashtable env) {
+        LdapKit.env = env;
+    }
+
+    public static Hashtable getEnv() {
+        return env;
+    }
+}

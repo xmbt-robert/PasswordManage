@@ -1,0 +1,211 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Pragma" content="-1"/>
+    <link href="../css/common.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="../js/jquery.min_1.7.2.js"></script>
+    <script src="../js/layer.min.js"></script>
+    <script src="../js/manage_systemset.js"></script>
+    <link type="text/css" rel="stylesheet" href="../css/fonts/font-awesome.css"/> 
+    <link type="text/css" rel="stylesheet" href="../css/fonts/fontface.css"/>
+    <script src="../js/jquery.easyui.min.js"></script>
+    <script src="../js/easyui-lang-zh_CN.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/datagrid_css/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/datagrid_css/icon.css"/>
+    <title>自助密码服务平台-验证码查询</title>
+    <style type="text/css">
+        #fm{
+            margin:0;
+            padding:10px 30px;
+        }
+        .ftitle{
+            font-size:14px;
+            font-weight:bold;
+            padding:5px 0;
+            margin-bottom:10px;
+            border-bottom:1px solid #ccc;
+        }
+        .fitem{
+            margin-bottom:5px;
+        }
+        .fitem label{
+            display:inline-block;
+            width:80px;
+        }
+        .fitem input{
+            width:160px;
+        }
+    </style>
+    <script type="text/javascript">
+     $(function(){
+    	loadAuthCodeAbnormalDatagrid();
+    }); 
+        function setTab(name, cursel, n) {
+            for (i=1; i <= n; i++) {
+                var menu = document.getElementById(name + i);
+                var con = document.getElementById("con_" + name + "_" + i);
+                menu.className = i == cursel ? "hover" : "";
+                con.style.display = i == cursel ? "block" : "none";
+                if(i==6){
+                	$('#authCodeAbnormal-datagrid').datagrid("reload");
+                }
+            }
+        }
+        function loadAuthCodeAbnormalDatagrid(){
+        	$('#authCodeAbnormal-datagrid').datagrid({   
+    		    url:'/systemSetData',  
+    		    title:'验证码异常列表',
+    		    width: 1000,
+				height: 200,
+    		    pagination:true,   
+    		    pageSize:5,   
+    		    pageNumber:1, 
+    		    pageList:[5,10,15,20,25,30],
+    		    singleSelect:true,//是否单选  
+    		    rownumbers:true,//行号
+    		});  
+        }
+    	
+	</script>
+</head>
+
+<body>
+<div class="main">
+    <div class="content">
+        <div class="content_manage">
+            <div class="sys_set">
+                <div class="menubox">
+                    <ul>
+                        <li id="listone1" onclick="setTab('listone',1,6)" class="hover">AD服务</li>
+                        <li id="listone2" onclick="setTab('listone',2,6)">短信网关</li>
+                        <li id="listone3" onclick="setTab('listone',3,6)">邮箱设置</li>
+                        <li id="listone4" onclick="setTab('listone',4,6)">发送时间设置</li>
+                        <li id="listone5" onclick="setTab('listone',5,6)">审计设置</li>
+                        <li id="listone6" onclick="setTab('listone',6,6)">验证码异常报表</li>
+                    </ul>
+                </div>
+                <div class="contentbox">
+                    <div id="con_listone_1" class="hover">
+                        <ul class="tab_cont">
+                            <li class="tab_txt">IP<br/><input type="text"/></li>
+                            <li class="tab_txt">Port<br/><input type="text"/></li>
+                            <li class="tab_txt">用户名<br/><input type="text"/></li>
+                            <li class="tab_txt">密码<br/><input type="text"/></li>
+                        </ul>
+                        <div class="oper_but" style="text-align:center; margin:30px 0">
+                        <input type="button" class="operate" value="修改"/>
+                        <input type="button" class="cancel" value="重置"/></div>
+                    </div>
+                    <div id="con_listone_2" style="display:none">
+                        <ul class="tab_cont">
+                            <li class="tab_txt">IP<br/><input type="text"/></li>
+                            <li class="tab_txt">Port<br/><input type="text"/></li>
+                            <li class="tab_txt">用户名<br/><input type="text"/></li>
+                            <li class="tab_txt">密码<br/><input type="text"/></li>
+                        </ul>
+                        <div class="oper_but" style="text-align:center; margin:30px 0">
+                        <input type="button" class="operate" value="修改"/>
+                        <input type="button" class="cancel" value="重置"/></div>
+                    </div>
+                    <div id="con_listone_3" style="display:none">
+                        <ul class="tab_cont">
+                            <li class="tab_txt">IP<br/><input type="text"/></li>
+                            <li class="tab_txt">Port<br/><input type="text"/></li>
+                            <li class="tab_txt">用户名<br/><input type="text"/></li>
+                            <li class="tab_txt">密码<br/><input type="text"/></li>
+                        </ul>
+                        <div class="oper_but" style="text-align:center; margin:30px 0">
+                        <input type="button" class="operate" value="修改"/>
+                        <input type="button" class="cancel" value="重置"/></div>
+                    </div>
+                    <div id="con_listone_4" style="display:none">
+                        <table class="set_table">
+                            <tr>
+                                <td width="50%" style="border-right:1px solid #dcdcdc">
+                                    <div class="set_cont">
+                                        <span class="set_txt"><img
+                                                src="../images/icon_phone.png"/><label>短信发送间隔时间<br/><input type="text" id="message_time"/>&nbsp;&nbsp;分</label></span>
+
+                                        <div class="oper_but" style="text-align:center; margin:30px 0">
+                                        <input type="button" class="message_operate" value="修改"/>
+                                        <input type="button" class="cancel" value="重置"/></div>
+                                    </div>
+                                </td>
+                                <td width="50%">
+                                    <div class="set_cont">
+                                        <span class="set_txt"><img
+                                                src="../images/icon_email.png"/><label>邮件发送间隔时间<br/><input type="text"  id="email_time"/>&nbsp;&nbsp;分</label></span>
+
+                                        <div class="oper_but" style="text-align:center; margin:30px 0">
+                                        		<input type="button" class="email_operate" value="修改"/>
+                                                <input type="button" class="cancel" value="重置"/></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="con_listone_5" style="display:none">
+                        <ul class="tab_cont">
+                            <li class="tab_txt">条件设置<br/>
+                            	<div class="select_box">
+                                <select name="choose" id="choose" style="width: 200px;height: 32px">
+                                    <option value="0" selected="selected">--请选择--</option>
+                                    <option value="1">IP地址和用户</option>
+                                    <option value="2">IP地址</option>
+                                    <option value="3">用户</option>
+                                </select>
+                                </div>
+                            </li>
+                            <li class="tab_txt">失败次数<br/>
+                                <div class="select_box"><input type="text" class="failCount" id="failCount"/></div>
+                            </li>
+                            <li class="tab_txt">锁定时间（分钟）<br/><input type="text" class="lockTime" id="lockTime"/></li>
+                        </ul>
+                        <div class="oper_but" style="text-align:center; margin:30px 0">
+                        <input type="button" class="audit_operate" value="修改"/>
+                        <input type="button" class="cancel" value="重置"/></div>
+                    </div>
+                    <div id="con_listone_6" style="display:none;">
+                    <table class="result_table" id="result_table">
+	                    <!-- <thead>
+	                    <tr>
+	                        <th colspan="6"><span class="icon_span"><i class="icon-list"></i></span>验证码异常列表</th>
+	                    </tr>
+	                    </thead> -->
+	                    <tbody>
+	                      <tr>
+	                        <td>
+	                          <table id="authCodeAbnormal-datagrid" class="easyui-datagrid" >
+								<thead>
+									<tr>
+										<th field="IP" width="15%" align="center">IP</th>
+										<th field="userName" width="15%" align="center">用户名</th>
+										<th field="sendCount" width="15%" align="center">发送次数</th>
+										<th field="failCount" width="15%" align="center">失败次数</th>
+										<th field="operateTime" width="20%" align="center">操作时间</th>
+										<th field="lockStatus" formatter="lockStatusFormatter" width="15%" align="center">状态</th>
+									</tr>
+								</thead>
+						      </table>
+	                        </td>
+	                      </tr>
+						</tbody>
+                      </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="foot">版权所有 © 上海斐讯数据通信技术有限公司 2008-2013</div>
+</div>
+<!--弹出窗口 start-->
+<div class="window_bg"></div>
+<div class="window_cont" id="window_cont"></div>
+<!--弹出窗口 end-->
+</body>
+</html>

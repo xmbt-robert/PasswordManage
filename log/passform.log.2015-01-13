@@ -1,0 +1,1099 @@
+
+2015-01-13 16:21:32
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 16:21:33
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 16:21:33
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961qta5bgbnjy1u|162dbb6, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961qta5bgbnjy1u|162dbb6, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 16:21:47
+[ERROR]-[Thread: qtp20929799-24]-[com.jfinal.core.ActionHandler.handle()]: /authCodeAbnormalSearch
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:235)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:275)
+	at com.fx.passform.model.LockStatus.findResult(LockStatus.java:148)
+	at com.fx.passform.common.CommonController.authCodeAbnormalSearch(CommonController.java:345)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.fx.passform.intercept.AuthInterceptor.intercept(AuthInterceptor.java:16)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2683)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2144)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2310)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:436)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:267)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:233)
+	... 35 more
+
+2015-01-13 16:21:47
+[ERROR]-[Thread: qtp20929799-25]-[com.jfinal.core.ActionHandler.handle()]: /authCodeAbnormalSearch
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:235)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:275)
+	at com.fx.passform.model.LockStatus.findResult(LockStatus.java:148)
+	at com.fx.passform.common.CommonController.authCodeAbnormalSearch(CommonController.java:345)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.fx.passform.intercept.AuthInterceptor.intercept(AuthInterceptor.java:16)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2683)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2144)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2310)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:436)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:267)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:233)
+	... 35 more
+
+2015-01-13 16:21:49
+[ERROR]-[Thread: qtp20929799-23]-[com.jfinal.core.ActionHandler.handle()]: /authCodeAbnormalSearch
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:235)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:275)
+	at com.fx.passform.model.LockStatus.findResult(LockStatus.java:148)
+	at com.fx.passform.common.CommonController.authCodeAbnormalSearch(CommonController.java:345)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.fx.passform.intercept.AuthInterceptor.intercept(AuthInterceptor.java:16)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2683)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2144)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2310)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:436)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:267)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:233)
+	... 35 more
+
+2015-01-13 16:21:49
+[ERROR]-[Thread: qtp20929799-19]-[com.jfinal.core.ActionHandler.handle()]: /authCodeAbnormalSearch
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:235)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:275)
+	at com.fx.passform.model.LockStatus.findResult(LockStatus.java:148)
+	at com.fx.passform.common.CommonController.authCodeAbnormalSearch(CommonController.java:345)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.fx.passform.intercept.AuthInterceptor.intercept(AuthInterceptor.java:16)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2683)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2144)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2310)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:436)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:267)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:233)
+	... 35 more
+
+2015-01-13 16:21:55
+[ERROR]-[Thread: qtp20929799-22]-[com.jfinal.core.ActionHandler.handle()]: /authCodeAbnormalSearch
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:235)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:275)
+	at com.fx.passform.model.LockStatus.findResult(LockStatus.java:148)
+	at com.fx.passform.common.CommonController.authCodeAbnormalSearch(CommonController.java:345)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.fx.passform.intercept.AuthInterceptor.intercept(AuthInterceptor.java:16)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2683)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2144)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2310)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:436)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:267)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:233)
+	... 35 more
+
+2015-01-13 16:21:57
+[ERROR]-[Thread: qtp20929799-23]-[com.jfinal.core.ActionHandler.handle()]: /authCodeAbnormalSearch
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:235)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:275)
+	at com.fx.passform.model.LockStatus.findResult(LockStatus.java:148)
+	at com.fx.passform.common.CommonController.authCodeAbnormalSearch(CommonController.java:345)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.fx.passform.intercept.AuthInterceptor.intercept(AuthInterceptor.java:16)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2683)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2144)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2310)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:436)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:267)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:233)
+	... 35 more
+
+2015-01-13 16:22:02
+[ERROR]-[Thread: qtp20929799-21]-[com.jfinal.core.ActionHandler.handle()]: /authCodeAbnormalSearch
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:235)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:275)
+	at com.fx.passform.model.LockStatus.findResult(LockStatus.java:148)
+	at com.fx.passform.common.CommonController.authCodeAbnormalSearch(CommonController.java:345)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.fx.passform.intercept.AuthInterceptor.intercept(AuthInterceptor.java:16)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2683)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2144)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2310)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:436)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:267)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:233)
+	... 35 more
+
+2015-01-13 16:22:02
+[ERROR]-[Thread: qtp20929799-19]-[com.jfinal.core.ActionHandler.handle()]: /authCodeAbnormalSearch
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:235)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:275)
+	at com.fx.passform.model.LockStatus.findResult(LockStatus.java:148)
+	at com.fx.passform.common.CommonController.authCodeAbnormalSearch(CommonController.java:345)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:55)
+	at com.fx.passform.intercept.AuthInterceptor.intercept(AuthInterceptor.java:16)
+	at com.jfinal.core.ActionInvocation.invoke(ActionInvocation.java:51)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:73)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by id desc limit 0, 5' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2683)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2144)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2310)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:436)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:267)
+	at com.jfinal.plugin.activerecord.Model.paginate(Model.java:233)
+	... 35 more
+
+2015-01-13 16:22:55
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 16:22:55
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 16:22:56
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961qtbx9l1v2culr|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961qtbx9l1v2culr|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 16:46:58
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 16:46:58
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 16:46:58
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961qu6uc01c6mjaq|f268de, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961qu6uc01c6mjaq|f268de, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 16:47:09
+[INFO]-[Thread: qtp22485234-26]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-13 16:47:10
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Tue Jan 13 16:47:10 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=FB283D9A04656AD08E7DDD97884F1AC8
+
+2015-01-13 16:47:10
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Tue Jan 13 16:47:10 CST 2015 sendTemplateSMS Request body =  {"appId":"8a48b55148fe486001491cd639d41444","to":"15618533436","templateId":"1","datas":["450298","30"]}
+
+2015-01-13 16:47:13
+[INFO]-[Thread: qtp22485234-28]-[com.fx.passform.common.CommonController.checkSms()]: 用户[bingyang.ma]验证码匹配失败
+
+2015-01-13 16:47:35
+[ERROR]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-13 16:47:35
+[INFO]-[Thread: qtp22485234-24]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[450298] phone[15618533436] statusCode [172001]  error_message[网络错误]
+
+2015-01-13 16:47:35
+[INFO]-[Thread: qtp22485234-24]-[com.fx.passform.common.CommonController.sendPass()]: 用户[bingyang.ma]  手机[15618533436]短信发送失败！
+
+2015-01-13 16:51:01
+[INFO]-[Thread: qtp22485234-26]-[com.fx.passform.common.CommonController.checkSms()]: 用户[bingyang.ma]验证码匹配失败
+
+2015-01-13 21:37:33
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 21:37:33
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 21:37:33
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r4kjey1w85c7j|362f0d54, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r4kjey1w85c7j|362f0d54, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 21:37:53
+[WARN]-[Thread: Timer-1]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@9706da8 -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+
+2015-01-13 21:37:53
+[WARN]-[Thread: Timer-1]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@9706da8 -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 3
+	Active Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@75d252d (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@7433b121 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6db22920 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0)
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@4baa2c23
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1137d4a4
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@686963d0
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@5f18223d
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@29700391
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@78fa39d7
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@73eb904d
+Pool thread stack traces:
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2,5,main]
+		java.net.SocketInputStream.socketRead0(Native Method)
+		java.net.SocketInputStream.read(SocketInputStream.java:129)
+		com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:114)
+		com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:161)
+		com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:189)
+		com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:3036)
+		com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3489)
+		com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3478)
+		com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4019)
+		com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+		com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+		com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2677)
+		com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2627)
+		com.mysql.jdbc.StatementImpl.executeQuery(StatementImpl.java:1556)
+		com.mysql.jdbc.ConnectionImpl.buildCollationMapping(ConnectionImpl.java:962)
+		com.mysql.jdbc.ConnectionImpl.initializePropsFromServer(ConnectionImpl.java:3451)
+		com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2443)
+		com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+		com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+		com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+		sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+		sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+		sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+		java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+		com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+		com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1,5,main]
+		java.net.SocketInputStream.socketRead0(Native Method)
+		java.net.SocketInputStream.read(SocketInputStream.java:129)
+		com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:114)
+		com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:161)
+		com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:189)
+		com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:3036)
+		com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3489)
+		com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3478)
+		com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4019)
+		com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:951)
+		com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1717)
+		com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1276)
+		com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2395)
+		com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+		com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+		com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+		com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+		sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+		sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+		sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+		java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+		com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+		com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0,5,main]
+		java.net.SocketInputStream.socketRead0(Native Method)
+		java.net.SocketInputStream.read(SocketInputStream.java:129)
+		com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:114)
+		com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:161)
+		com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:189)
+		com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:3036)
+		com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3489)
+		com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:3478)
+		com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4019)
+		com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+		com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+		com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2677)
+		com.mysql.jdbc.ConnectionImpl.configureClientCharacterSet(ConnectionImpl.java:1977)
+		com.mysql.jdbc.ConnectionImpl.initializePropsFromServer(ConnectionImpl.java:3541)
+		com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2443)
+		com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+		com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+		com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+		sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+		sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+		sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+		java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+		com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+		com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+
+
+2015-01-13 21:38:38
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 21:38:38
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 21:38:39
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r4lxvt1fmw56h|6e9b86ea, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r4lxvt1fmw56h|6e9b86ea, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 21:39:04
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 21:39:04
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 21:39:05
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r4mhzahp8itu|17db8f8e, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r4mhzahp8itu|17db8f8e, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 21:46:55
+[WARN]-[Thread: Timer-5]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@3e1c436b -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+
+2015-01-13 21:46:55
+[WARN]-[Thread: Timer-5]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@3e1c436b -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 3
+	Active Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@94ac7e0 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@c8847e4 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@4727d029 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2)
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6d3583e
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1d4651f2
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@73adf5e1
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@21e9c21c
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@79c6cda8
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6ae80f0d
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@29345550
+Pool thread stack traces:
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0,5,main]
+		java.net.PlainSocketImpl.socketConnect(Native Method)
+		java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:351)
+		java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:213)
+		java.net.PlainSocketImpl.connect(PlainSocketImpl.java:200)
+		java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+		java.net.Socket.connect(Socket.java:529)
+		java.net.Socket.connect(Socket.java:478)
+		java.net.Socket.<init>(Socket.java:375)
+		java.net.Socket.<init>(Socket.java:218)
+		com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:257)
+		com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:298)
+		com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2391)
+		com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+		com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+		com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+		com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+		sun.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+		sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+		java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+		com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+		com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1,5,main]
+		java.net.PlainSocketImpl.socketConnect(Native Method)
+		java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:351)
+		java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:213)
+		java.net.PlainSocketImpl.connect(PlainSocketImpl.java:200)
+		java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+		java.net.Socket.connect(Socket.java:529)
+		java.net.Socket.connect(Socket.java:478)
+		java.net.Socket.<init>(Socket.java:375)
+		java.net.Socket.<init>(Socket.java:218)
+		com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:257)
+		com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:298)
+		com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2391)
+		com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+		com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+		com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+		com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+		sun.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+		sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+		java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+		com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+		com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2,5,main]
+		java.net.PlainSocketImpl.socketConnect(Native Method)
+		java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:351)
+		java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:213)
+		java.net.PlainSocketImpl.connect(PlainSocketImpl.java:200)
+		java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+		java.net.Socket.connect(Socket.java:529)
+		java.net.Socket.connect(Socket.java:478)
+		java.net.Socket.<init>(Socket.java:375)
+		java.net.Socket.<init>(Socket.java:218)
+		com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:257)
+		com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:298)
+		com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2391)
+		com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+		com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+		com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+		com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+		sun.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+		sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+		java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+		com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+		com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+
+
+2015-01-13 21:47:41
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 21:47:41
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 21:47:42
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r4xks632voax|50d17ec3, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r4xks632voax|50d17ec3, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 21:48:02
+[WARN]-[Thread: Timer-1]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@6986dda3 -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+
+2015-01-13 21:48:02
+[WARN]-[Thread: Timer-1]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@6986dda3 -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 3
+	Active Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6a510e39 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6f7cf6b6 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@75295fe8 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0)
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@6f57b46f
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@67071c84
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@3e152f4
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@3e0d1329
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@4c650892
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@7d15d06c
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@2326a29c
+Pool thread stack traces:
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1,5,main]
+		java.net.PlainSocketImpl.socketConnect(Native Method)
+		java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:351)
+		java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:213)
+		java.net.PlainSocketImpl.connect(PlainSocketImpl.java:200)
+		java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+		java.net.Socket.connect(Socket.java:529)
+		java.net.Socket.connect(Socket.java:478)
+		java.net.Socket.<init>(Socket.java:375)
+		java.net.Socket.<init>(Socket.java:218)
+		com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:257)
+		com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:298)
+		com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2391)
+		com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+		com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+		com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+		com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+		sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+		sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+		sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+		java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+		com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+		com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2,5,main]
+		java.net.PlainSocketImpl.socketConnect(Native Method)
+		java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:351)
+		java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:213)
+		java.net.PlainSocketImpl.connect(PlainSocketImpl.java:200)
+		java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+		java.net.Socket.connect(Socket.java:529)
+		java.net.Socket.connect(Socket.java:478)
+		java.net.Socket.<init>(Socket.java:375)
+		java.net.Socket.<init>(Socket.java:218)
+		com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:257)
+		com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:298)
+		com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2391)
+		com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+		com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+		com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+		com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+		sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+		sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+		sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+		java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+		com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+		com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0,5,main]
+		java.net.PlainSocketImpl.socketConnect(Native Method)
+		java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:351)
+		java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:213)
+		java.net.PlainSocketImpl.connect(PlainSocketImpl.java:200)
+		java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+		java.net.Socket.connect(Socket.java:529)
+		java.net.Socket.connect(Socket.java:478)
+		java.net.Socket.<init>(Socket.java:375)
+		java.net.Socket.<init>(Socket.java:218)
+		com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:257)
+		com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:298)
+		com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2391)
+		com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2428)
+		com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2213)
+		com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:797)
+		com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+		sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+		sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+		sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+		java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+		com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+		com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:389)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:305)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:134)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+
+
+2015-01-13 21:52:17
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 21:52:17
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 21:52:17
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r53hj81mp2v74|205ddb6e, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r53hj81mp2v74|205ddb6e, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:05:30
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:05:30
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:05:30
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r5kh8x1wbes39|2986e62, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r5kh8x1wbes39|2986e62, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:07:29
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:07:29
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:07:29
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r5n10216fekv1|24b2714a, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r5n10216fekv1|24b2714a, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:16:20
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:16:20
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:16:20
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r5yeog3r45vl|b518883, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r5yeog3r45vl|b518883, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:17:59
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:17:59
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:17:59
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r60j3a19td5af|36c1fc67, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r60j3a19td5af|36c1fc67, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:27:32
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:27:32
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:27:32
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r6ctoer3rg1j|4470a4a6, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r6ctoer3rg1j|4470a4a6, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:32:40
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:32:40
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:32:40
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r6jet6jo15ma|17dde417, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r6jet6jo15ma|17dde417, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:32:59
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:32:59
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:32:59
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r6jtypuk3h2w|358e0f79, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r6jtypuk3h2w|358e0f79, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:33:40
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:33:40
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:33:40
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r6kpdy15z6ek2|3bb3236f, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r6kpdy15z6ek2|3bb3236f, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:34:40
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:34:40
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:34:40
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r6lzhsv7u0sk|307c824e, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r6lzhsv7u0sk|307c824e, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:34:54
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:34:54
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:34:55
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r6maubgxgxnw|3ad3ac1, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r6maubgxgxnw|3ad3ac1, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:35:11
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:35:11
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:35:12
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r6mnx0wtveut|45fe425, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r6mnx0wtveut|45fe425, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:35:49
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:35:49
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:35:49
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r6nh291vzxpzk|cc65ec, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r6nh291vzxpzk|cc65ec, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:40:00
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:40:00
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:40:01
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r6suz91rtqrbk|5a7226e3, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r6suz91rtqrbk|5a7226e3, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:40:30
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:40:30
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:40:30
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r6thxqab2q8t|7a168f39, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r6thxqab2q8t|7a168f39, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 22:40:50
+[WARN]-[Thread: Timer-29]-[com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector.run()]: com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@6f0bc962 -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+
+2015-01-13 22:59:20
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 22:59:20
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 22:59:20
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r7hpij1nqwbjs|4b142196, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r7hpij1nqwbjs|4b142196, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 23:03:22
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 23:03:22
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 23:03:22
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r7mwdnlq7kit|5f8598ed, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r7mwdnlq7kit|5f8598ed, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 23:04:09
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-13 23:04:09
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-13 23:04:09
+[INFO]-[Thread: JFinal-Scanner]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgf7r5961r7nwujkh13fs|613c931b, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgf7r5961r7nwujkh13fs|613c931b, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-13 23:13:44
+[INFO]-[Thread: qtp1422652174-20]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-13 23:14:49
+[INFO]-[Thread: qtp1422652174-22]-[com.fx.passform.common.CommonController.modifyPass()]: 用户[chen.wang]密码修改失败

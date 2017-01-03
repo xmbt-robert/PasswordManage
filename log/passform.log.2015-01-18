@@ -1,0 +1,161 @@
+
+2015-01-18 00:00:00
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[127.0.0.1] user[chen.wang]
+
+2015-01-18 00:00:00
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[140.207.92.139] user[bingyang.ma]
+
+2015-01-18 00:00:00
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[180.152.114.185] user[zhenying.qian]
+
+2015-01-18 00:00:01
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[172.17.108.183] user[fen.zhang]
+
+2015-01-18 00:00:01
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[172.17.168.156] user[bingyang.ma]
+
+2015-01-18 00:00:02
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[172.17.48.35] user[tao.peng]
+
+2015-01-18 00:00:02
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[116.54.101.163] user[yongkun.wang]
+
+2015-01-18 00:00:02
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[172.18.42.66] user[tao.peng]
+
+2015-01-18 00:00:03
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[172.17.48.146] user[lei.zhou]
+
+2015-01-18 00:00:03
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[180.166.157.142] user[zexiang.shi]
+
+2015-01-18 00:00:04
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[127.0.0.1] user[san.xiao]
+
+2015-01-18 00:00:04
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[127.0.0.1] user[er.xiao01]
+
+2015-01-18 00:00:04
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[172.17.168.160] user[bingyang.ma]
+
+2015-01-18 00:00:05
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[172.17.168.160] user[zhibing.xie]
+
+2015-01-18 00:00:05
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[127.0.0.1] user[wensheng.du]
+
+2015-01-18 00:00:05
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[127.0.0.1] user[yuelei.gao]
+
+2015-01-18 00:00:06
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[127.0.0.1] user[xu02.xu]
+
+2015-01-18 00:00:06
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[127.0.0.1] user[pingsheng.sha]
+
+2015-01-18 00:00:06
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[127.0.0.1] user[chao.lu]
+
+2015-01-18 00:00:07
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[127.0.0.1] user[chao.gao]
+
+2015-01-18 00:00:07
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[127.0.0.1] user[fan.xu]
+
+2015-01-18 00:00:08
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[127.0.0.1] user[qing.wang]
+
+2015-01-18 00:00:08
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account  ip[127.0.0.1] user[er.ma]
+
+2015-01-18 00:00:08
+[INFO]-[Thread: Timer-0]-[com.fx.passform.Timer.UnlockTimer$UnlockTask.run()]: Unlock account endSun Jan 18 00:00:08 CST 2015
+
+2015-01-18 00:00:31
+[ERROR]-[Thread: qtp1422652174-26]-[com.jfinal.core.ActionHandler.handle()]: /announce?info_hash=%C2%FDQ%D6%1E%C4%F7%15%91Q%7C7%06S%60%D9g%AC%165&peer_id=%2DSD0100%2D%1B%E4%B6%FC%25%26%BC%F5%E4%09%C0%C6&ip=172.16.15.37&port=13377&uploaded=1004893884&downloaded=1004893884&left=0&numwant=200&key=24382&compact=1
+java.lang.IllegalArgumentException: Tried to read incomplete UTF8 decoded String
+	at org.eclipse.jetty.util.Utf8StringBuilder.checkState(Utf8StringBuilder.java:80)
+	at org.eclipse.jetty.util.Utf8StringBuilder.toString(Utf8StringBuilder.java:73)
+	at org.eclipse.jetty.util.UrlEncoded.decodeUtf8To(UrlEncoded.java:304)
+	at org.eclipse.jetty.http.HttpURI.decodeQueryTo(HttpURI.java:699)
+	at org.eclipse.jetty.server.Request.extractParameters(Request.java:275)
+	at org.eclipse.jetty.server.Request.getParameterNames(Request.java:764)
+	at com.jfinal.core.ActionReporter.doReport(ActionReporter.java:77)
+	at com.jfinal.core.ActionReporter.reportCommonRequest(ActionReporter.java:38)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:72)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)
+
+2015-01-18 00:06:19
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-18 00:06:20
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-18 22:08:41
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-18 22:08:42
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-18 22:08:42
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqr47p961yavuab1r79tpa|224c47db, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqr47p961yavuab1r79tpa|224c47db, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-18 22:08:59
+[ERROR]-[Thread: qtp1422652174-19]-[com.jfinal.core.ActionHandler.handle()]: /announce?info_hash=%C2%FDQ%D6%1E%C4%F7%15%91Q%7C7%06S%60%D9g%AC%165&peer_id=%2DSD0100%2D%1B%E4%B6%FC%25%26%BC%F5%E4%09%C0%C6&ip=172.16.15.37&port=13377&uploaded=1004893884&downloaded=1004893884&left=0&numwant=200&key=24382&compact=1
+java.lang.IllegalArgumentException: Tried to read incomplete UTF8 decoded String
+	at org.eclipse.jetty.util.Utf8StringBuilder.checkState(Utf8StringBuilder.java:80)
+	at org.eclipse.jetty.util.Utf8StringBuilder.toString(Utf8StringBuilder.java:73)
+	at org.eclipse.jetty.util.UrlEncoded.decodeUtf8To(UrlEncoded.java:304)
+	at org.eclipse.jetty.http.HttpURI.decodeQueryTo(HttpURI.java:699)
+	at org.eclipse.jetty.server.Request.extractParameters(Request.java:275)
+	at org.eclipse.jetty.server.Request.getParameterNames(Request.java:764)
+	at com.jfinal.core.ActionReporter.doReport(ActionReporter.java:77)
+	at com.jfinal.core.ActionReporter.reportCommonRequest(ActionReporter.java:38)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:72)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:72)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:926)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:988)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:635)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:662)

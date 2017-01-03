@@ -1,0 +1,49 @@
+//输入框页面的校验
+//var obj = $(".window_textcont").eq(0).children("input");
+$(function(){ 
+$('.input_form').bind({ 
+focus:function(){  //获取焦点
+	//value = obj;
+    if (this.value == this.defaultValue){ 
+    this.value=""; 
+    $(this).attr("class","puton"); 
+    //$('#send').attr('disabled','disabled'); //屏蔽按钮输入框
+}
+}, 
+blur:function(){   //失去焦点
+	if (this.value == ""){ 
+		this.value = this.defaultValue; 
+		$(this).attr("class","default"); 
+		$("#pass").remove();  //移除正确图标
+	    $("#error").remove(); //移除错误图标
+	}
+	if(this.value == "123"){
+		var size = $("#pass").size();
+		//alert(size);
+		if(size<=0){
+			$(this).after('<span id="pass"><img src="../images/icon_pass.png"></span>');
+			$("#error").remove();
+		}
+			
+	}
+	if(this.value != "123" && this.value== ""){
+		this.value= this.defaultValue; 
+	    $(this).attr("class","puton");
+	    $("#pass").remove();
+	    $("#error").remove();
+	}
+	if(this.value != "123" && this.value!= this.defaultValue){
+		
+		var size = $("#error").size();
+		//alert(size);
+		if(size<=0){
+			$(this).after('<span id="error"><img src="../images/icon_error.png"></span>');
+			$("#pass").remove();
+		}
+			
+	}
+} 
+}); 
+}); 
+
+

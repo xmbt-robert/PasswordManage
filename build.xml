@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<project name="passform" default="tar.gz" basedir=".">
+    <property name="classes" value="WebRoot/WEB-INF/classes"/>
+    <property name="web.xml" value="WebRoot/WEB-INF/web.xml"/>
+    <property name="lib" value="WebRoot/WEB-INF/lib"/>
+    <property name="mainclass" value=" com.fx.passform.PassFormServer"/>
+
+    <path id="compile">
+        <fileset dir="${lib}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <tstamp>
+        <format property="NOW" pattern="yyyy-MM-dd-HH-mm-ss" offset="-5" unit="hour"/>
+    </tstamp>
+
+    <!-- 删除build路径-->
+    <target name="clean">
+        <delete dir="${classes}"/>
+        <delete>
+            <fileset dir="." includes="*.gz"/>
+        </delete>
+    </target>
+
+    <!-- 建立build/classes路径，并编译class文件到build/classes路径下-->
+    <target name="compile" depends="clean">
+        <mkdir dir="${classes}"/>
+        <javac srcdir="src" destdir="${classes}">
+            <classpath refid="compile"/>
+        </javac>
+
+        <pathconvert property="mf.classpath" pathsep=" ">
+            <mapper>
+                <chainedmapper>
+                    <!-- jar包文件只留文件名，去掉目录信息 -->
+                    <flattenmapper/>
+                    <!-- add lib/ prefix -->
+                    <globmapper from="*" to="*"/>
+                </chainedmapper>
+            </mapper>
+            <path refid="compile"/>
+        </pathconvert>
+
+
+        <!--<copydir src="${classes}" dest="WebRoot/WEB-INF/classes"/>-->
+        <!-- jar文件的输出路径 -->
+        <jar destfile="${lib}/passform.jar" basedir="${classes}">
+            <manifest>
+                <attribute name="Main-class" value="${mainclass}"/>
+                <attribute name="Class-Path" value="${mf.classpath}"/>
+            </manifest>
+        </jar>
+        <copy file="src/log4j.properties" todir="${classes}"/>
+
+        <jar destfile="${lib}/run.jar">
+            <manifest>
+                <attribute name="Main-class" value="com.fx.passform.BootLoader"/>
+            </manifest>
+            <fileset dir="${classes}">
+                <include name="**/BootLoader*.class"/>
+            </fileset>
+        </jar>
+        <delete dir="${classes}/com"/>
+    </target>
+
+    <target name="war" depends="compile" description="war">
+        <war warfile="passform.war" webxml="${web.xml}">
+            <fileset dir="${basedir}/WebRoot">
+                <include name="**/**.*" />
+                <exclude name="**/jetty*.jar"/>
+            </fileset>
+        </war>
+    </target>
+
+    <target name="tar.gz" depends="compile">
+        <mkdir dir="passform"/>
+        <copy todir="passform">
+            <fileset dir=".">
+                <include name="WebRoot/**/*"/>
+            </fileset>
+        </copy>
+        <copy file="run.sh" todir="passform"/>
+        <copy file="${lib}/run.jar" todir="passform"/>
+        <tar destfile="passform-${NOW}.tar.gz" basedir="passform" compression="gzip"/>
+        <delete dir="passform"/>
+    </target>
+</project>

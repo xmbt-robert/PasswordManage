@@ -1,0 +1,28 @@
+package com.fx.passform.common;
+
+import com.jfinal.core.Controller;
+
+/**
+ * CommonController
+ */
+public class CommonController extends Controller {
+	
+	public void index() {
+		render("/common/index.jsp");
+	}
+    public void page01() {
+        render("/common/page01.jsp");
+    }
+
+    public void page02() {
+        render("/common/page02.jsp");
+    }
+
+    public void page03() {
+        render("/common/page03.jsp");
+    }
+
+    public void page04() {
+        render("/common/page04.jsp");
+    }
+}

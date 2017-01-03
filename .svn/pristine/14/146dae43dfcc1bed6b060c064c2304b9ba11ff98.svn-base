@@ -1,0 +1,113 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : passform
+Source Server Version : 50610
+Source Host           : 172.17.168.181:3306
+Source Database       : passform
+
+Target Server Type    : MYSQL
+Target Server Version : 50610
+File Encoding         : 65001
+
+Date: 2014-10-20 17:28:15
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for data_audit
+-- ----------------------------
+DROP TABLE IF EXISTS `data_audit`;
+CREATE TABLE `data_audit` (
+  `IP` varchar(50) DEFAULT NULL COMMENT 'IP地址',
+  `userName` varchar(50) NOT NULL COMMENT '用户名',
+  `failCount` int(10) DEFAULT NULL COMMENT '失败次数',
+  `operateTime` date DEFAULT NULL COMMENT '操作时间',
+  `lockStatus` varchar(0) DEFAULT NULL COMMENT '是否锁定标识',
+  PRIMARY KEY (`userName`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='审计表';
+
+-- ----------------------------
+-- Table structure for data_registered_encrypted
+-- ----------------------------
+DROP TABLE IF EXISTS `data_registered_encrypted`;
+CREATE TABLE `data_registered_encrypted` (
+  `userName` varchar(50) NOT NULL COMMENT '用户名',
+  `staffId` varchar(20) NOT NULL COMMENT '工号',
+  `question1` varchar(50) DEFAULT NULL COMMENT '密保问题1',
+  `answer1` varchar(50) DEFAULT NULL COMMENT '密保答案1',
+  `question2` varchar(50) DEFAULT NULL COMMENT '密保问题2',
+  `answer2` varchar(50) DEFAULT NULL COMMENT '密保答案2',
+  `question3` varchar(50) DEFAULT NULL COMMENT '密保问题3',
+  `answer3` varchar(50) DEFAULT NULL COMMENT '密保答案1',
+  `createTime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY (`userName`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='注册密保表';
+
+-- ----------------------------
+-- Table structure for data_shortmessage
+-- ----------------------------
+DROP TABLE IF EXISTS `data_shortmessage`;
+CREATE TABLE `data_shortmessage` (
+  `userName` varchar(20) NOT NULL COMMENT '域用户名',
+  `authCode` varchar(20) DEFAULT NULL COMMENT '验证码',
+  `createTime` datetime(6) DEFAULT NULL COMMENT '创建日期',
+  `serialNumber` varchar(50) DEFAULT NULL COMMENT '序列号',
+  `expiresStatus` varchar(50) DEFAULT NULL COMMENT '是否过期标识',
+  `emailAddress` varchar(200) DEFAULT NULL COMMENT '邮件地址',
+  PRIMARY KEY (`userName`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='短信表';
+
+-- ----------------------------
+-- Table structure for info_user_update
+-- ----------------------------
+DROP TABLE IF EXISTS `info_user_update`;
+CREATE TABLE `info_user_update` (
+  `name` varchar(50) NOT NULL COMMENT '姓名',
+  `staffId` varchar(50) NOT NULL COMMENT '工号',
+  `position` varchar(50) DEFAULT NULL COMMENT '职位',
+  `department` varchar(100) DEFAULT NULL COMMENT '部门',
+  `telePhone` varchar(10) DEFAULT NULL COMMENT '分机号码',
+  `mobilePhone` bigint(11) unsigned DEFAULT NULL COMMENT '手机号码',
+  `office` varchar(100) DEFAULT NULL COMMENT '办公地点',
+  `photo` varchar(100) DEFAULT NULL COMMENT '照片',
+  PRIMARY KEY (`staffId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息表';
+
+-- ----------------------------
+-- Table structure for sys_config_record
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_config_record`;
+CREATE TABLE `sys_config_record` (
+  `emailGap` time(6) DEFAULT NULL COMMENT '发送邮件时间间隔',
+  `authCodeGap` time(6) DEFAULT NULL COMMENT '发送验证码时间间隔',
+  `failCount` int(10) DEFAULT NULL COMMENT '登陆失败次数',
+  `lockTime` time(6) DEFAULT NULL COMMENT '解锁时间',
+  `auditType` varchar(50) DEFAULT NULL COMMENT '审计类型'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统配置表（记录）';
+
+-- ----------------------------
+-- Table structure for sys_config_server
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_config_server`;
+CREATE TABLE `sys_config_server` (
+  `IP` varchar(50) DEFAULT NULL COMMENT 'IP地址',
+  `port` int(10) DEFAULT NULL COMMENT '端口号',
+  `userName` varchar(50) NOT NULL COMMENT '用户名',
+  `userPassWd` varchar(50) DEFAULT NULL COMMENT '用户密码',
+  `sysType` varchar(50) DEFAULT NULL COMMENT '系统配置类型',
+  PRIMARY KEY (`userName`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统配置表(服务端)';
+
+-- ----------------------------
+-- Table structure for sys_logs
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_logs`;
+CREATE TABLE `sys_logs` (
+  `moduleName` varchar(50) DEFAULT NULL COMMENT '模块名',
+  `operator` varchar(50) NOT NULL COMMENT '操作人',
+  `operateTime` date DEFAULT NULL COMMENT '操作时间',
+  `operateStatus` varchar(50) DEFAULT NULL COMMENT '操作是否成功标识',
+  PRIMARY KEY (`operator`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统日志表';

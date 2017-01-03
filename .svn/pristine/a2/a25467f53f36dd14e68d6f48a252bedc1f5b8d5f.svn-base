@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../css/common.css" type="text/css" rel="stylesheet">
+<script src="../js/jquery.min_1.7.2.js"></script>
+<script src="../js/main.js"></script>
+<title>更新资料</title>
+</head>
+
+<body>
+<p class="window_title"><a class="close closedown" href="javascript:void(0)">×</a><img src="../images/window_icon04.png" />更新资料</p>
+<div class="window_main">
+    <label class="window_tip window_right">已成功更新用户信息！</label>
+    <div class="main_cont" style="width:546px;margin-top:0">
+      <div class="main_cont" style="float:left;padding-right:20px;margin-top:0">
+        <p class="window_texttitle">域账号</p>
+        <p class="window_textcont"><input type="text" /></p>
+        <p class="window_texttitle">密码</p>
+        <p class="window_textcont"><input type="password" /></p>
+        <p class="window_texttitle">图片验证码</p>
+        <p class="window_textcont"><input type="text" style="width:143px" /><label class="code"><img src="../images/code.png" /></label></p>
+        <div style="width:111px;float:left;">
+            <p class="window_texttitle">姓名</p>
+            <p class="window_textcont"><input type="text" style="width:100px" disabled="disabled" value="李晓波" /></p>
+        </div>
+        <div style="width:111px;float:left; margin-left:30px">
+            <p class="window_texttitle">工号</p>
+            <p class="window_textcont"><input type="text" style="width:100px" disabled="disabled" value="FX004455" /></p>
+        </div>
+        
+      </div>
+      <div class="main_cont" style="float:left;margin-left:20px;margin-top:0">
+        <p class="window_texttitle">职位</p>
+        <p class="window_textcont"><input type="text" disabled="disabled" value="软件工程师" /></p>
+        <p class="window_texttitle">部门</p>
+        <p class="window_textcont"><input type="text" disabled="disabled" value="信息平台-应用系统部" /></p>
+        <p class="window_texttitle">办公地点</p>
+        <p class="window_textcont"><input type="text" disabled="disabled" value="上海总部" /></p>
+        <div style="width:111px;float:left">
+            <p class="window_texttitle">分机</p>
+            <p class="window_textcont"><input type="text" style="width:100px" /></p>
+        </div>
+        <div style="width:111px;float:left; margin-left:30px">
+            <p class="window_texttitle">移动电话</p>
+            <p class="window_textcont"><input type="text" style="width:100px" disabled="disabled" value="12546464651" /></p>
+        </div>
+      </div>
+    </div>  
+</div>
+<div class="window_foot"><input type="button" class="cancel closedown" value="取消" /><input type="button" class="operate" value="修改" /></div>
+</body>
+</html>

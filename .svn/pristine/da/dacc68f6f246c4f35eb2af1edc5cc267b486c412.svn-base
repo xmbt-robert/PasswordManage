@@ -1,0 +1,8 @@
+$(function(){
+	$(".cancel").click(function(){
+		$("input[type='text']").val("");   //清空所有type为text格式的文本框
+	});
+	$(".operate").click(function(){
+		
+	});
+});

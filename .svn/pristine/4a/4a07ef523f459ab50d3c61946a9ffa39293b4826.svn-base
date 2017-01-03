@@ -1,0 +1,83 @@
+package com.fx.passform.common;
+
+import com.fx.passform.util.SendUtil;
+import com.fx.passform.util.StringUtil;
+import com.fx.passform.util.ValCodeUtil;
+import com.jfinal.core.Controller;
+
+import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * CommonController
+ * @param <HttpRequest>
+ */
+public class CommonController extends Controller {
+    public static final String SESSION_VALIDATORCODE = "session_validatorCode";
+
+    public void index() {
+        render("/common/index.jsp");
+    }
+
+	
+	public void checkValue(){
+		String value = getPara("value");
+		String val = SendUtil.getUserStatus( value );
+		renderJson( val );
+	}
+  
+   /* public void page02(HttpServletRequest request) {
+    	render("/common/page02.jsp");
+    	System.out.println(request);
+    	request.getAttribute("value");
+    }*/
+
+    public void page01() {
+        render("/common/page01.jsp");
+    }
+
+    public void page02() {
+        render("/common/page02.jsp");
+    }
+    
+    public void page03() {
+        render("/common/page03.jsp");
+    }
+
+    public void page04() {
+        render("/common/page04.jsp");
+    }
+
+    public void rendCode() {
+        ValCodeUtil.ValidatorCode codeUtil = ValCodeUtil.getCode();
+        setSessionAttr(SESSION_VALIDATORCODE, codeUtil.getCode());
+        HttpServletRequest request = getRequest();
+        HttpServletResponse response = getResponse();
+        // 禁止图像缓存。
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setDateHeader("Expires", 0);
+        response.setContentType("image/jpeg");
+
+        ServletOutputStream sos = null;
+        try {
+            // 将图像输出到Servlet输出流中。
+            sos = response.getOutputStream();
+            ImageIO.write(codeUtil.getImage(), "png", sos);
+            sos.flush();
+            sos.close();
+        } catch (Exception e) {
+            //todo 渲染错误
+        } finally {
+            if (sos != null) {
+                try {
+                    sos.close();
+                } catch (IOException e) {
+                }
+            }
+        }
+    }
+}

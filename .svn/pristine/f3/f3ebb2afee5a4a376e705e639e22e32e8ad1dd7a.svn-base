@@ -1,0 +1,441 @@
+package com.fx.passform.util;
+
+import com.fx.passform.plugin.MailInfo;
+import com.fx.passform.plugin.MailSender;
+import com.fx.passform.plugin.SMSInfo;
+import com.fx.passform.plugin.SMSSender;
+import com.novell.ldap.*;
+import com.novell.ldap.util.Base64;
+import org.apache.log4j.Logger;
+
+import javax.naming.Context;
+import javax.naming.NamingEnumeration;
+import javax.naming.NamingException;
+import javax.naming.directory.*;
+import javax.naming.ldap.InitialLdapContext;
+import javax.naming.ldap.LdapContext;
+import java.io.UnsupportedEncodingException;
+import java.security.Security;
+import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+
+/**
+ * 发送邮件和短信的工具类
+ * <p/>
+ * Created by fan.xu on 2014/10/20.
+ */
+public class SendUtil {
+
+    private static Logger logger = Logger.getLogger("SendUtil");
+
+    /**
+     * 产生随机数据6位，用于SMS验证码。
+     *
+     * @return 随机码
+     */
+    public static String genSMS() {
+        int rInt;
+        Random rand = new Random();
+        do {
+            rInt = rand.nextInt(1000000);
+        } while (rInt < 100000);
+        return Integer.toString(rInt);
+    }
+
+    /**
+     * 发送短信
+     *
+     * @param valCode 验证
+     * @param phone   电话
+     * @return
+     */
+    public static boolean sendSMS(String valCode, String phone) {
+        SMSInfo info = SMSKit.getInfo();
+        ExecutorService pool = SMSKit.getPool();
+        //初始化SDK
+        SMSSender sender = new SMSSender(info, phone, valCode);
+        HashMap<String, Object> result = null;
+        try {
+            result = pool.submit(sender).get();
+            if ("000000".equals(result.get("statusCode"))) {
+                logger.info("Send SMS OK! valCode[" + valCode + "] phone[" + phone + "]");
+                //正常返回输出data包体信息（map）
+//                HashMap<String, Object> data = (HashMap<String, Object>) result.get("data");
+//                Set<String> keySet = data.keySet();
+//                for (String key : keySet) {
+//                    Object object = data.get(key);
+//                    System.out.println(key + " = " + object);
+//                }
+                return true;
+            } else {
+                logger.info("Send SMS Error! valCode[" + valCode + "] phone[" + phone + "] statusCode [" + result.get("statusCode") + "]");
+                return false;
+                //todo LOG 常返回输出错误码和错误信息
+                // System.out.println("错误码=" + result.get("statusCode") + " 错误信息= " + result.get("statusMsg"));
+            }
+        } catch (InterruptedException e) {
+            //todo LOG
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            //todo LOG
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * 发送邮件
+     *
+     * @param toAddr  接收邮件地址
+     * @param title   邮件主题
+     * @param content 邮件内容
+     * @return
+     */
+    public static void sendEmail(String toAddr, String title, String content) {
+        ExecutorService pool = MailKit.getPool();
+        MailInfo info = MailKit.getInfo();
+        MailSender sender = new MailSender(info, toAddr, title, content);
+        pool.submit(sender);
+    }
+
+    /**
+     * 查询属性值
+     *
+     * @param name
+     * @param value
+     * @return
+     */
+    public static SearchResult findEntry(String name, String value) {
+        LdapContext ctx = null;
+        Hashtable env = LdapKit.getEnv();
+        try {
+            ctx = new InitialLdapContext(env, null);
+            SearchControls searchCtls = new SearchControls(); // Create the
+            searchCtls.setSearchScope(SearchControls.SUBTREE_SCOPE); // Specify
+            String searchFilter = name + "=" + value;
+            //String searchFilter = "(&(objectCategory=person)(objectClass=user)(name=004*))";
+            String searchBase = String.valueOf(env.get("searchBaseDn"));
+            NamingEnumeration answer = ctx.search(searchBase, searchFilter, searchCtls);
+            while (answer.hasMoreElements()) {
+                return (SearchResult) answer.next();
+            }
+        } catch (NamingException e) {
+            e.printStackTrace();
+        } finally {
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (NamingException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 查询DN,主要是中文显示名
+     * CN=oaadmin,OU=PHICOMM,DC=allwin-tech,DC=com
+     *
+     * @param name
+     * @param sechBase
+     * @return
+     */
+    public static SearchResult findEntryByDisp(String name, String sechBase) {
+        LdapContext ctx = null;
+        Hashtable env = LdapKit.getEnv();
+        try {
+            ctx = new InitialLdapContext(env, null);
+            SearchControls searchCtls = new SearchControls(); // Create the
+            searchCtls.setSearchScope(SearchControls.SUBTREE_SCOPE); // Specify
+            String searchFilter = "name" + "=" + name;
+            //String searchFilter = "(&(objectCategory=person)(objectClass=user)(name=004*))";
+            String searchBase = String.valueOf(env.get("searchBaseDn"));
+            NamingEnumeration answer = ctx.search(searchBase, searchFilter, searchCtls);
+            while (answer.hasMoreElements()) {
+                return (SearchResult) answer.next();
+            }
+        } catch (NamingException e) {
+            e.printStackTrace();
+        } finally {
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (NamingException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 根据域账号和密码，进行验证
+     *
+     * @param name
+     * @param pass
+     * @return
+     */
+    public static boolean verifyPass(String name, String pass) {
+        boolean correct = false;
+        LDAPSocketFactory ssf;
+        int ldapPort = LDAPConnection.DEFAULT_SSL_PORT;
+        int ldapVersion = LDAPConnection.LDAP_V3;
+        // LDAPEntry entry = findEntry("userPrincipalName", name, "");
+        SearchResult entry = findEntry("SamAccountName", name);
+        if (entry != null) {
+            Hashtable evn = LdapKit.getEnv();
+            Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+            System.setProperty("javax.net.ssl.trustStore", String.valueOf(evn.get("certs")));
+            ssf = new LDAPJSSESecureSocketFactory();
+            LDAPConnection.setSocketFactory(ssf);
+            LDAPConnection lc = new LDAPConnection();
+            try {
+                lc.connect(String.valueOf(evn.get("url")), ldapPort);
+                String dn = getValue(entry, "distinguishedName");
+                lc.bind(ldapVersion, dn, pass.getBytes("UTF8"));
+                correct = true;
+            } catch (Exception e) {
+                //correct = false;
+            } finally {
+                try {
+                    if (lc.isConnected()) {
+                        lc.disconnect();
+                    }
+                } catch (Exception e) {
+                }
+            }
+        }
+        return correct;
+    }
+
+    /**
+     * 修改密码
+     *
+     * @param name    用户名
+     * @param oldPass 旧密码
+     * @param newPass 新密码
+     * @return
+     */
+    public static boolean modifPassword(String name, String oldPass, String newPass) {
+        LDAPSocketFactory ssf;
+        int ldapPort = LDAPConnection.DEFAULT_SSL_PORT;
+        int ldapVersion = LDAPConnection.LDAP_V3;
+        // LDAPEntry entry = findEntry("userPrincipalName", name, "");
+        SearchResult entry = findEntry("SamAccountName", name);
+
+        if (entry != null) {
+            Hashtable env = LdapKit.getEnv();
+            Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+            System.setProperty("javax.net.ssl.trustStore", String.valueOf(env.get("certs")));
+            ssf = new LDAPJSSESecureSocketFactory();
+            LDAPConnection.setSocketFactory(ssf);
+            LDAPConnection lc = new LDAPConnection();
+
+            try {
+                lc.connect(String.valueOf(env.get("url")), ldapPort);
+                lc.bind(ldapVersion, String.valueOf(env.get(Context.SECURITY_PRINCIPAL)),
+                        String.valueOf(env.get(Context.SECURITY_CREDENTIALS)).getBytes("UTF8"));
+
+                LDAPModification[] modifications = new LDAPModification[1];
+                String newQuotedPassword = "\"" + newPass + "\"";
+                byte[] newUnicodePassword = newQuotedPassword.getBytes("UTF-16LE");
+                LDAPAttribute addPassword = new LDAPAttribute("unicodePwd", newUnicodePassword);
+                modifications[0] = new LDAPModification(LDAPModification.REPLACE, addPassword);
+                String dn = getValue(entry, "distinguishedName");
+                lc.modify(dn, modifications);
+                return true;
+            } catch (LDAPException e) {
+                //todo
+                e.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                //todo
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (lc.isConnected()) {
+                        lc.disconnect();
+                    }
+                } catch (Exception e) {
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 重置密码
+     *
+     * @param name    用户名
+     * @param newPass 新密码
+     * @return
+     */
+    public static boolean resetPass(String name, String newPass) {
+        int ldapPort = LDAPConnection.DEFAULT_SSL_PORT;
+        int ldapVersion = LDAPConnection.LDAP_V3;
+        LDAPSocketFactory ssf;
+        // LDAPEntry entry = findEntry("userPrincipalName", name, "");
+        SearchResult entry = findEntry("SamAccountName", name);
+        if (entry != null) {
+            Hashtable env = LdapKit.getEnv();
+            Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+            System.setProperty("javax.net.ssl.trustStore", String.valueOf(env.get("certs")));
+            ssf = new LDAPJSSESecureSocketFactory();
+            LDAPConnection.setSocketFactory(ssf);
+            LDAPConnection lc = new LDAPConnection();
+            try {
+                lc.connect(String.valueOf(env.get("url")), ldapPort);
+                lc.bind(ldapVersion, String.valueOf(env.get(Context.SECURITY_PRINCIPAL)),
+                        String.valueOf(env.get(Context.SECURITY_CREDENTIALS)).getBytes("UTF8"));
+                LDAPModification[] modifications = new LDAPModification[1];
+                String newQuotedPassword = "\"" + newPass + "\"";
+                byte[] newUnicodePassword = newQuotedPassword.getBytes("UTF-16LE");
+                LDAPAttribute addPassword = new LDAPAttribute("unicodePwd", newUnicodePassword);
+                modifications[0] = new LDAPModification(LDAPModification.REPLACE, addPassword);
+                String dn=getValue(entry,"distinguishedName");
+                lc.modify(dn, modifications);
+                return true;
+            } catch (LDAPException e) {
+                //todo
+                e.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                //todo
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (lc.isConnected()) {
+                        lc.disconnect();
+                    }
+                } catch (Exception e) {
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 返回用户的ldap状态
+     *
+     * @param user
+     * @return
+     */
+    public static String[] getUserStatus(String user) {
+        SearchResult entry = findEntry("SamAccountName", user);
+        String[] values = new String[2];
+        if (entry != null) {
+            values[1] = getValue(entry, "mobile");
+            values[0] = getValue(entry, "userAccountControl");
+        }
+        return values;
+    }
+
+    /**
+     * 根據登陸成功的用戶名查找其所屬部門信息
+     */
+    public static String getUserDepartNO(String user) {
+        SearchResult entry = findEntry("SamAccountName", user);
+        String value = new String();
+        if (entry != null) {
+            value = getValue(entry, "department");
+            //values[0] = getValue(entry, "userAccountControl");
+        }
+        return value;
+    }
+    
+    /**
+     * 设置用户状态
+     *
+     * @param user   用户名
+     * @param status 状态
+     * @return
+     */
+    public static boolean setUserStatus(String user, String status) {
+        boolean isOk = false;
+        LdapContext ctx = null;
+        Hashtable env = LdapKit.getEnv();
+        SearchResult entry = findEntry("SamAccountName", user);
+        if (entry != null) {
+            try {
+                ctx = new InitialLdapContext(env, null);
+                String dn = getValue(entry, "distinguishedName");
+                //String ctrl = getValue(entry, "userAccountControl");
+                ModificationItem[] mods = new ModificationItem[1];
+                mods[0] = new ModificationItem(DirContext.REPLACE_ATTRIBUTE,
+                        new BasicAttribute("userAccountControl", status));
+                ctx.modifyAttributes(dn, mods);
+                isOk = true;
+            } catch (NamingException e) {
+                e.printStackTrace();
+            } finally {
+                if (ctx != null) {
+                    try {
+                        ctx.close();
+                    } catch (NamingException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return isOk;
+    }
+
+    /**
+     * 取得属性的值
+     *
+     * @param values
+     * @param attribute
+     * @return
+     */
+    private static String getAttr(String[] values, LDAPAttribute attribute) {
+        Enumeration<String> allValues = attribute.getStringValues();
+        if (null != allValues) {
+            while (allValues.hasMoreElements()) {
+                String val = allValues.nextElement();
+                if (!Base64.isLDIFSafe(val)) {
+                    val = Base64.encode(val.getBytes());
+                }
+                return val;
+            }
+        }
+        return "";
+    }
+
+
+    /**
+     * 取得DN
+     *
+     * @param searchResult
+     * @return
+     */
+    private static String getValue(SearchResult searchResult, String key) {
+        Attributes Attrs = searchResult.getAttributes();
+        if (Attrs != null) {
+            try {
+                for (NamingEnumeration ne = Attrs.getAll(); ne.hasMore(); ) {
+                    Attribute attr = (Attribute) ne.next();
+                    if (attr.getID().equals(key)) {
+                        NamingEnumeration e = attr.getAll();
+                        while (e.hasMore()) {
+                            return String.valueOf(e.next());
+                        }
+                    }
+                }
+            } catch (NamingException e) {
+                System.err.println("Throw Exception : " + e);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 校验用户名是否存在
+     *
+     * @param name
+     * @return
+     */
+    public static boolean verifyName(String name) {
+        SearchResult entry = findEntry("SamAccountName", name);
+        return entry != null;
+    }
+}

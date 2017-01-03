@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="../css/common.css" type="text/css" rel="stylesheet"/>
+    <script src="../js/jquery.min_1.7.2.js"></script>
+    <script type="text/javascript" src="../js/login.js"></script>
+    <script type="text/javascript" src="../js/jquery.md5.js"></script>
+    <script type="text/javascript" src="../js/jquery.base64.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+    <title>自助密码服务平台-登录</title>
+</head>
+<body>
+<div class="login_bg">
+    <div class="login">
+        <div class="logo"><img src="../images/logo.png"/></div>
+        <div class="login_cont">
+            <div class="login_main" id="login_main">
+                <div class="message" align="center" style="display: none;color: red;font-weight:bold;"></div>
+                <div class="login_input"><img src="../images/icon_username.png" /><input type="text" id="name_tx" value="请输入用户名" /><input type="text" id="name" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="必填项" style="display:none"/></div>
+                <div class="login_input"><img src="../images/icon_password.png" /><input type="text" id="password_tx" value="请输入密码" /><input type="password" id="password" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="必填项" style="display:none"/></div>
+                <div class="remenber"><a href="javascript:void(0)" class="ForgotPass">找回密码</a><span><input type="checkbox" id="rememberLoginInfo"/>记住登录信息</span></div>
+                <input type="button" class="login_button" value="登 录" />
+            </div>
+        </div>
+        <div class="login_foot">版权所有: 上海斐讯通信数据技术有限公司</div>
+    </div>
+</div>
+</body>
+</html>

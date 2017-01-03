@@ -1,0 +1,375 @@
+package com.fx.passform.util;
+
+import com.fx.passform.plugin.*;
+import com.novell.ldap.*;
+import com.novell.ldap.util.Base64;
+
+import java.io.UnsupportedEncodingException;
+import java.security.Security;
+import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
+
+/**
+ * 发送邮件和短信的工具类
+ * <p/>
+ * Created by fan.xu on 2014/10/20.
+ */
+public class SendUtil {
+
+    /**
+     * 产生随机数据4位，用于SMS验证码。
+     *
+     * @return 随机码
+     */
+    private static String genSMS() {
+        int rInt;
+        Random rand = new Random();
+        do {
+            rInt = rand.nextInt(10000);
+        } while (rInt < 1000);
+        return Integer.toString(rInt);
+    }
+
+    /**
+     * 发送短信
+     *
+     * @param phone
+     * @return
+     */
+    public static Future<HashMap<String, Object>> sendSMS(String phone) {
+        SMSInfo info = SMSKit.getInfo();
+        ExecutorService pool = SMSKit.getPool();
+        //初始化SDK
+        SMSSender sender = new SMSSender(info, phone, genSMS());
+        return pool.submit(sender);
+    }
+
+    /**
+     * 发送邮件
+     *
+     * @param toAddr  接收邮件地址
+     * @param title   邮件主题
+     * @param content 邮件内容
+     * @return
+     */
+    public static void sendEmail(String toAddr, String title, String content) {
+        ExecutorService pool = MailKit.getPool();
+        MailInfo info = MailKit.getInfo();
+        MailSender sender = new MailSender(info, toAddr, title, content);
+        pool.submit(sender);
+    }
+
+    /**
+     * 查询属性值
+     *
+     * @param name
+     * @param value
+     * @param sechBase
+     * @return
+     */
+    public static LDAPEntry findEntry(String name, String value, String sechBase) {
+        String searchFilter = name + "=" + value + "@freecomm-networks.com";
+        String searchBase = "OU=freecomm,DC=freecomm-networks,DC=com";
+        int searchScope = LDAPConnection.SCOPE_SUB;
+        LDAPConectionDataPool pool = LdapKit.getPool();
+        LDAPConectionData data = null;
+        try {
+            data = pool.getLDAPConectionData();
+            LDAPConnection connection = data.getConn();
+            LDAPSearchResults searchResults = connection.search(searchBase, searchScope, searchFilter, null, false);
+            while (searchResults.hasMore()) {
+                //LDAPEntry nextEntry;
+                try {
+                    return searchResults.next();
+                } catch (LDAPException e) {
+                    //if (e.getResultCode() == LDAPException.LDAP_TIMEOUT || e.getResultCode() == LDAPException.CONNECT_ERROR) {
+                    //    break;
+                    // } else {
+                    //     continue;
+                    // }
+                }
+            }
+        } catch (InterruptedException e) {
+            //todo LOG
+            e.printStackTrace();
+        } catch (LDAPException e) {
+            e.printStackTrace();
+        } finally {
+            if (data != null) pool.setConectionDataFree(data);
+        }
+
+        return null;
+    }
+
+    /**
+     * 查询DN,主要是中文显示名
+     * CN=oaadmin,OU=PHICOMM,DC=allwin-tech,DC=com
+     *
+     * @param name
+     * @param sechBase
+     * @return
+     */
+    public static LDAPEntry findEntry(String name, String sechBase) {
+        String searchFilter = "name=" + name;
+        String searchBase = "OU=freecomm,DC=freecomm-networks,DC=com";
+        int searchScope = LDAPConnection.SCOPE_SUB;
+        LDAPConectionDataPool pool = LdapKit.getPool();
+        LDAPConectionData data = null;
+        try {
+            data = pool.getLDAPConectionData();
+            LDAPConnection connection = data.getConn();
+            LDAPSearchResults searchResults = connection.search(searchBase, searchScope, searchFilter, null, false);
+            while (searchResults.hasMore()) {
+                //LDAPEntry nextEntry;
+                try {
+                    return searchResults.next();
+                } catch (LDAPException e) {
+//                    if (e.getResultCode() == LDAPException.LDAP_TIMEOUT || e.getResultCode() == LDAPException.CONNECT_ERROR) {
+//                        break;
+//                    } else {
+//                        continue;
+//                    }
+                }
+//                String dn = nextEntry.getDN();
+//                String trueName = "CN=" + name;
+//                if (dn.startsWith(trueName)) {
+//                    return nextEntry;
+//                }
+            }
+        } catch (InterruptedException e) {
+            //todo LOG
+            e.printStackTrace();
+        } catch (LDAPException e) {
+            if (e.getResultCode() == LDAPException.NO_SUCH_OBJECT) {
+            } else if (e.getResultCode() == LDAPException.INSUFFICIENT_ACCESS_RIGHTS) {
+                //todo LOG
+            } else {
+                //todo LOG
+            }
+        } finally {
+            if (data != null) pool.setConectionDataFree(data);
+        }
+        return null;
+    }
+
+    /**
+     * 根据域账号和密码，进行验证
+     *
+     * @param name
+     * @param pass
+     * @return
+     */
+    public static boolean verifyPass(String name, String pass) {
+        boolean correct = false;
+        LDAPEntry entry = findEntry("userPrincipalName", name, "");
+        if (entry != null) {
+            LDAPConectionDataPool pool = LdapKit.getPool();
+            LDAPConectionData data = null;
+            try {
+                data = pool.getLDAPConectionData();
+                LDAPConnection connection = data.getConn();
+                LDAPAttribute attr = new LDAPAttribute("userPassword", pass);
+                correct = connection.compare(entry.getDN(), attr);
+            } catch (InterruptedException e) {
+                //todo LOG
+                e.printStackTrace();
+            } catch (LDAPException e) {
+                if (e.getResultCode() == LDAPException.NO_SUCH_OBJECT) {
+                    //todo LOG
+                } else if (e.getResultCode() == LDAPException.NO_SUCH_ATTRIBUTE) {
+                    //todo LOG
+                } else {
+                    //todo LOG
+                }
+            } finally {
+                if (data != null) pool.setConectionDataFree(data);
+            }
+        }
+        return correct;
+    }
+
+//    /**
+//     * 根据用户名，设置用户信息
+//     *
+//     * @param name
+//     * @param values key/value 组成的数组
+//     * @return
+//     */
+//    public static boolean modifyAttr(String name, String baseDn, String[]... values) {
+//        String searchFilter = "objectClass=*";
+//        String searchBase = "OU=freecomm,DC=freecomm-networks,DC=com";
+//        int searchScope = LDAPConnection.SCOPE_BASE;
+//        LDAPConectionDataPool pool = LdapKit.getPool();
+//        LDAPConectionData data = null;
+//        try {
+//            data = pool.getLDAPConectionData();
+//            LDAPConnection connection = data.getConn();
+//            LDAPSearchResults searchResults = connection.search(baseDn, searchScope, searchFilter, null, false);
+//            while (searchResults.hasMore()) {
+//                LDAPEntry nextEntry;
+//                try {
+//                    nextEntry = searchResults.next();
+//                } catch (LDAPException e) {
+//                    if (e.getResultCode() == LDAPException.LDAP_TIMEOUT || e.getResultCode() == LDAPException.CONNECT_ERROR) {
+//                        break;
+//                    } else {
+//                        continue;
+//                    }
+//                }
+//
+//                String dn = nextEntry.getDN();
+//                String trueName = "CN=" + name;
+//                if (dn.startsWith(trueName)) {
+//                    List<LDAPModification> modList = new ArrayList<LDAPModification>();
+//                    for (String[] val : values) {
+//                        LDAPAttribute attribute = new LDAPAttribute(val[0], val[1]);
+//                        modList.add(new LDAPModification(LDAPModification.REPLACE, attribute));
+//                    }
+//                    LDAPModification[] mods = new LDAPModification[modList.size()];
+//                    mods = modList.toArray(mods);
+//                    connection.modify(dn, mods);
+//                    return true;
+//                }
+//            }
+//        } catch (InterruptedException e) {
+//            //todo LOG
+//            e.printStackTrace();
+//        } catch (LDAPException e) {
+//            e.printStackTrace();
+//        } finally {
+//            if (data != null) pool.setConectionDataFree(data);
+//        }
+//        return false;
+//    }
+
+    /**
+     * 修改密码
+     *
+     * @param name 用户名
+     * @param pass 密码
+     * @return
+     */
+    public static boolean modifPassword(String name, String pass) {
+        int ldapPort = LDAPConnection.DEFAULT_SSL_PORT;
+        int ldapVersion = LDAPConnection.LDAP_V3;
+
+        //todo  安装数字证书
+        String path = "";
+        LDAPSocketFactory ssf;
+
+        LDAPEntry entry = findEntry("mail", name, "");
+
+        if (entry != null) {
+            LDAPConectionDataPool pool = LdapKit.getPool();
+            // Dynamically set JSSE as a security provider
+            Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+
+            // Dynamically set the property that JSSE uses to identify
+            // the keystore that holds trusted root certificates
+            System.setProperty("javax.net.ssl.trustStore", path);
+            ssf = new LDAPJSSESecureSocketFactory();
+
+            // Set the socket factory as the default for all future connections
+            LDAPConnection.setSocketFactory(ssf);
+
+            // Note: the socket factory can also be passed in as a parameter
+            // to the constructor to set it for this connection only.
+            LDAPConnection lc = new LDAPConnection();
+
+            try {
+                // connect to the server
+                lc.connect(pool.getUrl(), ldapPort);
+                // authenticate to the server
+                lc.bind(ldapVersion, pool.getUser(), pool.getPass().getBytes("UTF8"));
+
+               /* To modify your password:
+             *   -- Specify the password attribute to modify
+             *   -- Specify the DELETE option to delete the old password
+             *   -- Specify the ADD option to add the new password
+             *   -- Add these to the array of modifications
+             *   -- Call LDAPConnection modify() method to delete your old
+             *         password and add your new password
+             */
+
+                LDAPModification[] modifications = new LDAPModification[2];
+                LDAPAttribute deletePassword = new LDAPAttribute("userPassword");
+                modifications[0] = new LDAPModification(LDAPModification.DELETE, deletePassword);
+                LDAPAttribute addPassword = new LDAPAttribute("userPassword", pass);
+                modifications[1] = new LDAPModification(LDAPModification.ADD, addPassword);
+                lc.modify(entry.getDN(), modifications);
+                return true;
+            } catch (LDAPException e) {
+                //todo
+                e.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                //todo
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 返回用户的ldap状态
+     *
+     * @param user
+     * @return
+     */
+    public static String[] getUserStatus(String user) {
+        LDAPEntry entry = findEntry("userPrincipalName", user, "");
+        String[] values = new String[2];
+        if (entry != null) {
+            LDAPAttributeSet attributeSet = entry.getAttributeSet();
+            Iterator<LDAPAttribute> allAttributes = attributeSet.iterator();
+            while (allAttributes.hasNext()) {
+                LDAPAttribute attribute = allAttributes.next();
+                String attributeName = attribute.getName();
+
+                if (attributeName.equals("mobile")) {
+                    String mobile=getAttr(values, attribute);
+                    if (!mobile.equals("")){
+                        values[1]=mobile;
+                        continue;
+                    }
+                }
+
+                //查找名称userAccountControl==name的属性
+                if (attributeName.equals("userAccountControl")) {
+                    String status=getAttr(values, attribute);
+                    if (!status.equals("")){
+                        values[0]=status;
+                        continue;
+                    }
+                }
+            }
+        }
+        return values;
+    }
+
+
+    private static String getAttr(String[] values, LDAPAttribute attribute) {
+        Enumeration<String> allValues = attribute.getStringValues();
+        if (null != allValues) {
+            while (allValues.hasMoreElements()) {
+                String val = allValues.nextElement();
+                if (!Base64.isLDIFSafe(val)) {
+                    val = Base64.encode(val.getBytes());
+                }
+                return val;
+            }
+        }
+        return "";
+    }
+
+    public static boolean verifyName(String name) {
+        LDAPEntry entry = findEntry("userName", name);
+        if (entry == null) {
+            return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+    }
+}

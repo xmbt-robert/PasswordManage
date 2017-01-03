@@ -1,0 +1,12 @@
+package com.fx.passform.model;
+
+import com.jfinal.plugin.activerecord.Model;
+
+/**
+ * LockStatus's Model
+ * <p/>
+ * Created by fan.xu on 2014/10/21.
+ */
+public class LockStatus extends Model<LockStatus> {
+    public static final LockStatus dao = new LockStatus();
+}

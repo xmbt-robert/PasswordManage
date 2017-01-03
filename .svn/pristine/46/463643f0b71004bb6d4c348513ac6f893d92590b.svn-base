@@ -1,0 +1,38 @@
+package com.fx.passform.Timer;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+/**
+ * 定时更新登录失败锁定清理
+ * <p/>
+ * Created by fan.xu on 2014/10/22.
+ */
+public class UnlockTimer {
+    /**
+     * 定时器
+     */
+    private Timer timer;
+
+    /**
+     * 构造
+     *
+     * @param timer
+     * @param seconds
+     * @param period
+     */
+    public UnlockTimer(Timer timer, int seconds, long period) {
+        this.timer = timer;
+        timer.scheduleAtFixedRate(new UnlockTask(), seconds * 1000, period);
+    }
+
+    /**
+     * 具体任务
+     */
+    class UnlockTask extends TimerTask {
+        @Override
+        public void run() {
+            //todo 根据sys_lock_time_gap 更新 data_audit
+        }
+    }
+}

@@ -1,0 +1,50 @@
+// JavaScript Document
+$(function () {
+    var Yheight = $(window).height() - 295;
+    $(".content").height(Yheight);
+
+    $(".small_window").click(function () {
+        $(".window_bg,.window_cont").show();
+        $(".window_cont").css({height: "460px", marginTop: "-230px"});
+    });
+    $(".large_window").click(function () {
+        $(".window_bg,.window_cont").show();
+        $(".window_cont").css({height: "550px", marginTop: "-275px"});
+    });
+    
+    $(".icon_01").click(function () {
+        $("#window_cont").load("/page01");
+    });
+    $(".icon_02").click(function () {
+        $("#window_cont").load("/page02");
+    });
+    $(".icon_03").click(function () {
+        $("#window_cont").load("/page03");
+    });
+
+    $(".manager").click(function (){          //超链接到管理员登陆界面
+    	window.location.href = "/login";
+    });
+    
+    $(".manage").click(function (){  
+    	$(this).siblings().removeClass('hover').end().addClass('hover');
+    	var url = $(this).attr('url');
+    	$(".content").load("/"+url);
+    	//$(".content").load(url);  
+    });
+    
+    odd = {"background": "#fff"};//������ʽ
+    even = {"background": "#f9f9f9"};//ż����ʽ
+    odd_even("#result_table", odd, even);
+
+    function odd_even(id, odd, even) {
+        $(id).find("tbody tr").each(function (index, element) {
+            if (index % 2 == 1)
+                $(this).css(odd);
+            else
+                $(this).css(even);
+        });
+    }
+});
+
+

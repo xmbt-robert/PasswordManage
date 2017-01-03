@@ -1,0 +1,17 @@
+jdbcUrl = jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+user = root
+password =root
+devMode = true
+
+ldap.maxconn=6
+keystore=/usr/java/default/jre/lib/security/cacerts
+trustStorePassword=111111
+java.naming.factory.initial=com.sun.jndi.ldap.LdapCtxFactory
+java.naming.provider.url=ldap://172.17.193.8:636
+java.naming.security.authentication=simple
+java.naming.security.principal=CN=oaadmin,OU=OA,DC=freecomm-networks,DC=com
+java.naming.security.credentials=feixun*123
+java.naming.security.protocol=ssl
+com.sun.jndi.ldap.connect.pool=true
+java.naming.referral=follow
+java.naming.basedn=ldap://172.17.193.8:389/OU=freecomm,DC=freecomm-networks,DC=com

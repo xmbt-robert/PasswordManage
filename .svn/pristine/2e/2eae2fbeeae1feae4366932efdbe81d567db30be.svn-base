@@ -1,0 +1,84 @@
+//输入框页面的校验
+var digital = "512";  										// 用户正常账号代号
+$(function(){ 
+	$('.send').attr('disabled','true');   					//页面加载的时候，将发送按钮变为不可编辑状态
+	//$('#code').attr('disabled','true');   					//页面加载的时候，将验证码输入框变为不可编辑状态
+	$('.send').css('background','#e2e2e2');
+	function checking(objval) {
+		var value = $(objval).val();
+		$.ajax({
+		   type: "POST",
+		   dataType:"json",
+		   url: "/checkValue",
+		   async: false,
+		   data: "value="+ value,
+		   success: function(data){
+				var obj = data;
+				if(obj[0] != "" && obj[0] != null && obj[0] == digital){  	//用户状态为标识为'512'的时候，即正常状态
+					$('#mobile').val(obj[1]);
+					$('.send').removeAttr('disabled');        				//状态为正常状态的时候，将发送按钮变为可编辑状态
+					$('.send').css('background','#f5f5f5');
+					$('.send').hover('background','#e2e2e2');
+					}
+				else{
+					$('#code').attr('disabled',true);  						//用户状态为非正常状态，将验证码输入框屏蔽
+					$("#message_error").show();                                      //显示提示框
+				   }
+		   },
+		   error: function(XMLHttpRequest, textStatus, errorThrown) {
+       		}
+		});	
+	};
+	$('.input_form').bind({ 
+		focus:function(){  							/*获取焦点*/
+			//var span = $(this).next('span');
+		    if (this.value == this.defaultValue){ 
+		    this.value=""; 
+		    $(this).attr("class","puton"); 
+		    	//span.remove();
+		    $('#code').attr('disabled',true);
+		    }
+		    else{
+		    	$("#message_error").hide();                  //隐藏提示框
+		    	$('#mobile').val('');    			//获得焦点的时候，移除号码
+		    	$('#code').val('');      			//获得焦点的时候，移除验证码
+				$('.send').attr('disabled',true);  	//获得焦点的时候，屏蔽发送按钮
+				$('#code').attr('disabled',false);   // 将验证码输入框变为可编辑状态(涉及到当用户发送完没按解锁，关闭页面后，再次打开页面)
+		    	//span.remove();
+		    }
+		}, 
+		blur:function(){   							/*失去焦点*/
+			//var span = $(this).next('span');
+			if (this.value == ""){ 
+				this.value = this.defaultValue; 
+				$(this).attr("class","default"); 
+				span.remove();
+				$('#mobile').val('');    			//用户名为空时，移除号码
+				$('.send').attr('disabled','true');  //屏蔽发送按钮
+				return ;
+			}
+			else{
+				//if(obj[0] == "" && obj[0] == null && obj[0] != digital){
+				$('#code').attr('disabled',false);   // 失去焦点且用户名为非锁定状态时，将验证码输入框变为可编辑状态
+				//}
+			}
+			checking(this);
+		}
+	});
+});
+
+function resetPass(){
+    var name = $('#name').val();
+    var obj = {name: name};
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/resetPass",
+        data: obj,
+        async: false,       //将AJAX设为同步
+        success: function (data) {
+        }
+    });
+}
+
+

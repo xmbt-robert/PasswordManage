@@ -1,0 +1,27 @@
+$(function(){
+	$(".cancel").click(function(){
+		$("input[type='text']").val("");   //清空所有type为text格式的文本框
+		 $("select[name='choose']  option[value='0'] ").attr("selected",true); //恢复所有name=choose的选择的默认值
+	});
+	
+	$(".operate").click(function(){	
+		var userName = $("#userName").val();
+		var realName = $("#realName").val();
+		$('#userSearch-datagrid').datagrid('load',{ 
+			realName : realName,
+			userName : userName
+		});
+	});
+});
+
+function userStatusFormatter(value, row, index){
+	if (value == 512 || value == 8389120){
+		return "正常";
+	} else if (value == 514){
+		return "禁止";
+	} else if (value == 528 || value == 66164){
+		return "锁定";
+	} else {
+		return "未知";
+	}
+}

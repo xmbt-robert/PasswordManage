@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+.code{    
+background-image:url("../images/code.png");
+/* background-color:#00FFFF;  */  
+font-family:Arial;    
+font-style:italic;    
+color:Red;    
+border:0;    
+padding:2px 3px;    
+letter-spacing:3px;    
+font-weight:bolder;    
+} 

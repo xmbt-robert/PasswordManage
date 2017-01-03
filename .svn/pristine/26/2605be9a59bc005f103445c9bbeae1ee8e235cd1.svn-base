@@ -1,0 +1,12 @@
+package com.fx.passform.model;
+
+import com.jfinal.plugin.activerecord.Model;
+
+/**
+ *  OptLog's Moel
+ *
+ * Created by fan.xu on 2014/10/21.
+ */
+public class OptLog extends Model<OptLog> {
+    public static final OptLog dao = new OptLog();
+}

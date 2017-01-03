@@ -1,0 +1,82 @@
+package com.fx.passform.plugin;
+
+import com.novell.ldap.LDAPConnection;
+import com.novell.ldap.LDAPException;
+
+import java.io.UnsupportedEncodingException;
+
+/**
+ * ldap链接数据
+ *
+ * Created by fan.xu on 2014/10/23.
+ */
+public class LDAPConectionData {
+
+
+    //判断该链接是否被占用（链接是可用的，还是已经在使用中的）
+    private boolean conetIsFree = true;
+
+    //判断链接是否关闭，在这里几乎我没有用到该标志。
+    private boolean isClosed = false;
+
+    //LDAP链接。
+    private LDAPConnection conn = null;
+
+    /**
+     * 初始化LDAP链接
+     *
+     * @param ldapURl url
+     * @param port   端口
+     * @param user   用户名
+     * @param passwd  密码
+     * @throws LDAPException
+     * @throws UnsupportedEncodingException
+     */
+    public LDAPConectionData(String ldapURl, int port, String user, String passwd)  {
+        conn = new LDAPConnection();
+        try {
+            conn.connect(ldapURl, port);
+            conn.bind(LDAPConnection.LDAP_V3, user, passwd.getBytes("UTF8"));
+        } catch (LDAPException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean getConetIsFree() {
+        return conetIsFree;
+    }
+
+
+    public void setConetIsFree(boolean conetIsFree) {
+        this.conetIsFree = conetIsFree;
+    }
+
+
+    public boolean getClosed() {
+        return isClosed;
+    }
+
+
+    public void setClosed(boolean isClosed) {
+        this.isClosed = isClosed;
+    }
+
+
+    public LDAPConnection getConn() {
+        return this.conn;
+    }
+
+
+    public void closeLDAPConnection() {
+        if (this.conn != null) {
+            try {
+                conn.disconnect();
+            } catch (LDAPException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+}

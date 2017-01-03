@@ -1,0 +1,22 @@
+#jdbc
+jdbcUrl = jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+user = root
+password =root
+devMode = true
+
+#ldap
+ldap.maxconn=6
+searchBase=OU=freecomm,DC=freecomm-networks,DC=com
+keystore=D:/java/jdk1.6.0_35/jre/lib/security/cacerts
+trustStorePassword=111111
+ldapURL=172.17.193.8
+ldapPort=389
+ldapuser=CN=oaadmin,OU=OA,DC=freecomm-networks,DC=com
+ldappass=feixun*123
+
+#sms
+
+
+
+#email
+

@@ -1,0 +1,249 @@
+
+2015-01-09 10:17:51
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-09 10:17:52
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-09 10:17:53
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961kqj0zo1q78rpf|5f8172, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961kqj0zo1q78rpf|5f8172, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-09 10:18:16
+[INFO]-[Thread: qtp13288040-21]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-09 10:18:32
+[INFO]-[Thread: qtp13288040-25]-[com.fx.passform.common.CommonController.modifyPass()]: 用户[bingyang.ma]密码修改成功
+
+2015-01-09 10:19:15
+[INFO]-[Thread: qtp13288040-19]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-09 10:19:22
+[INFO]-[Thread: qtp13288040-25]-[com.fx.passform.common.CommonController.sendPass()]: 用户[bingyang.ma]  手机[15618533436]验证码发送超过规定次数
+
+2015-01-09 10:19:24
+[INFO]-[Thread: qtp13288040-21]-[com.fx.passform.common.CommonController.checkSms()]: 用户[bingyang.ma]验证码匹配失败
+
+2015-01-09 10:19:30
+[INFO]-[Thread: qtp13288040-25]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-09 10:19:44
+[INFO]-[Thread: qtp13288040-23]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-09 10:19:45
+[INFO]-[Thread: qtp13288040-19]-[com.fx.passform.common.CommonController.sendPass()]: 用户[zhibing.xie]  手机[15618533436]验证码发送超过规定次数
+
+2015-01-09 10:19:47
+[INFO]-[Thread: qtp13288040-20]-[com.fx.passform.common.CommonController.checkSms()]: 用户[zhibing.xie]验证码匹配失败
+
+2015-01-09 10:20:17
+[INFO]-[Thread: qtp13288040-21]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-09 10:20:22
+[INFO]-[Thread: pool-7-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Fri Jan 09 10:20:22 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=60EFC8398A7D7DE98A321CA32B531082
+
+2015-01-09 10:20:22
+[INFO]-[Thread: pool-7-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Fri Jan 09 10:20:22 CST 2015 sendTemplateSMS Request body =  {"appId":"aaf98f89495b3f3801495eed1fab01c8","to":"15618533436","templateId":"6709","datas":["453373","30"]}
+
+2015-01-09 10:20:43
+[ERROR]-[Thread: pool-7-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-09 10:20:43
+[INFO]-[Thread: qtp13288040-23]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[453373] phone[15618533436] statusCode [172001]  error_message[网络错误]
+
+2015-01-09 10:20:43
+[INFO]-[Thread: qtp13288040-23]-[com.fx.passform.common.CommonController.sendPass()]: 用户[zhibing.xie]  手机[15618533436]短信发送失败！
+
+2015-01-09 10:21:04
+[INFO]-[Thread: qtp13288040-25]-[com.fx.passform.common.CommonController.checkSms()]: 用户[zhibing.xie]验证码匹配失败
+
+2015-01-09 10:29:31
+[INFO]-[Thread: qtp13288040-19]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-09 10:29:42
+[INFO]-[Thread: qtp13288040-25]-[com.fx.passform.common.CommonController.modifyPass()]: 用户[bingyang.ma]密码修改成功
+
+2015-01-09 10:30:01
+[INFO]-[Thread: qtp13288040-23]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-09 10:30:04
+[INFO]-[Thread: pool-13-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Fri Jan 09 10:30:04 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=664AF86EAFC3A0A7D98C745036A51EC2
+
+2015-01-09 10:30:04
+[INFO]-[Thread: pool-13-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Fri Jan 09 10:30:04 CST 2015 sendTemplateSMS Request body =  {"appId":"aaf98f89495b3f3801495eed1fab01c8","to":"15618533436","templateId":"6709","datas":["231119","30"]}
+
+2015-01-09 10:30:25
+[ERROR]-[Thread: pool-13-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-09 10:30:25
+[INFO]-[Thread: qtp13288040-21]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[231119] phone[15618533436] statusCode [172001]  error_message[网络错误]
+
+2015-01-09 10:30:25
+[INFO]-[Thread: qtp13288040-21]-[com.fx.passform.common.CommonController.sendPass()]: 用户[bingyang.ma]  手机[15618533436]短信发送失败！
+
+2015-01-09 10:36:27
+[INFO]-[Thread: qtp13288040-24]-[com.fx.passform.common.CommonController.checkSms()]: 用户[bingyang.ma]验证码匹配失败
+
+2015-01-09 10:36:29
+[INFO]-[Thread: qtp13288040-20]-[com.fx.passform.common.CommonController.checkSms()]: 用户[bingyang.ma]验证码匹配失败
+
+2015-01-09 10:58:12
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-09 10:58:12
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-09 10:58:12
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961kryx2trprzp9|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961kryx2trprzp9|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-09 10:58:18
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-09 10:58:18
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-09 10:58:19
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961krz24l1g0wmcw|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961krz24l1g0wmcw|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-09 10:59:48
+[INFO]-[Thread: qtp16032330-23]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-09 10:59:51
+[INFO]-[Thread: pool-5-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Fri Jan 09 10:59:51 CST 2015 sendTemplateSMS url = https://sandboxapp.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=858B52254A97345EFF20C74825DF7E45
+
+2015-01-09 10:59:51
+[INFO]-[Thread: pool-5-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Fri Jan 09 10:59:51 CST 2015 sendTemplateSMS Request body =  {"appId":"aaf98f89495b3f3801495eed1fab01c8","to":"18516191855","templateId":"6709","datas":["490550","30"]}
+
+2015-01-09 11:00:12
+[ERROR]-[Thread: pool-5-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://sandboxapp.cloopen.com:8883 refused
+
+2015-01-09 11:00:12
+[INFO]-[Thread: qtp16032330-25]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[490550] phone[18516191855] statusCode [172001]  error_message[网络错误]
+
+2015-01-09 11:00:12
+[INFO]-[Thread: qtp16032330-25]-[com.fx.passform.common.CommonController.sendPass()]: 用户[zhibing.xie]  手机[18516191855]短信发送失败！
+
+2015-01-09 11:06:13
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-09 11:06:13
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-09 11:06:14
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961ks98npvbhhoo|5f8172, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961ks98npvbhhoo|5f8172, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-09 11:06:15
+[INFO]-[Thread: qtp27355241-19]-[com.fx.passform.common.CommonController.checkSms()]: 用户[zhibing.xie]验证码匹配失败
+
+2015-01-09 11:06:21
+[INFO]-[Thread: qtp27355241-25]-[com.fx.passform.common.CommonController.checkSms()]: 用户[zhibing.xie]验证码匹配失败
+
+2015-01-09 11:06:29
+[INFO]-[Thread: qtp27355241-21]-[com.fx.passform.common.CommonController.checkSms()]: 用户[zhibing.xie]验证码匹配失败
+
+2015-01-09 11:06:33
+[INFO]-[Thread: qtp27355241-25]-[com.fx.passform.common.CommonController.checkSms()]: 用户[zhibing.xie]验证码匹配失败
+
+2015-01-09 11:07:07
+[INFO]-[Thread: qtp27355241-21]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-09 11:07:08
+[INFO]-[Thread: qtp27355241-19]-[com.fx.passform.common.CommonController.sendPass()]: 用户[zhibing.xie]  手机[18516191855]验证码发送超过规定次数
+
+2015-01-09 11:07:09
+[INFO]-[Thread: qtp27355241-21]-[com.fx.passform.common.CommonController.checkSms()]: 用户[zhibing.xie]验证码匹配失败
+
+2015-01-09 11:07:37
+[INFO]-[Thread: qtp27355241-25]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[544]
+
+2015-01-09 11:07:38
+[INFO]-[Thread: pool-3-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Fri Jan 09 11:07:38 CST 2015 sendTemplateSMS url = https://sandboxapp.cloopen.com:8883/2013-12-26/Accounts/aaf98f894ac8352e014acc9857690225/SMS/TemplateSMS?sig=39F23C72228E605E069793043183672C
+
+2015-01-09 11:07:38
+[INFO]-[Thread: pool-3-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Fri Jan 09 11:07:38 CST 2015 sendTemplateSMS Request body =  {"appId":"aaf98f894ac8352e014acc9a84ec0229","to":"18516191855","templateId":"1","datas":["299857","30"]}
+
+2015-01-09 11:07:59
+[ERROR]-[Thread: pool-3-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://sandboxapp.cloopen.com:8883 refused
+
+2015-01-09 11:07:59
+[INFO]-[Thread: qtp27355241-24]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[299857] phone[18516191855] statusCode [172001]  error_message[网络错误]
+
+2015-01-09 11:07:59
+[INFO]-[Thread: qtp27355241-24]-[com.fx.passform.common.CommonController.sendPass()]: 用户[zhibing.xie]  手机[18516191855]短信发送失败！
+
+2015-01-09 14:31:21
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-09 14:31:21
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-09 14:31:21
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961kzl1bc3m59wv|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961kzl1bc3m59wv|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-09 14:31:41
+[INFO]-[Thread: qtp16032330-19]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[512]
+
+2015-01-09 14:31:42
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Fri Jan 09 14:31:42 CST 2015 sendTemplateSMS url = https://sandboxapp.cloopen.com:8883/2013-12-26/Accounts/aaf98f894ac8352e014acc9857690225/SMS/TemplateSMS?sig=62B2AC86968F890AD177E3809A81F21C
+
+2015-01-09 14:31:42
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Fri Jan 09 14:31:42 CST 2015 sendTemplateSMS Request body =  {"appId":"aaf98f89495b3f3801495eed1fab01c8","to":"18516191855","templateId":"6709","datas":["342345","30"]}
+
+2015-01-09 14:31:44
+[INFO]-[Thread: qtp16032330-19]-[com.fx.passform.common.CommonController.checkSms()]: 用户[zhibing.xie]验证码匹配失败
+
+2015-01-09 14:32:04
+[ERROR]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://sandboxapp.cloopen.com:8883 refused
+
+2015-01-09 14:32:04
+[INFO]-[Thread: qtp16032330-25]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[342345] phone[18516191855] statusCode [172001]  error_message[网络错误]
+
+2015-01-09 14:32:04
+[INFO]-[Thread: qtp16032330-25]-[com.fx.passform.common.CommonController.sendPass()]: 用户[zhibing.xie]  手机[18516191855]短信发送失败！
+
+2015-01-09 14:33:35
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-09 14:33:35
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-09 14:33:35
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961kznwpm1kx60xk|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961kznwpm1kx60xk|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-09 14:33:44
+[INFO]-[Thread: qtp16032330-23]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[512]
+
+2015-01-09 14:33:46
+[INFO]-[Thread: qtp16032330-25]-[com.fx.passform.common.CommonController.sendPass()]: 用户[zhibing.xie]  手机[18516191855]验证码发送超过规定次数
+
+2015-01-09 14:33:46
+[INFO]-[Thread: qtp16032330-24]-[com.fx.passform.common.CommonController.checkSms()]: 用户[zhibing.xie]验证码匹配失败
+
+2015-01-09 14:34:15
+[INFO]-[Thread: main]-[com.mchange.v2.log.MLog.<clinit>()]: MLog clients using log4j logging.
+
+2015-01-09 14:34:15
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.C3P0Registry.banner()]: Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+
+2015-01-09 14:34:15
+[INFO]-[Thread: main]-[com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getPoolManager()]: Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 2, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1bqqysc961kzor9wck3q98|146c1d4, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1bqqysc961kzor9wck3q98|146c1d4, idleConnectionTestPeriod -> 0, initialPoolSize -> 10, jdbcUrl -> jdbc:mysql://172.17.168.181:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 20, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 100, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+
+2015-01-09 14:34:23
+[INFO]-[Thread: qtp16032330-23]-[com.fx.passform.common.CommonController.checkValue()]: 用户状态：[512]
+
+2015-01-09 14:34:24
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Fri Jan 09 14:34:24 CST 2015 sendTemplateSMS url = https://app.cloopen.com:8883/2013-12-26/Accounts/8a48b55148fe486001491cd5f20c1442/SMS/TemplateSMS?sig=273FA825448F5CAEE0EA23A812C4E3EC
+
+2015-01-09 14:34:24
+[INFO]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.info()]: Fri Jan 09 14:34:24 CST 2015 sendTemplateSMS Request body =  {"appId":"aaf98f89495b3f3801495eed1fab01c8","to":"18516191855","templateId":"6709","datas":["555039","30"]}
+
+2015-01-09 14:34:25
+[INFO]-[Thread: qtp16032330-22]-[com.fx.passform.common.CommonController.checkSms()]: 用户[zhibing.xie]验证码匹配失败
+
+2015-01-09 14:34:45
+[ERROR]-[Thread: pool-1-thread-1]-[com.cloopen.rest.sdk.utils.LoggerUtil.error()]: Connection to https://app.cloopen.com:8883 refused
+
+2015-01-09 14:34:45
+[INFO]-[Thread: qtp16032330-25]-[com.fx.passform.util.SendUtil.sendSMS()]: Send SMS Error! valCode[555039] phone[18516191855] statusCode [172001]  error_message[网络错误]
+
+2015-01-09 14:34:45
+[INFO]-[Thread: qtp16032330-25]-[com.fx.passform.common.CommonController.sendPass()]: 用户[zhibing.xie]  手机[18516191855]短信发送失败！

@@ -1,0 +1,38 @@
+package com.fx.passform.util;
+
+import java.sql.Timestamp;
+
+/**
+ * Created by fan.xu on 2014/10/21.
+ */
+public class StringUtil {
+    /**
+     * 判断当前字符串是否合法
+     *
+     * @param val
+     * @return
+     */
+    public static boolean isValid(String val){
+        return val!=null && val.trim().length()>0;
+    }
+
+    /**
+     * 判断当前字符串是否合法
+     *
+     * @param val
+     * @return
+     */
+    public static boolean isValid(Timestamp val){
+        return val!=null && val.getTime()>0;
+    }
+
+    /**
+     * 判断当前字符串是否合法
+     *
+     * @param val
+     * @return
+     */
+    public static boolean isValid(int val){
+        return val>0;
+    }
+}

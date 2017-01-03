@@ -1,0 +1,70 @@
+package com.fx.passform.model;
+
+import com.fx.passform.PassFormServer;
+import com.fx.passform.plugin.LdapPlugin;
+import com.fx.passform.util.LdapKit;
+import com.jfinal.plugin.activerecord.Model;
+
+import java.util.List;
+
+/**
+ * Config's Model
+ * <p/>
+ * Created by fan.xu on 2014/10/21.
+ */
+public class Config extends Model<Config> {
+    public static final Config dao = new Config();
+
+    /**
+     * 增加系统配置
+     *
+     * @param type 系统配置类型(1,ldap,2,sms,3,email)
+     * @param ip   IP地址
+     * @param port 端口
+     * @param user 用户名
+     * @param pass 密码
+     * @return
+     */
+    public boolean addConfig(int type, String ip, int port, String user, String pass) {
+        Config cfg = new Config();
+        cfg.set("sysType", type).set("IP", ip).set("port", port);
+        cfg.set("userName", user).set("userPassWd", pass);
+        
+        boolean flag = cfg.save();
+        if(flag){
+        	LdapKit.updateLdap(type, ip, port, user, pass);
+        }
+        return flag;
+    }
+
+    /**
+     * 修改系统配置
+     *
+     * @param type
+     * @param ip
+     * @param port
+     * @param user
+     * @param pass
+     * @return
+     */
+    public boolean updCfg(int type, String ip, int port, String user, String pass) {
+        Config cfg = dao.findById(type);
+        cfg.set("IP", ip).set("port", port);
+        cfg.set("userName", user).set("userPassWd", pass);
+        boolean flag = cfg.update();
+        if(flag){
+        	LdapKit.updateLdap(type, ip, port, user, pass);
+        }
+        return flag;
+    }
+    
+
+    /**
+     * 得到所有系统配置信息
+     *
+     * @return
+     */
+    public List<Config> findAll() {
+        return find("select * from sys_config_server");
+    }
+}

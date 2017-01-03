@@ -1,0 +1,363 @@
+$(function(){
+	var reg = /^[1-9]*[1-9][0-9]*$/;  //正整数
+	$(".cancel").click(function(){
+		$("input[type='text']").val("");   //清空所有type为text格式的文本框
+		$("input[type='password']").val("");
+		$("#choose").children("option").removeAttr("selected");    //重置默认的下拉值
+		$("#choose").children("option").eq(0).attr("selected", "selected");
+		$("ul[class='select_option']").children("li").removeClass("hover");
+		$("ul[class='select_option']").children("li").eq(0).addClass("hover");
+		$("ul[class='select_option']").children("li").removeClass("selected");
+		$("ul[class='select_option']").children("li").eq(0).addClass("selected");
+		$("div[class='select_showbox']").html($("ul[class='select_option']").children("li").eq(0).html());
+		
+	});
+	
+	$("#adService").click(function(){   //AD服务设置
+		var inputArray = $(":input", "#con_listone_1");
+		for(var i=0; i<inputArray.length; i++){
+			if($.trim($(inputArray[i]).val()) == ""){
+			layer.alert('请先填完所有内容，再修改！', 0, function () {
+				layer.closeAll();
+				$(inputArray[i]).focus();
+            });
+			return;
+			}
+		}
+		adServiceSet();
+	});
+	function adServiceSet(){
+		var ip = $("#IP", "#con_listone_1").val();
+		var port = $("#Port", "#con_listone_1").val();
+		var user = $("#name", "#con_listone_1").val();
+		var pass = $("#pass", "#con_listone_1").val();
+		var param = {ip:ip, port:port, user:user, pass:pass};
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/adServiceSet",
+			async: true,
+			data: param,
+			success: function(data){
+				layer.alert('修改成功！', 9, function () {
+					layer.closeAll();
+					$("input[type='text']").val("");   
+					$("input[type='password']").val("");
+	            });
+			}
+		});
+	}
+	
+	$("#smsGateway").click(function(){   //短信网关设置
+		var inputArray = $(":input", "#con_listone_2");
+		for(var i=0; i<inputArray.length; i++){
+			if($.trim($(inputArray[i]).val()) == ""){
+				layer.alert('请先填完所有内容，再修改！', 0, function () {
+					layer.closeAll();
+					$(inputArray[i]).focus();
+	            });
+				return;
+				}
+		}
+		smsGatewaySet();
+	});
+	
+	function smsGatewaySet(){
+		var ip = $("#IP", "#con_listone_2").val();
+		var port = $("#Port", "#con_listone_2").val();
+		var user = $("#name", "#con_listone_2").val();
+		var pass = $("#pass", "#con_listone_2").val();
+		var param = {ip:ip, port:port, user:user, pass:pass};
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/smsGatewaySet",
+			async: true,
+			data: param,
+			success: function(data){
+				layer.alert('修改成功！', 9, function () {
+					layer.closeAll();
+					$("input[type='text']").val("");   
+					$("input[type='password']").val("");
+	            });
+			}
+		});
+	}
+	
+	
+	$("#emailSystem").click(function(){   //邮箱设置
+		var inputArray = $(":input", "#con_listone_3");
+		for(var i=0; i<inputArray.length; i++){
+			if($.trim($(inputArray[i]).val()) == ""){
+				layer.alert('请先填完所有内容，再修改！', 0, function () {
+					layer.closeAll();
+					$(inputArray[i]).focus();
+	            });
+				return;
+				}
+		}
+		emailSystemSet();
+	});
+	
+	function emailSystemSet(){
+		var ip = $("#IP", "#con_listone_3").val();
+		var port = $("#Port", "#con_listone_3").val();
+		var user = $("#name", "#con_listone_3").val();
+		var pass = $("#pass", "#con_listone_3").val();
+		var param = {ip:ip, port:port, user:user, pass:pass};
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/emailSystemSet",
+			async: true,
+			data: param,
+			success: function(data){
+				layer.alert('修改成功！', 9, function () {
+					layer.closeAll();
+					$("input[type='text']").val("");   
+					$("input[type='password']").val("");
+	            });
+			}
+		});
+	}
+	
+	
+	$(".message_operate").click(function(){    //修改短信发送间隔时间
+		var time = $("#message_time").val();
+		//var reg = /^(0|[1-9]*)$/;
+			if(!reg.test(time) || time == null || time == ""){
+				layer.alert('请输入一个正整数！', 0, function () {
+					layer.closeAll();
+					$("#message_time").val("");
+					$("#message_time").focus();
+	            });
+				return;
+			}else{
+				messageTimeSet(this);
+			}
+			
+	});
+	function messageTimeSet(){
+		var time = $("#message_time").val();
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/messageTimeSet",
+			async: true,
+			data: "message_time=" + time,
+			success: function(data){
+				layer.alert('修改成功！', 9, function () {
+					layer.closeAll();
+					$("#message_time").val("");
+	            });
+			}
+		});
+	}
+	
+	$(".email_operate").click(function(){    //修改邮件发送间隔时间
+		var time = $("#email_time").val();
+		//var reg = /^(0|[1-9]*)$/;
+			if(!reg.test(time) || time == null || time == ""){
+				layer.alert('请输入一个正整数！', 0, function () {
+					layer.closeAll();
+					$("#email_time").val("");
+					$("#email_time").focus();
+	            });
+				return;
+			}else{
+				emailTimeSet(this);
+			}
+	});
+	function emailTimeSet(){
+		var time = $("#email_time").val();
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/emailTimeSet",
+			async: true,
+			data: "email_time=" + time,
+			success: function(data){
+				layer.alert('修改成功！', 9, function () {
+					layer.closeAll();
+					$("#email_time").val("");
+	            });
+			}
+		});
+	}
+	
+	
+	$(".audit_operate").click(function(){    //审计设置
+		var choose = $("#choose").val();
+		var failCount = $(".failCount").val();
+		var lockTime = $(".lockTime").val();
+		//var reg = /^([1-9]*)$/;
+		
+		if(choose == 0){
+			layer.alert('请选择某一条件进行设置！', 0, function () {
+				layer.closeAll();
+            });
+			return;
+		}else 
+			if(!reg.test(failCount) || failCount == null || failCount == ""){
+				layer.alert('失败次数必须为一个正整数！', 0, function () {
+					layer.closeAll();
+					$(".failCount").val("");
+					$(".failCount").focus();
+	            });
+				return;
+			}else 
+				if(!reg.test(lockTime) || lockTime == null || lockTime == ""){
+					layer.alert('锁定时间必须为一个正整数！', 0, function () {
+						layer.closeAll();
+						$(".lockTime").val("");
+						$(".lockTime").focus();
+		            });
+					return;
+			}
+			else {
+				auditSet(this);
+			}
+	});
+	function auditSet(){
+		var type = $("#choose").val();
+		var lockTime = $(".lockTime").val();
+		var failCount = $(".failCount").val();
+		var param = {choose:type,lockTime:lockTime,failCount:failCount};
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/auditSet",
+			async: true,
+			data: param,
+			success: function(param){
+				layer.alert('修改成功！', 9, function () {
+					layer.closeAll();
+					$("#choose").val(0);
+					$(".failCount").val("");
+					$(".lockTime").val("");
+	            });
+			}
+		});
+	}
+});
+
+var url;
+var type;
+function newUser() {   //添加用户弹出窗
+	$("#dlg").css("display", "");
+    $("#dlg").dialog("open").dialog('setTitle', '添加'); ;
+    $("#fm").form("clear");
+    //document.getElementById("hidtype").value="submit";
+}
+
+function saveUser() {  //保存用户
+	var valid = $("#fm").form("validate");
+	if(valid){
+		var staffId = $("#staffId").val();
+        var user = $("#user").val();
+        var param = {staffId: staffId, user: user};
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			url: "/adminAddData",
+			async: true,
+			data: param,
+			success: function(data){
+	            if (data == "success") {
+	                $.messager.alert("提示信息", "保存成功");
+	                $("#dlg").dialog("close");
+	                $("#admin-datagrid").datagrid("reload");
+	            }
+	            else {
+	                $.messager.alert("提示信息", "保存失败");
+	            }
+			}
+		});
+	}
+	
+	/*
+	$("#fm").form("submit", {
+        url: "/adminAddData",
+        dataType: "json",
+        onsubmit: function () {
+            return $(this).form("validate");
+        },
+        success: function (data) {
+        	alert(data);
+            if (data == "success") {
+                $.messager.alert("提示信息", "保存成功");
+                $("#dlg").dialog("close");
+                $("#admin-datagrid").datagrid("reload");
+            }
+            else {
+                $.messager.alert("提示信息", "保存失败");
+            }
+        }
+    });
+    */
+}
+
+function destroyUser() {   //删除用户
+    var row = $('#admin-datagrid').datagrid('getSelected');
+    if (row && row.id) {
+        var param = {id: row.id};
+            	$.ajax({
+        			type: "POST",
+        			dataType: "json",
+        			url: "/adminDeleteData",
+        			async: true,
+        			data: param,
+        			success: function(data){
+        	            if (data == "success") {
+        	                //$.messager.alert("提示信息", "删除成功");
+        	                $.messager.confirm("提示信息", "确定要删除此选中数据？",function(r){
+        	                if(r){
+        	                $("#dlg").dialog("close");
+        	                $("#admin-datagrid").datagrid("reload");
+        	                }
+        	                else{
+        	                	$("#dlg").dialog("close");
+        	                }
+        	               });
+        	            }
+        	            else {
+        	                $.messager.alert("提示信息", "删除失败");
+        	            }
+        			}
+        		});
+    }
+    else{
+    	$.messager.alert("提示信息", "请先选中要删除的数据");
+        $("#dlg").dialog("close");
+    }
+}
+
+/*function destroyUser() {   //删除用户
+    var row = $('#admin-datagrid').datagrid('getSelected');
+    if (row) {
+        $.messager.confirm('删除', '你确定要删除该数据?', function (r) {
+            if (r) {
+                $.post('destroy_user.php', { id: row.id }, function (result) {
+                    if (result.success) {
+                        $('#admin-datagrid').datagrid('reload');    // reload the user data  
+                    } else {
+                        $.messager.show({   // show error message  
+                            title: 'Error',
+                            msg: result.errorMsg
+                        });
+                    }
+                }, 'json');
+            }
+        });
+    }
+}*/  
+
+function lockStatusFormatter(value, row, index){
+	if (value == 1){
+		return "锁定";
+	} else if (value == 0){
+		return "正常";
+	} else {
+		return ;
+	}
+}

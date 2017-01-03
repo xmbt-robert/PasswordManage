@@ -1,0 +1,149 @@
+package com.fx.passform.model;
+
+import com.fx.passform.util.StringUtil;
+import com.jfinal.plugin.activerecord.Model;
+import com.jfinal.plugin.activerecord.Page;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+/**
+ * Sms's Model
+ * <p/>
+ * Created by fan.xu on 2014/10/21.
+ */
+public class Sms extends Model<Sms> {
+    public static final Sms dao = new Sms();
+
+    /**
+     * 根据用户名和状态，取得短信SMS数据
+     *
+     * @param username 用户名
+     * @param status   状态(使用3，过期2，正常1)
+     * @return
+     */
+    public List<Sms> getSmsByUsername(String username, int status) {
+        StringBuilder builder = new StringBuilder(256);
+        builder.append("select * from data_shortmessage where userName =");
+        builder.append("'" + username + "'");
+        builder.append(" and expiresStatus = ");
+        builder.append(status);
+        return find(builder.toString());
+    }
+
+    /**
+     * 创建短信
+     *
+     * @param username 用户名
+     * @param code     验证码
+     * @param status   状态
+     * @param phone    电话号码
+     * @param email    邮箱
+     */
+    public boolean addSms(String username, String code, Integer status, String phone, String email) {
+        Sms sms = new Sms();
+        sms.set("userName", username).set("authCode", code).set("expiresStatus", status);
+        return sms.set("emailAddress", email).set("phoneNum", phone).save();
+    }
+
+    /**
+     * 根据用户名更新过期的短信验证码
+     *
+     * @param username 用户名
+     */
+    public void updateSms(String username) {
+        List<Sms> smss = getSmsByUsername(username, 0);
+        if (smss.size() > 0) {
+            for (Sms sm : smss) {
+                Timestamp time = sm.get("createTime");
+                int gap = new AuditSendTime().getGapTime(2);
+                if ((new Date().getTime() - time.getTime()) >= gap * 60 * 1000) {
+                    sm.set("expiresStatus", 2).update();
+                }
+            }
+        }
+    }
+
+    /**
+     * 根据用户名更新过期的短信验证码
+     *
+     * @param username 用户名
+     */
+    public void updateSms(String username, int oldStatus, int newStatus) {
+        List<Sms> smss = getSmsByUsername(username, oldStatus);
+        if (smss.size() > 0) {
+            for (Sms sm : smss) {
+                sm.set("expiresStatus", newStatus).update();
+            }
+        }
+    }
+
+    /**
+     * 根据用户名查找短信验证码
+     *
+     * @param username
+     * @param code
+     * @return
+     */
+    public boolean findSms(String username, String code) {
+        boolean find = false;
+        List<Sms> smss = getSmsByUsername(username, 1);
+        if (smss.size() > 0) {
+            for (Sms sm : smss) {
+                String smscode = sm.getStr("authCode");
+                if (smscode.equals(code)) {
+                    find = true;
+                    break;
+                }
+            }
+        }
+        return find;
+    }
+
+    /**
+     * 分页查询所有短信
+     *
+     * @param pageNum   　页码
+     * @param pageCount 　每页总条数
+     * @return
+     */
+    public Page<Sms> findAll(int pageNum, int pageCount) {
+        return dao.paginate(pageNum, pageCount, "select * ", "from data_shortmessage where 1=1");
+    }
+
+    /**
+     * 根据条件进行查询分析
+     *
+     * @param pageNum   页码
+     * @param pageCount 每页总条数
+     * @param user
+     * @param start
+     * @param end
+     * @param status
+     * @param phone
+     * @return
+     */
+    public Page<Sms> findSms(int pageNum, int pageCount, String user, String start,
+    		String end, int status, String phone) {
+        //组装条件
+        StringBuilder builder = new StringBuilder(512);
+        builder.append("from data_shortmessage where 1=1 ");
+        builder.append(StringUtil.isValid(user) ? " and userName like ?" : "");
+        builder.append(StringUtil.isValid(start) ? " and createTime  > ?" : "");
+        builder.append(StringUtil.isValid(end) ? " and createTime <=   ?" : "");
+        builder.append(StringUtil.isValid(status) ? " and expiresStatus = ?" : "");
+        builder.append(StringUtil.isValid(phone) ? " and phoneNum like ?" : "");
+
+        //组装值
+        ArrayList vals = new ArrayList();
+        if (StringUtil.isValid(user)) vals.add("%" + user + "%");
+        if (StringUtil.isValid(start)) vals.add(start);
+        if (StringUtil.isValid(end)) vals.add(end);
+        if (StringUtil.isValid(status)) vals.add(status);
+        if (StringUtil.isValid(phone)) vals.add("%" + phone + "%");
+
+        return dao.paginate(pageNum, pageCount, "select * ", builder.toString(), vals.toArray());
+    }
+}

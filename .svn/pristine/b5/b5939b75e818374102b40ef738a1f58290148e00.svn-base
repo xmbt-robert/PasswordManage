@@ -1,0 +1,32 @@
+#jdbc
+jdbcUrl = jdbc:mysql://172.17.191.3:3306/passform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+user = passform
+password = passform*123
+devMode = true
+
+#ldap
+ldap.maxconn=6
+searchBase=OU=freecomm,DC=freecomm-networks,DC=com
+keystore=/usr/java/default/jre/lib/security/cacerts
+trustStorePassword=111111
+ldapURL=172.16.100.7
+ldapPort=389
+ldapuser=CN=oaadmin,OU=FunctionAccount,OU=freecomm,DC=freecomm-networks,DC=com
+ldappass=oa123!
+
+#sms
+smsurl=app.cloopen.com
+smsport=8883
+smsuser=8a48b55148fe486001491cd5f20c1442
+smspass=782d777296c34266bc4b6c733a5b338e
+smsappid=aaf98f89495b3f3801495eed1fab01c8
+smstmpid=6709
+smstime=30
+
+
+#email
+emailurl=mail.cn.phicomm.com
+emailport=25
+emailuser=oasupport
+emailpass=feixun*123
+emailval=false

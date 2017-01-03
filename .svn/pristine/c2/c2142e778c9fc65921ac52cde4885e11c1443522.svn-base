@@ -1,0 +1,38 @@
+// JavaScript Document
+$(function () {
+    $(".exit").click(function (){          //退出前对话框确认后，超链接到管理员登陆界面
+    	layer.confirm('确定要退出',function(index){
+    		window.location.href = "/logout";
+    	});
+    });
+
+    loadTabcountDatagrid();
+});
+
+function loadTabcountDatagrid(){
+	
+	$("#tabcount_datagrid").datagrid({   
+	    url:'/tabCountData',  
+	    title:'报表审计统计列表',
+	    //width: 1200,
+		height: 220,
+	    pagination:true,   
+	    pageSize:5,   
+	    pageNumber:1, 
+	    pageList:[5,10,15,20,25,30],
+	    rownumbers:true, 
+	    singleSelect:true,//是否单选  
+	    rownumbers:true//行号
+	});
+};
+
+//操作状态设置
+function operateStatusFormatter(value, row, index){
+	if (value == 1){
+		return "失败";
+	} else if (value == 0){
+		return "正常";
+	} else {
+		return ;
+	}
+}

@@ -1,0 +1,11 @@
+@charset utf-8;
+/* 获取文本框焦点和失去焦点时，文字的样式 */
+.default { 
+font-weight:bold; 
+color:#FF0000; 
+} 
+.puton{ 
+font-weight:normal; 
+color:black; 
+} 
+

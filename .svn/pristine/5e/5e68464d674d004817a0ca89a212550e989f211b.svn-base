@@ -1,0 +1,32 @@
+// JavaScript Document
+$(function(){
+var txt = document.getElementById("name"), name_tx = document.getElementById("name_tx");
+var pwd = document.getElementById("password"), pwd_tx = document.getElementById("password_tx");
+pwd_tx.onfocus = function(){
+if(this.value != "请输入密码") return;
+this.style.display = "none";
+pwd.style.display = "";
+pwd.value = "";
+pwd.focus();
+}
+pwd.onblur = function(){
+if(this.value != "") return;
+this.style.display = "none";
+pwd_tx.style.display = "";
+pwd_tx.value = "请输入密码";
+}  
+
+name_tx.onfocus = function(){
+if(this.value != "请输入用户名") return;
+this.style.display = "none";
+txt.style.display = "";
+txt.value = "";
+txt.focus();
+}
+txt.onblur = function(){
+if(this.value != "") return;
+this.style.display = "none";
+name_tx.style.display = "";
+name_tx.value = "请输入用户名";
+} 
+})

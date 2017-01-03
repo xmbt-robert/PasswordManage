@@ -1,0 +1,91 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
+<tfoot>
+	<tr>
+		<td colspan="6">共${pageinfo.totalPage}页 ${pageinfo.totalRow}条数据
+			<div class="page_num">
+				<ul class="pagination" style="text-align: center">
+					<c:if test="${pageinfo.pageNumber <= 3 }">
+						<li class="first"><a href="javascript:;" class="disable">&laquo;</a></li>
+						<li class="previous"><a href="javascript:;" class="disable">&lsaquo;</a></li>
+						<c:forEach begin="1"
+							end="${pageinfo.totalPage<5?pageinfo.totalPage:5}" var="l">
+							<c:choose>
+								<c:when test="${l==pageinfo.pageNumber}">
+									<li><a href="javascript:;" class="current">${l}</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="javascript:${pagefun}('${url}',${l})">${l}</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<c:choose>
+							<c:when test="${pageinfo.pageNumber==pageinfo.totalPage||pageinfo.totalRow < 1}">
+								<li class="next"><a href="javascript:;" class="disable">&rsaquo;</a></li>
+								<li class="last"><a href="javascript:;" class="disable">&raquo;</a></li>
+							</c:when>
+							<c:otherwise>
+								<li class="next"><a
+									href="javascript:${pagefun}('${url}',${pageinfo.pageNumber+1})">&rsaquo;</a></li>
+								<li class="last"><a
+									href="javascript:${pagefun}('${url}',${pageinfo.totalPage})">&raquo;</a></li>
+							</c:otherwise>
+						</c:choose>
+
+					</c:if>
+
+					<c:if
+						test="${pageinfo.pageNumber > 3 && pageinfo.pageNumber <= (pageinfo.totalPage-2)}">
+						<li class="first"><a href="javascript:${pagefun}('${url}',1)">&laquo;</a></li>
+						<li class="previous"><a
+							href="javascript:${pagefun}('${url}',${pageinfo.pageNumber-1})">&lsaquo;</a></li>
+						<c:forEach begin="${pageinfo.pageNumber-2}"
+							end="${pageinfo.pageNumber+2}" var="l">
+							<c:choose>
+								<c:when test="${l==pageinfo.pageNumber}">
+									<li><a href="javascript:;" class="current">${l}</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="javascript:${pagefun}('${url}',${l})">${l}</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<li class="next"><a
+							href="javascript:${pagefun}('${url}',${pageinfo.pageNumber+1})">&rsaquo;</a></li>
+						<li class="last"><a
+							href="javascript:${pagefun}('${url}',${pageinfo.totalPage})">&raquo;</a></li>
+					</c:if>
+
+					<c:if
+						test="${pageinfo.pageNumber > (pageinfo.totalPage-2) && pageinfo.pageNumber > 3 }">
+						<li class="first"><a href="javascript:${pagefun}('${url}',1)">&laquo;</a></li>
+						<li class="previous"><a
+							href="javascript:${pagefun}('${url}',${pageinfo.pageNumber-1})">&lsaquo;</a></li>
+						<c:forEach
+							begin="${(pageinfo.totalPage-4)<1?1:(pageinfo.totalPage-4)}"
+							end="${pageinfo.totalPage}" var="l">
+							<c:choose>
+								<c:when test="${l==pageinfo.pageNumber}">
+									<li><a href="javascript:;" class="current">${l}</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="javascript:${pagefun}('${url}',${l})">${l}</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						<li class="next"><a
+							href="javascript:${pagefun}('${url}',${pageinfo.pageNumber+1})"
+							class="disable">&rsaquo;</a></li>
+						<li class="last"><a
+							href="javascript:${pagefun}('${url}',${pageinfo.totalPage})"
+							class="disable">&raquo;</a></li>
+					</c:if>
+				</ul>
+				<span class="page_to">跳转到：<input type="text" class="jump_to" /><input
+					type="button" class="go" value="GO"
+					onclick="${pagefun}('${url}',$('.jump_to').val())" /></span>
+			</div>
+		</td>
+	</tr>
+</tfoot>

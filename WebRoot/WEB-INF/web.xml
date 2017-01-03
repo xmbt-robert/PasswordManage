@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+
+	<filter>
+		<filter-name>jfinal</filter-name>
+		<filter-class>com.jfinal.core.JFinalFilter</filter-class>
+		<init-param>
+			<param-name>configClass</param-name>
+			<param-value>com.fx.passform.PassFormServer</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>jfinal</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+<!--  
+	<servlet>
+		<servlet-name>DisplayChart</servlet-name>
+		<servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DisplayChart</servlet-name>
+		<url-pattern>/DisplayChart</url-pattern>
+	</servlet-mapping>
+-->
+		<servlet>
+		<servlet-name>ShowChart</servlet-name>
+		<servlet-class>com.fx.passform.servlet.ShowChart</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowChart</servlet-name>
+		<url-pattern>/ShowChart</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 当session失效时删除临时图片的监听器 -->
+	<listener>
+		<listener-class>org.jfree.chart.servlet.ChartDeleter</listener-class>
+	</listener>
+</web-app>

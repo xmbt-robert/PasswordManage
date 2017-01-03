@@ -1,0 +1,30 @@
+package com.fx.passform.model;
+
+import java.util.List;
+
+import com.jfinal.plugin.activerecord.Db;
+import com.jfinal.plugin.activerecord.Model;
+
+public class ConfigurationFiles extends Model<ConfigurationFiles>{
+
+	private static final long serialVersionUID = 1L;
+
+	public static final ConfigurationFiles dao = new ConfigurationFiles();
+	
+		//查询所有的AD服务，短信网关，邮箱设置 配置数据信息
+		public List<ConfigurationFiles> findAllConfigServer() {
+	        return find("select * from sys_config_server");
+	    }
+		
+		//查询邮箱和手机短信发送间隔的  配置数据信息
+		public List<ConfigurationFiles> findAllTimeGap(){
+			return find("select * from sys_send_time_gap");
+		}
+		
+		//查询以 ip,用户,ip+用户 允许发送次数及锁定的时间  配置数据信息
+		public List<ConfigurationFiles> findAllLockTimeGap(){
+			return find("select * from sys_lock_time_gap");
+		}
+}
+
+

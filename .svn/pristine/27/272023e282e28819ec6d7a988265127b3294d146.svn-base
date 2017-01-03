@@ -1,0 +1,41 @@
+package com.fx.passform.plugin;
+
+import com.fx.passform.util.LdapKit;
+import com.jfinal.plugin.IPlugin;
+
+/**
+ * ldap plugin
+ * <p/>
+ * Created by fan.xu on 2014/10/23.
+ */
+public class LdapPlugin implements IPlugin {
+
+    private LDAPConectionDataPool pool;
+
+    public LdapPlugin(String url, int port, String user, String pass, int maxCount) {
+        if (maxCount < 1)
+            throw new IllegalArgumentException("maxPoolSize must more than 0.");
+        pool = LDAPConectionDataPool.getInstance();
+        pool.setUser(user);
+        pool.setPass(pass);
+        pool.setUrl(url);
+        pool.setPort(port);
+        pool.setMaxCount(maxCount);
+    }
+
+    @Override
+    public boolean start() {
+        LdapKit.init(pool);
+        return true;
+    }
+
+    @Override
+    public boolean stop() {
+        pool.closeAll();
+        return true;
+    }
+
+    public LDAPConectionDataPool getPool() {
+        return pool;
+    }
+}

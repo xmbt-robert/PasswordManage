@@ -1,0 +1,226 @@
+package com.fx.passform.common;
+
+import com.fx.passform.model.AuditLockTime;
+import com.fx.passform.model.LockStatus;
+import com.fx.passform.model.Sms;
+import com.fx.passform.util.SendUtil;
+import com.fx.passform.util.ValCodeUtil;
+import com.jfinal.core.Controller;
+import com.jfinal.kit.JsonKit;
+
+import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+/**
+ * CommonController
+ *
+ * @param <HttpRequest>
+ */
+public class CommonController extends Controller {
+    public static final String SESSION_VALIDATORCODE = "session_validatorCode";
+
+    /**
+     * 首页
+     */
+    public void index() {
+        render("/common/index.jsp");
+    }
+
+    /**
+     * 解锁账号
+     */
+    public void page01() {
+        render("/common/page01.jsp");
+    }
+
+    /**
+     * 重置密码
+     */
+    public void page02() {
+        render("/common/page02.jsp");
+    }
+
+    /**
+     * 更改密码
+     */
+    public void page03() {
+        render("/common/page03.jsp");
+    }
+
+    /**
+     * 更新信息
+     */
+    public void page04() {
+        render("/common/page04.jsp");
+    }
+
+    /**
+     * '检查ldap账号是否正常
+     */
+    public void checkValue() {         //查找用户账号在ldap上的状态
+        String value = getPara("value");
+        String[] val = SendUtil.getUserStatus(value);
+        renderJson(JsonKit.toJson(val));
+    }
+
+    /**
+     * 解锁用户账号
+     */
+    public void unLockUser() {
+        String username = getPara("user");
+        boolean isOk = SendUtil.setUserStatus(username, "512");
+        if (isOk) {
+            //todo renderOK(); 提示解锁成功
+        } else {
+            //todo renderError(); 提示解锁失败
+        }
+    }
+
+    /**
+     * 重置密码
+     */
+    public void resetPass() {
+        String username = getPara("user");
+        String newPass = getPara("newpass");
+        boolean isOk = SendUtil.resetPass(username, newPass);
+        if (isOk) {
+            //todo renderOK(); 提示重置成功
+        } else {
+            //todo renderError(); 提示重置失败
+        }
+    }
+
+    /**
+     * 发送验证码
+     */
+    public void sendPass() {
+        String mobile = getPara("mobile");
+        String username = getPara("user");
+        if (!isAudit(getTrueIp(), username)) {
+            //todo render() 发送次数超过规定次数
+            return;
+        }
+        String valCode = SendUtil.genSMS();
+        boolean isOk = SendUtil.sendSMS(valCode, mobile);
+        if (isOk) {
+            //如果找到之前有正常状态的SMS，更新为过期状态
+            Sms.dao.updateSms(username, 1, 2);
+            //重新生成一条
+            Sms.dao.addSms(username, valCode, 1, mobile, username + "@feixun.com.cn");
+            //todo renderOK(); 提示短信发送正常
+        } else {
+            //todo rendererror();  提示短信发送错误
+        }
+    }
+
+	/*public void checkPass(){
+        String name = getPara("name");
+		String pass = getPara("pass");
+		Boolean verify = SendUtil.verifyPass(name, pass);
+		renderJson(JsonKit.toJson(verify));
+	}*/
+
+    /**
+     * 统一认证审计
+     *
+     * @param ip   ip地址
+     * @param user 用户名
+     * @return
+     */
+    public boolean isAudit(String ip, String user) {
+        List<LockStatus> locks = LockStatus.dao.findLockReco(ip, user);
+        if (locks == null) {
+            LockStatus.dao.addLockStatus(ip, user);
+        } else {
+            LockStatus lockStatus = locks.get(0);
+            int status = lockStatus.getInt("lockStatus");
+            //状态==1表示锁定
+            if (status == 1) {
+                return false;
+            }
+            int sendCount = lockStatus.getInt("sendCount");
+            List<AuditLockTime> lockTimes = AuditLockTime.dao.findAll();
+            if (lockTimes.size() > 0) {
+                AuditLockTime auditLockTime = lockTimes.get(0);
+                int sendCountCfg = auditLockTime.getInt("sendCount");
+                //如果发送次数超过规定次数，更新审计表，返回审计失败
+                if (sendCount + 1 >= sendCountCfg) {
+                    LockStatus.dao.updLockStatus(ip, user);
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 校验验证码是否正确
+     */
+    public void checkCode() {    //图片验证码获取
+        String code = getSessionAttr(SESSION_VALIDATORCODE);
+        String key = JsonKit.toJson(code);
+        renderJson(key);
+    }
+
+    /**
+     * 生成验证码
+     */
+    public void rendCode() {
+        ValCodeUtil.ValidatorCode codeUtil = ValCodeUtil.getCode();
+        setSessionAttr(SESSION_VALIDATORCODE, codeUtil.getCode());
+        HttpServletRequest request = getRequest();
+        HttpServletResponse response = getResponse();
+        // 禁止图像缓存。
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Cache-Control", "no-cache");
+        response.setDateHeader("Expires", 0);
+        response.setContentType("image/jpeg");
+
+        ServletOutputStream sos = null;
+        try {
+            // 将图像输出到Servlet输出流中。
+            sos = response.getOutputStream();
+            ImageIO.write(codeUtil.getImage(), "png", sos);
+            sos.flush();
+            sos.close();
+        } catch (Exception e) {
+            //todo 渲染错误
+        } finally {
+            if (sos != null) {
+                try {
+                    sos.close();
+                } catch (IOException e) {
+                }
+            }
+        }
+        return;
+    }
+
+    /**
+     * java实现穿透代理获取客户端真实ip
+     *
+     * @return 真实的IP地址
+     */
+    private String getTrueIp() {
+        HttpServletRequest request = getRequest();
+        String strClientIp = request.getHeader("x-forwarded-for");
+        if (strClientIp == null || strClientIp.length() == 0 || "unknown".equalsIgnoreCase(strClientIp)) {
+            strClientIp = request.getRemoteAddr();
+        } else {
+            String[] ipList = strClientIp.split("[,]");
+            String strIp;
+            for (int index = 0; index < ipList.length; index++) {
+                strIp = ipList[0];
+                if (!("unknown".equalsIgnoreCase(strIp))) {
+                    strClientIp = strIp;
+                    break;
+                }
+            }
+        }
+        return strClientIp;
+    }
+}

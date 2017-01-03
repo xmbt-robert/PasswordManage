@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../css/common.css" type="text/css" rel="stylesheet">
+<script src="../js/jquery.min_1.7.2.js"></script>
+<script src="../js/main.js"></script>
+<title>解锁账号</title>
+</head>
+
+<body>
+<p class="window_title"><a class="close closedown" href="javascript:void(0)">×</a><img src="images/window_icon01.png" />解锁账号</p>
+<div class="window_main">
+    <label class="window_tip window_error">密保答案错误！</label>
+    <div class="main_cont">
+        <p class="window_texttitle">域账号</p>
+        <p class="window_textcont"><input type="text" /></p>
+        <p class="window_texttitle">手机验证</p>
+        <p class="window_textcont"><input type="text" disabled="disabled" value="12546464651" style="width:145px" /><button class="send">发送验证码</button></p>
+        <p class="window_texttitle">短信验证码</p>
+        <p class="window_textcont"><input type="text" /></p>
+    </div>
+</div>
+<div class="window_foot"><input type="button" class="cancel closedown" value="取消" /><input type="button" class="operate" value="解锁" /></div>
+</body>
+</html>

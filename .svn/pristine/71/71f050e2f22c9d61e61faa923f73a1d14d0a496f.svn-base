@@ -1,0 +1,87 @@
+var code; //在全局 定义验证码    
+function createCode() {
+    var imgObj = $('#checkCode');
+    var src = imgObj.attr("src");
+    imgObj.attr("src", chgUrl(src));
+
+    //为了使每次生成图片不一致，即不让浏览器读缓存，所以需要加上时间戳
+    function chgUrl(url) {
+        var timestamp = (new Date()).valueOf();
+        var newUrl = url.substring(0, 17);
+        if ((url.indexOf("?") >= 0)) {
+            newUrl = url + "&t=" + timestamp;
+        } else {
+            newUrl = url + "?t=" + timestamp;
+        }
+        return newUrl;
+    }
+
+    /* $('#checkCode').after('<span><img src="../images/icon_error.png"></span>');
+     code = "";
+     var codeLength = 4;//验证码的长度    
+     var checkCode = document.getElementById("checkCode");
+     checkCode.value = "";
+     var selectChar = new Array(1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','j','k','l','m','n','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z');
+     for(var i=0;i<codeLength;i++) {
+     var charIndex = Math.floor(Math.random()*60);
+     code +=selectChar[charIndex];
+     }
+     if(code.length != codeLength){
+     createCode();
+     }
+     checkCode.value = code;*/
+}
+
+$(function () {
+    $('#picCode').blur(function () {
+        var span = $('#checkCode').next('span');
+        var inputCode = document.getElementById("picCode").value.toUpperCase();
+        var codeToUp;
+
+
+        $.get("/checkCode", {}, function (data, textStatus) {
+            // 返回的 data 可以是 xmlDoc, jsonObj, html, text, 等等.
+            codeToUp = data;
+        });
+
+        if (inputCode.length <= 0) {
+            if ($('#picCode').val(''))
+                $('#picCode').val('请输入验证码');
+            return false;
+        } else if (inputCode != codeToUp) {
+            if (span.size() <= 0) {
+                $('#checkCode').after('<span><img src="../images/icon_error.png"></span>');
+            } else {
+                span.html('').html('<img src="../images/icon_error.png">');
+            }
+            //createCode();
+            return false;
+        } else {
+            if (span.size() <= 0) {
+                $('#checkCode')
+                    .after(
+                    '<span><img src="../images/icon_pass.png"></span>');
+            } else {
+                span.html('').html(
+                    '<img src="../images/icon_pass.png">');
+            }
+        }
+
+        /*    span.remove();
+         $('#checkCode').after('<span><img src="../images/icon_pass.png"></span>');
+         */
+        /* if (span.size() <= 0) {
+         $('#checkCode').after('<span><img src="../images/icon_pass.png"></span>');
+         span.remove();
+         } else {
+         span.html('').html('<img src="../images/icon_pass.png">');
+         }*/
+        return true;
+    })
+    $('#picCode').focus(function () {
+        var span = $('#checkCode').next('span');
+        if (!$('#picCode').val(''))
+        //$('#picCode').val('');
+            span.remove();
+    })
+})

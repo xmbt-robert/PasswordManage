@@ -1,0 +1,23 @@
+package com.fx.passform.util;
+
+import com.fx.passform.plugin.LDAPConectionDataPool;
+
+/**
+ * Created by fan.xu on 2014/10/23.
+ */
+public class LdapKit {
+    /**
+     * 连接池
+     */
+    private static  LDAPConectionDataPool pool;
+
+    /**
+     * 初始化
+     * @param pool
+     */
+    public static void init(LDAPConectionDataPool pool){
+        LdapKit.pool=pool;
+    }
+
+    public static  LDAPConectionDataPool getPool(){return pool;};
+}
