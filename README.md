@@ -1,0 +1,2 @@
+# PasswordManage
+本系统采用jfinal极速框架开发的一套密码管理系统
